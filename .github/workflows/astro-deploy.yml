@@ -1,51 +1,34 @@
-name: Github Pages Astro CI
+name: Publish Astro Website to GitHub Pages
 
 on:
-    # Trigger the workflow every time you push to the `main` branch
-    push:
-        branches: [main]
-    # Allows you to run this workflow manually from the Actions tab on GitHub.
-    workflow_dispatch:
-
-    # Allow this job to clone the repo and create a page deployment
-permissions:
-    contents: read
-    pages: write
-    id-token: write
+  push:
+    branches:
+      - main # Change this to the branch you want to trigger the action
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out your repository using git
-              uses: actions/checkout@v2
+  build-and-publish:
+    runs-on: ubuntu-latest
 
-            - name: Use Node.js 16
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "18"
-                  cache: "npm"
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-            # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
-            - name: Install dependencies
-              run: yarn install
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
-            # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
-            - name: Build Astro
-              run: yarn build --if-present
+      - name: Install Yarn
+        run: npm install -g yarn
 
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v1
-              with:
-                  path: ./dist
+      - name: Install Dependencies
+        run: yarn install
 
-    deploy:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        needs: build
-        steps:
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v1
+      - name: Build Website
+        run: yarn build # Change this to the build command specific to your Astro project
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # Change this to the directory where your Astro website is built
