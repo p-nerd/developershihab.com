@@ -1,11 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import ContactCTA from "../components/ContactCTA.astro";
-import Hero from "../components/Hero.astro";
+import ContactCTA from "../components/partials/ContactCTA.astro";
+import Hero from "../components/partials/Hero.astro";
+
+import {descriptions, titles} from "../../site.config";
 ---
 
-<BaseLayout>
+<BaseLayout
+        title={titles["/about"]}
+        description={descriptions["/about"]}
+>
     <div class="stack gap-20">
         <main class="wrapper about">
             <Hero
