@@ -1,40 +1,45 @@
 ---
-import { getCollection } from "astro:content";
+import {getCollection} from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import BlogGrid from "../components/blogs/BlogGrid.astro";
-import BlogPreview from "../components/blogs/BlogPreview.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
+import PreviewBlog from "../components/blogs/PreviewBlog";
 
 const blogs = (await getCollection("blogs")).sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
 
-<BaseLayout
-    title="Blogs | Shihab Mahamud"
-    description="Learn about Shihab Mahamud's most recent projects"
->
+<BaseLayout>
     <div class="stack gap-20">
         <main class="wrapper stack gap-8">
+            <!--suppress HtmlDeprecatedAttribute -->
             <Hero
-                title="My Blogs"
-                tagline="Explore my Latest Insights and Perspectives"
-                align="start"
-                alignHero="end"
+                    title="My Blogs"
+                    tagline="Explore my Latest Insights and Perspectives"
+                    align="start"
+                    alignHero="end"
             />
             <BlogGrid variant="offset">
                 {
                     blogs.map((blog) => (
-                        <li>
-                            <BlogPreview blog={blog} />
-                        </li>
+                            <PreviewBlog
+                                    slug={blog.slug}
+                                    publishDate={blog.data.publishDate}
+                                    imgAlt={blog.data.img_alt}
+                                    img={blog.data.img}
+                                    title={blog.data.title}
+                                    description={blog.data.description}
+                                    tags={blog.data.tags}
+                            />
+
                     ))
                 }
             </BlogGrid>
         </main>
-        <ContactCTA />
+        <ContactCTA/>
     </div>
 </BaseLayout>

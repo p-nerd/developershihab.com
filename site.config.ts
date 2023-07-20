@@ -1,0 +1,53 @@
+import type { TSocialLink, TTextLink } from "./src/helpers/types";
+
+export const titles = {
+    "/": "Portfolio of Shihab Mahamud",
+    "/about": "Know About Shihab Mahamud",
+    "/projects": "All of Projects Shihab Mahamud Does",
+    "/blogs": "Blogs by Shihab Mahamud",
+    "/contact": "Make Contact with Shihab Mahamud",
+};
+
+export const descriptions = {
+    "/": "The personal site of Shihab Mahamud",
+    "/about": "About Shihab Mahamud Lorem Ipsum",
+    "/projects": "Learn about Shihab Mahamud's most recent projects",
+    "/blogs": "Learn about Shihab Mahamud's most recent blogs",
+    "/contact": "Make Contact with Shihab Mahamud. Retch out to Shihab Mahamud",
+};
+
+export const textLinks: TTextLink[] = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/projects" },
+    { label: "Blogs", href: "/blogs" },
+    { label: "Contact", href: "/contact" },
+];
+
+export const socialLinks: TSocialLink[] = [
+    {
+        label: "GitHub",
+        href: "https://github.com/p-nerd",
+        icon: "github-logo",
+    },
+    {
+        label: "LinkedIn",
+        href: "https://linkedin.com/in/p-nerd",
+        icon: "linkedin-logo",
+    },
+    {
+        label: "Facebook",
+        href: "https://facebook.com/shihab4t",
+        icon: "facebook-logo",
+    },
+    {
+        label: "Twitter",
+        href: "https://twitter.com/p_nerd2",
+        icon: "twitter-logo",
+    },
+    {
+        label: "Email",
+        href: "mailto:shihab4t@gmail.com",
+        icon: "email-logo",
+    },
+];
