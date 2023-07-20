@@ -1,0 +1,95 @@
+---
+import {CollectionEntry, getCollection} from 'astro:content';
+
+import Hero from '../../components/partials/Hero.astro';
+import Icon from '../../components/partials/Icon.astro';
+import Pill from '../partials/Pill.astro';
+
+interface Props {
+    entry: CollectionEntry<'blogs'>;
+    tags: string[];
+    description: string;
+    title: string;
+}
+export async function getStaticPaths() {
+    const blogs = await getCollection('blogs');
+    return blogs.map((entry) => ({
+        params: {slug: entry.slug},
+        props: {entry},
+    }));
+}
+
+const {entry, tags, description, title} = Astro.props;
+---
+
+
+<header>
+    <div class="wrapper stack gap-2">
+        <a class="back-link" href="/blogs/">
+            <Icon icon="arrow-left"/>
+            Blogs</a>
+        <Hero title={title} align="start">
+            <div class="details">
+                <div class="tags">
+                    {tags.map((t) =>
+                            <Pill>{t}</Pill>)}
+                </div>
+                <p class="description">{description}</p>
+            </div>
+        </Hero>
+    </div>
+</header>
+
+<style>
+    header {
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid var(--gray-800);
+    }
+
+    .back-link {
+        display: none;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        gap: 1.5rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .description {
+        font-size: var(--text-lg);
+        max-width: 54ch;
+    }
+
+
+    .back-link {
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 0.25em;
+        transition: text-decoration-color var(--theme-transition);
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+        text-decoration-color: currentColor;
+    }
+
+    @media (min-width: 50em) {
+        .back-link {
+            display: block;
+            align-self: flex-start;
+        }
+
+        .details {
+            flex-direction: row;
+            gap: 2.5rem;
+        }
+    }
+</style>
