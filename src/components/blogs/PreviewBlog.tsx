@@ -52,8 +52,11 @@ const PreviewBlog = ({
                     </p>
                 </div>
                 <div className="py-1 lg:py-2 px-2 lg:px-4 flex gap-2 flex-wrap">
-                    {tags.map(tag => (
-                        <span className="blog-title py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl">
+                    {tags.map((tag, index) => (
+                        <span
+                            key={index}
+                            className="blog-title py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl"
+                        >
                             {tag}
                         </span>
                     ))}
