@@ -1,4 +1,4 @@
-import "../../styles/footer.css";
+import "./footer.css";
 import { socialLinks } from "../../../site.config";
 import { getCurrentYear } from "../../helpers/date";
 

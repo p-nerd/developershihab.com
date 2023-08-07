@@ -1,5 +1,5 @@
 import { formatDateToMonthDayYear } from "../../helpers/date";
-import "../../styles/blogs/preview-blog..css";
+import "./preview-blog..css";
 
 const PreviewBlog = ({
     slug,

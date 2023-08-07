@@ -7,4 +7,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
     site: 'https://p-nerd.github.io',
     integrations: [react(), tailwind()],
+    "compilerOptions": {
+        "strictNullChecks": true
+    }
 });

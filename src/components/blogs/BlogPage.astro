@@ -1,0 +1,50 @@
+---
+import BlogGrid from "./BlogsGrid.astro";
+import Hero from "../partials/Hero.astro";
+import PreviewBlog from "./PreviewBlog";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactCTA from "../partials/ContactCTA.astro";
+import {CollectionEntry} from "astro:content";
+
+export interface Props {
+    title: string;
+    description: string;
+    blogs: CollectionEntry<"blogs">[]
+}
+
+const {title, description, blogs} = Astro.props;
+---
+
+
+<BaseLayout
+        title={title}
+        description={description}
+>
+    <div class="stack gap-20">
+        <main class="wrapper stack gap-8">
+            <!--suppress HtmlDeprecatedAttribute -->
+            <Hero
+                    title="My Blogs"
+                    tagline="Explore my Latest Insights and Perspectives"
+                    align="start"
+                    alignHero="end"
+            />
+            <BlogGrid variant="offset">
+                {
+                    blogs.map((blog) => (
+                            <PreviewBlog
+                                    slug={blog.slug}
+                                    publishDate={blog.data.publishDate}
+                                    imgAlt={blog.data.img_alt}
+                                    img={blog.data.img}
+                                    title={blog.data.title}
+                                    description={blog.data.description}
+                                    tags={blog.data.tags}
+                            />
+                    ))
+                }
+            </BlogGrid>
+        </main>
+        <ContactCTA/>
+    </div>
+</BaseLayout>
