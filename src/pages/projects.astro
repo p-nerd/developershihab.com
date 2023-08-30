@@ -1,12 +1,12 @@
 ---
 import {getCollection} from "astro:content";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/Layout.astro";
 
-import Hero from "../components/partials/Hero.astro";
-import ContactCTA from "../components/partials/ContactCTA.astro";
-import PortfolioPreview from "../components/partials/PortfolioPreview.astro";
-import Grid from "../components/partials/Grid.astro";
+import Hero from "../components/pure/Hero.astro";
+import ContactCTA from "../components/pure/ContactCTA.astro";
+import PortfolioPreview from "../components/pure/PortfolioPreview.astro";
+import Grid from "../components/pure/Grid.astro";
 import {descriptions, titles} from "../../site.config";
 
 const projects = (await getCollection("projects")).sort(

@@ -1,12 +1,12 @@
 ---
-import Icon from "./Icon.astro";
-import ThemeToggle from "./ThemeToggle.astro";
-import {socialLinks, textLinks} from "../../../site.config";
+import Icon from "../../pure/Icon.astro";
+import ThemeToggle from "../../pure/ThemeToggle.astro";
+import {socialLinks, textLinks} from "../../../../site.config";
 ---
 
 <nav>
     <div class="menu-header">
-        <a href="/" class="site-title">
+        <a href="/public" class="site-title">
             <Icon
                     icon="terminal-window"
                     color="var(--accent-regular)"
@@ -104,9 +104,9 @@ import {socialLinks, textLinks} from "../../../site.config";
             handleViewports(mediaQueries);
             mediaQueries.addEventListener("change", handleViewports);
         }
-    }
+        }
 
-    customElements.define("menu-button", MenuButton);
+        customElements.define("menu-button", MenuButton);
 </script>
 
 <style>

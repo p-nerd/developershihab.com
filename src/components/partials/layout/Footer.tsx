@@ -1,6 +1,6 @@
 import "./footer.css";
-import { socialLinks } from "../../../site.config";
-import { getCurrentYear } from "../../helpers/date";
+import { socialLinks } from "../../../../site.config.ts";
+import { getCurrentYear } from "../../../helpers/date.ts";
 
 const currentYear = getCurrentYear();
 

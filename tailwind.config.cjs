@@ -7,11 +7,14 @@ module.exports = {
             screens: {
                 'em50': '50em',
             },
+            colors: {
+                "a-gray-800": "var(--gray-800)",
+                "secondary-color": "var(--secondary-color)"
+            },
         },
-
     },
     plugins: [
         require('@tailwindcss/forms'),
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
     ],
 }

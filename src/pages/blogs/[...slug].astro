@@ -1,43 +1,41 @@
 ---
-import {CollectionEntry, getCollection} from 'astro:content';
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ContactCTA from "../../components/partials/ContactCTA.astro";
-import BlogContent from "../../components/blogs/BlogContent.astro";
-import BlogHeader from "../../components/blogs/BlogHeader.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-interface Props {
-    entry: CollectionEntry<'blogs'>;
-}
+import Layout from "@layouts/Layout.astro";
+import ContactCTA from "@components/pure/ContactCTA.astro";
+import ContentBlog from "@screens/blogs/[...slug]/Content.astro";
+import Header from "@screens/blogs/[...slug]/Header.astro";
+
 export async function getStaticPaths() {
-    const blogs = await getCollection('blogs' as any);
-    return blogs.map((entry) => ({
-        params: {slug: entry.slug},
-        props: {entry},
+    const blogs = await getCollection("blogs");
+    return blogs.map(entry => ({
+        params: { slug: entry.slug },
+        props: { entry },
     }));
 }
 
-const {entry} = Astro.props;
-const {Content} = await entry.render();
+interface Props {
+    entry: CollectionEntry<"blogs">;
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
 ---
 
-<BaseLayout
-        title={entry.data.title}
-        description={entry.data.description}
->
+<Layout title={entry.data.title} description={entry.data.description}>
     <div class="flex flex-col gap-[5rem]">
         <div class="flex flex-col gap-[3.75rem]">
-            <BlogHeader
-                    title={entry.data.title}
-                    description={entry.data.description}
-                    tags={entry.data.tags}
-                    publishDate={entry.data.publishDate}
+            <Header
+                title={entry.data.title}
+                description={entry.data.description}
+                tags={entry.data.tags}
+                publishDate={entry.data.publishDate}
             />
-            <BlogContent
-                    img={entry.data.img}
-                    imgAlt={entry.data.img_alt}
-                    Content={Content}
-            />
+            <ContentBlog img={entry.data.img} imgAlt={entry.data.img_alt || ""}>
+                <Content />
+            </ContentBlog>
         </div>
-        <ContactCTA/>
+        <ContactCTA />
     </div>
-</BaseLayout>
+</Layout>

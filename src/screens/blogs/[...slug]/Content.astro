@@ -1,0 +1,21 @@
+---
+interface Props {
+    img: string;
+    imgAlt: string;
+}
+
+const { img, imgAlt } = Astro.props;
+---
+
+<main class="lg:max-w-[83rem] m-auto p-5 w-full">
+    <div
+        class="gap-[2.5rem] lg:max-w-[90ch] m-auto w-full border-2 border-[#e3e6ee] dark:border-[#283044]"
+    >
+        {img && <img src={img} alt={imgAlt || ""} class="w-full" />}
+        <article
+            class="text-justify p-[0.5rem] prose prose-neutral max-w-none lg:p-[1.5rem] w-full lg:prose-xl dark:prose-invert"
+        >
+            <slot />
+        </article>
+    </div>
+</main>

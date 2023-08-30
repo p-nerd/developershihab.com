@@ -1,12 +1,12 @@
 ---
 import {CollectionEntry, getCollection} from 'astro:content';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/Layout.astro';
 
-import ContactCTA from '../../components/partials/ContactCTA.astro';
-import Hero from '../../components/partials/Hero.astro';
-import Icon from '../../components/partials/Icon.astro';
-import Pill from '../../components/partials/Pill.astro';
+import ContactCTA from '../../components/pure/ContactCTA.astro';
+import Hero from '../../components/pure/Hero.astro';
+import Icon from '../../components/pure/Icon.astro';
+import Pill from '../../components/pure/Pill.astro';
 
 interface Props {
     entry: CollectionEntry<'projects'>;

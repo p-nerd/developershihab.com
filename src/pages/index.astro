@@ -1,17 +1,17 @@
 ---
 import {getCollection} from "astro:content";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/Layout.astro";
 
-import Hero from "../components/partials/Hero.astro";
-import Icon from "../components/partials/Icon.astro";
-import ContactCTA from "../components/partials/ContactCTA.astro";
+import Hero from "../components/pure/Hero.astro";
+import Icon from "../components/pure/Icon.astro";
+import ContactCTA from "../components/pure/ContactCTA.astro";
 
-import CallToAction from "../components/home/CallToAction.astro";
-import Grid from "../components/partials/Grid.astro";
-import Pill from "../components/partials/Pill.astro";
-import PortfolioPreview from "../components/partials/PortfolioPreview.astro";
-import Skills from "../components/home/Skills.astro";
+import CallToAction from "../screens/home/CallToAction.astro";
+import Grid from "../components/pure/Grid.astro";
+import Pill from "../components/pure/Pill.astro";
+import PortfolioPreview from "../components/pure/PortfolioPreview.astro";
+import Skills from "../screens/home/Skills.astro";
 
 import {descriptions, titles} from "../../site.config";
 

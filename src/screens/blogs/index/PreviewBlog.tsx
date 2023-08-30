@@ -1,4 +1,4 @@
-import { formatDateToMonthDayYear } from "../../helpers/date";
+import { formatDateToMonthDayYear } from "../../../helpers/date.ts";
 import "./preview-blog..css";
 
 const PreviewBlog = ({
@@ -21,12 +21,12 @@ const PreviewBlog = ({
     return (
         <li>
             <a
-                className="blog-card border rounded-xl lg:py-10 py-4 px-1 gap-2 lg:p-5 border-solid h-max overflow-hidden flex flex-col lg:rounded-3xl"
+                className="blog-card rounded-xl lg:py-10 py-4 px-1 gap-2 lg:p-5 border border-solid h-max overflow-hidden flex flex-col lg:rounded-3xl"
                 href={`/blogs/${slug}`}
             >
                 <div className="lg:py-1 lg:px-2">
                     <time
-                        className="blog-title m-2 py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl"
+                        className="blog-title  rounded-md lg:py-2 lg:px-4 lg:rounded-2xl m-2 py-1 px-2"
                         dateTime="2023-06-19"
                     >
                         {formatDateToMonthDayYear(publishDate)}

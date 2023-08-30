@@ -1,7 +1,7 @@
 ---
-import MainHead from '../components/partials/MainHead.astro';
-import Nav from '../components/partials/Nav.astro';
-import Footer from '../components/partials/Footer';
+import MHead from '../components/partials/layout/Head.astro';
+import Nav from '../components/partials/layout/Nav.astro';
+import Footer from '../components/partials/layout/Footer';
 
 interface Props {
     title?: string;
@@ -12,9 +12,9 @@ const {title, description} = Astro.props;
 ---
 
 <html lang="en" class="dark">
-<!--suppress HtmlRequiredTitleElement -->
 <head>
-    <MainHead title={title} description={description}/>
+    <title></title>
+    <MHead title={title} description={description}/>
 </head>
 <body>
 <div class="stack backgrounds">

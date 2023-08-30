@@ -1,0 +1,46 @@
+---
+import Hero from "@components/pure/Hero.astro";
+import Icon from "@components/pure/Icon.astro";
+import Pill from "@components/pure/Pill.astro";
+
+import { formatDateToMonthDayYear } from "@helpers/date";
+
+interface Props {
+    tags: string[];
+    description: string;
+    title: string;
+    publishDate: Date;
+}
+
+const { tags, description, title, publishDate } = Astro.props;
+---
+
+<header
+    class="w-auto pb-[2.5rem] border-b-[1px] border-solid border-[#e3e6ee] dark:border-[#283044]"
+>
+    <div
+        class="w-full max-w-[83rem] flex flex-col gap-2"
+        style="margin-inline: auto; padding-inline: 1.5rem;"
+    >
+        <div class="flex justify-between">
+            <a
+                class="underline decoration-1 decoration-transparent decoration-solid underline-offset-[0.25rem] hover:decoration-current focus:decoration-current hidden lg:block self-start"
+                href="/blogs/"
+            >
+                <Icon icon="arrow-left" />
+                <span>Blogs</span>
+            </a>
+            <p>{formatDateToMonthDayYear(publishDate)}</p>
+        </div>
+        <Hero title={title} align="start">
+            <div
+                class="flex flex-col p-[0.5rem] gap-[1.5rem] justify-between items-center lg:flex-row lg:gap-[2.5rem]"
+            >
+                <div class="w-full flex flex-wrap gap-[0.5rem]">
+                    {tags.map(t => <Pill slug={t.toLowerCase()}>{t}</Pill>)}
+                </div>
+                <p class="text-[1.25rem] max-w-[54ch]">{description}</p>
+            </div>
+        </Hero>
+    </div>
+</header>
