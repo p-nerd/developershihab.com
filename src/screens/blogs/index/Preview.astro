@@ -1,0 +1,84 @@
+---
+import { formatDateToMonthDayYear } from "@helpers/date.ts";
+
+interface Props {
+    slug: string;
+    img: string;
+    imgAlt: string;
+    publishDate: Date;
+    title: string;
+    description: string;
+    tags: string[];
+}
+
+const { slug, publishDate, imgAlt, img, title, description, tags } =
+    Astro.props as Props;
+---
+
+<li>
+    <a
+        class="blog-card rounded-xl lg:py-10 py-4 px-1 gap-2 lg:p-5 border border-solid h-max overflow-hidden flex flex-col lg:rounded-3xl"
+        href={`/blogs/${slug}`}
+    >
+        <div class="lg:py-1 lg:px-2">
+            <time
+                class="blog-title rounded-md lg:py-2 lg:px-4 lg:rounded-2xl m-2 py-1 px-2"
+                datetime="2023-06-19"
+            >
+                {formatDateToMonthDayYear(publishDate)}
+            </time>
+        </div>
+        <div class="py-1 px-2 lg:py-2 lg:px-4">
+            <img
+                src={img}
+                alt={imgAlt || ""}
+                loading="lazy"
+                decoding="async"
+                class="object-contain w-full h-full rounded-xl"
+            />
+        </div>
+        <div class="lg:py-1 lg:px-2">
+            <h2
+                class="blog-title m-2 py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl"
+            >
+                {title}
+            </h2>
+        </div>
+        <div class="lg:py-1 lg:px-2">
+            <p
+                class="blog-title m-2 py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl"
+            >
+                {description}
+            </p>
+        </div>
+        <div class="py-1 lg:py-2 px-2 lg:px-4 flex gap-2 flex-wrap">
+            {
+                tags.map(tag => (
+                    <span class="blog-title py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl">
+                        {tag}
+                    </span>
+                ))
+            }
+        </div>
+    </a>
+</li>
+
+<style scoped>
+    .blog-card {
+        background: var(--gradient-subtle);
+        border-color: var(--gray-800);
+        box-shadow: var(--shadow-sm);
+        font-family: var(--font-brand);
+        font-size: var(--text-lg);
+        transition: box-shadow var(--theme-transition);
+    }
+
+    .blog-card:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    .blog-title {
+        background: var(--gray-999);
+        color: var(--gray-200);
+    }
+</style>

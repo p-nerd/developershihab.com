@@ -1,159 +1,118 @@
 ---
-import MHead from '../components/partials/layout/Head.astro';
-import Nav from '../components/partials/layout/Nav.astro';
-import Footer from '../components/partials/layout/Footer';
+import MHead from "../components/partials/layout/Head.astro";
+import Nav from "../components/partials/layout/Nav.astro";
+import Footer from "../components/partials/layout/Footer";
 
 interface Props {
     title?: string;
     description?: string;
 }
 
-const {title, description} = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en" class="dark">
-<head>
-    <title></title>
-    <MHead title={title} description={description}/>
-</head>
-<body>
-<div class="stack backgrounds">
-    <Nav/>
-    <slot/>
-    <Footer/>
-</div>
+    <head>
+        <title></title>
+        <MHead title={title} description={description} />
+    </head>
+    <body>
+        <div class="stack backgrounds">
+            <Nav />
+            <slot />
+            <Footer />
+        </div>
 
-<style>
-    :root {
-        --_placeholder-bg: linear-gradient(transparent, transparent);
-        --bg-image-main: url('/assets/backgrounds/bg-main-light-800w.jpg');
-        --bg-image-main-curves: url('/assets/backgrounds/bg-main-light.svg');
-        --bg-image-subtle-1: var(--_placeholder-bg);
-        --bg-image-subtle-2: var(--_placeholder-bg);
-        --bg-image-footer: var(--_placeholder-bg);
-        --bg-svg-blend-mode: overlay;
-        --bg-blend-mode: darken;
-        --bg-image-aspect-ratio: 2.25;
-        --bg-scale: 1.68;
-        --bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
-        --bg-gradient-size: calc(var(--bg-scale) * 100%);
-    }
+        <style>
+            :root {
+                --_placeholder-bg: linear-gradient(transparent, transparent);
+                --bg-image-main: url("/assets/backgrounds/bg-main-light-800w.jpg");
+                --bg-image-main-curves: url("/assets/backgrounds/bg-main-light.svg");
+                --bg-image-subtle-1: var(--_placeholder-bg);
+                --bg-image-subtle-2: var(--_placeholder-bg);
+                --bg-image-footer: var(--_placeholder-bg);
+                --bg-svg-blend-mode: overlay;
+                --bg-blend-mode: darken;
+                --bg-image-aspect-ratio: 2.25;
+                --bg-scale: 1.68;
+                --bg-aspect-ratio: calc(
+                    var(--bg-image-aspect-ratio) / var(--bg-scale)
+                );
+                --bg-gradient-size: calc(var(--bg-scale) * 100%);
+            }
 
-    :root.dark {
-        --bg-image-main: url('/assets/backgrounds/bg-main-dark-800w.jpg');
-        --bg-image-main-curves: url('/assets/backgrounds/bg-main-dark.svg');
-        --bg-svg-blend-mode: darken;
-        --bg-blend-mode: lighten;
-    }
+            :root.dark {
+                --bg-image-main: url("/assets/backgrounds/bg-main-dark-800w.jpg");
+                --bg-image-main-curves: url("/assets/backgrounds/bg-main-dark.svg");
+                --bg-svg-blend-mode: darken;
+                --bg-blend-mode: lighten;
+            }
 
-    /* These backgrounds are displayed below the fold, so we lazy load them
+            /* These backgrounds are displayed below the fold, so we lazy load them
        once the `.loaded` class has been set.  */
-    :root.loaded {
-        --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-800w.jpg');
-        --bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-800w.jpg');
-        --bg-image-footer: url('/assets/backgrounds/bg-footer-light-800w.jpg');
-    }
+            :root.loaded {
+                --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-800w.jpg");
+                --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w.jpg");
+                --bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w.jpg");
+            }
 
-    :root.loaded.dark {
-        --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-800w.jpg');
-        --bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-800w.jpg');
-        --bg-image-footer: url('/assets/backgrounds/bg-footer-dark-800w.jpg');
-    }
+            :root.loaded.dark {
+                --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-800w.jpg");
+                --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-dark-800w.jpg");
+                --bg-image-footer: url("/assets/backgrounds/bg-footer-dark-800w.jpg");
+            }
 
-    @media (min-width: 50em) {
-        :root {
-            --bg-scale: 1;
-            --bg-image-main: url('/assets/backgrounds/bg-main-light-1440w.jpg');
-        }
+            @media (min-width: 50em) {
+                :root {
+                    --bg-scale: 1;
+                    --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");
+                }
 
-        :root.dark {
-            --bg-image-main: url('/assets/backgrounds/bg-main-dark-1440w.jpg');
-        }
+                :root.dark {
+                    --bg-image-main: url("/assets/backgrounds/bg-main-dark-1440w.jpg");
+                }
 
-        :root.loaded {
-            --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-light-1440w.jpg');
-            --bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-light-1440w.jpg');
-            --bg-image-footer: url('/assets/backgrounds/bg-footer-light-1440w.jpg');
-        }
+                :root.loaded {
+                    --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-1440w.jpg");
+                    --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w.jpg");
+                    --bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w.jpg");
+                }
 
-        :root.loaded.dark {
-            --bg-image-subtle-1: url('/assets/backgrounds/bg-subtle-1-dark-1440w.jpg');
-            --bg-image-subtle-2: url('/assets/backgrounds/bg-subtle-2-dark-1440w.jpg');
-            --bg-image-footer: url('/assets/backgrounds/bg-footer-dark-1440w.jpg');
-        }
-    }
+                :root.loaded.dark {
+                    --bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-dark-1440w.jpg");
+                    --bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-dark-1440w.jpg");
+                    --bg-image-footer: url("/assets/backgrounds/bg-footer-dark-1440w.jpg");
+                }
+            }
 
-    .backgrounds {
-        min-height: 100%;
-        isolation: isolate;
-        background: /*noise*/ url('/assets/backgrounds/noise.png') top center/220px repeat,
-            /*footer*/ var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
-            /*header1*/ var(--bg-image-main-curves) top center/var(--bg-gradient-size) no-repeat,
-            /*header2*/ var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
-            /*partials*/ var(--gray-999);
-        background-blend-mode: /*noise*/ overlay, /*footer*/ var(--bg-blend-mode),
-            /*header1*/ var(--bg-svg-blend-mode), /*header2*/ normal, /*partials*/ normal;
-    }
+            .backgrounds {
+                min-height: 100%;
+                isolation: isolate;
+                background: /*noise*/
+                    url("/assets/backgrounds/noise.png") top center/220px repeat,
+                    /*footer*/ var(--bg-image-footer) bottom
+                        center/var(--bg-gradient-size) no-repeat,
+                    /*header1*/ var(--bg-image-main-curves) top
+                        center/var(--bg-gradient-size) no-repeat,
+                    /*header2*/ var(--bg-image-main) top
+                        center/var(--bg-gradient-size) no-repeat,
+                    /*partials*/ var(--gray-999);
+                background-blend-mode: /*noise*/
+                    overlay,
+                    /*footer*/ var(--bg-blend-mode),
+                    /*header1*/ var(--bg-svg-blend-mode),
+                    /*header2*/ normal,
+                    /*partials*/ normal;
+            }
 
-    @media (forced-colors: active) {
-        /* Deactivate custom backgrounds for high contrast users. */
-        .backgrounds {
-            background: none;
-            background-blend-mode: normal;
-            --bg-gradient-size: none;
-        }
-    }
-</style>
-
-
-<script is:inline>
-    // This code is inlined in the head to make dark mode instant & blocking.
-
-    const addLoadedClassInTheHTMLTagClass = () => {
-        // Add “loaded” class once the document has completely loaded.
-        addEventListener('load', () => document.documentElement.classList.add('loaded'));
-    }
-
-    const getThemePreference = () => {
-        if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-        ) {
-            return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-    };
-
-    const addThemeModeClassInTheHTMLTagClass = (isFistTime = false) => {
-        let isDark = getThemePreference() === "dark";
-        if (isFistTime) isDark = !isDark;
-        if (isDark) {
-            localStorage.setItem("theme", "light");
-            document.documentElement.classList.remove("dark");
-        } else {
-            localStorage.setItem("theme", "dark");
-            document.documentElement.classList.add("dark");
-        }
-    }
-
-    class ThemeToggle extends HTMLElement {
-        constructor() {
-            super();
-            const button = this.querySelector("button");
-            button.addEventListener("click", () => addThemeModeClassInTheHTMLTagClass());
-        }
-    }
-
-    registerThemeToggleElement = () => {
-        customElements.define("theme-toggle", ThemeToggle);
-    }
-
-    addLoadedClassInTheHTMLTagClass();
-    addThemeModeClassInTheHTMLTagClass(true);
-    registerThemeToggleElement();
-</script>
-
-</body>
+            @media (forced-colors: active) {
+                /* Deactivate custom backgrounds for high contrast users. */
+                .backgrounds {
+                    background: none;
+                    background-blend-mode: normal;
+                    --bg-gradient-size: none;
+                }
+            }
+        </style>
+    </body>
 </html>

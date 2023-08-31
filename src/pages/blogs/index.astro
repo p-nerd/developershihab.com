@@ -1,16 +1,44 @@
 ---
-import {getCollection} from "astro:content";
-import {descriptions, titles} from "../../../site.config";
-import BlogPage from "../../screens/blogs/index/BlogPage.astro";
+import { getCollection } from "astro:content";
+import { descriptions, titles } from "../../../site.config";
 
-const blogs = (await getCollection("blogs" as any)).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/pure/Hero.astro";
+import Grid from "@screens/blogs/index/Grid.astro";
+import Preview from "@screens/blogs/index/Preview.astro";
+import ContactCTA from "@components/pure/ContactCTA.astro";
+
+const blogs = (await getCollection("blogs")).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 ---
 
-<BlogPage
-        title={titles["/blogs"]}
-        description={descriptions["/blogs"]}
-        blogs={blogs}
-/>
-
+<Layout title={titles["/blogs"]} description={descriptions["/blogs"]}>
+    <div class="stack gap-20">
+        <main class="wrapper stack gap-8">
+            <Hero
+                title="My Blogs"
+                tagline="Explore my Latest Insights and Perspectives"
+                align="start"
+                alignHero="end"
+            />
+            <Grid variant="offset">
+                {
+                    blogs.map(blog => (
+                        <Preview
+                            slug={blog.slug}
+                            publishDate={blog.data.publishDate}
+                            imgAlt={blog.data.img_alt || ""}
+                            img={blog.data.img}
+                            title={blog.data.title}
+                            description={blog.data.description}
+                            tags={blog.data.tags}
+                        />
+                    ))
+                }
+            </Grid>
+        </main>
+        <ContactCTA />
+    </div>
+</Layout>
+ @screens/blogs/index/Preview

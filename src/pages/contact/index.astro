@@ -1,31 +1,24 @@
 ---
-import BaseLayout from "../layouts/Layout.astro";
+import ContactCTA from "../../components/pure/ContactCTA.astro";
+import Layout from "@layouts/Layout.astro";
+import Hero from "../../components/pure/Hero.astro";
 
-import ContactCTA from "../components/pure/ContactCTA.astro";
-import Hero from "../components/pure/Hero.astro";
-
-import ContactForm from "../screens/contact/ContactForm";
-
-import {descriptions, titles} from "../../site.config";
+import { descriptions, titles } from "../../../site.config";
 ---
 
-<BaseLayout
-        title={titles["/contact"]}
-        description={descriptions["/contact"]}
->
+<Layout title={titles["/contact"]} description={descriptions["/contact"]}>
     <div class="stack gap-20">
         <main class="wrapper about flex flex-col">
             <Hero
-                    title="Contact With ME"
-                    tagline="Use the form below to reach out or find me on social media. I'll get back to you promptly!"
-            >
-            </Hero>
-            <ContactForm/>
+                title="Contact With ME"
+                tagline="Use the form below to reach out or find me on social media. I'll get back to you promptly!"
+            />
+            <h3>Under construction</h3>
         </main>
 
-        <ContactCTA/>
+        <ContactCTA />
     </div>
-</BaseLayout>
+</Layout>
 
 <style>
     .about {
