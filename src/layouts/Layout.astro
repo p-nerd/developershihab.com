@@ -1,23 +1,22 @@
 ---
-import MHead from "../components/partials/layout/Head.astro";
-import Nav from "../components/partials/layout/Nav.astro";
-import Footer from "../components/partials/layout/Footer";
+import Footer from "@components/partials/layout/Footer";
+import Head from "@components/partials/layout/Head.astro";
+import Nav from "@components/partials/layout/Nav.astro";
 
 interface Props {
     title?: string;
     description?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props as Props;
 ---
 
 <html lang="en" class="dark">
     <head>
-        <title></title>
-        <MHead title={title} description={description} />
+        <Head title={title} description={description} />
     </head>
     <body>
-        <div class="flex flex-col backgrounds">
+        <div class="flex flex-col backgrounds isolate min-h-full">
             <Nav />
             <slot />
             <Footer />
@@ -86,8 +85,6 @@ const { title, description } = Astro.props;
             }
 
             .backgrounds {
-                min-height: 100%;
-                isolation: isolate;
                 background: /*noise*/
                     url("/assets/backgrounds/noise.png") top center/220px repeat,
                     /*footer*/ var(--bg-image-footer) bottom

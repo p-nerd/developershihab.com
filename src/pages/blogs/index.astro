@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import { descriptions, titles } from "../../../site.config";
 
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/pure/Hero.astro";
 import Grid from "@screens/blogs/index/Grid.astro";
 import Preview from "@screens/blogs/index/Preview.astro";
 import ContactCTA from "@components/pure/ContactCTA.astro";
+import { titles, descriptions } from "site.config";
 
 const blogs = (await getCollection("blogs")).sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
@@ -22,7 +22,7 @@ const blogs = (await getCollection("blogs")).sort(
                 align="start"
                 alignHero="end"
             />
-            <Grid variant="offset">
+            <Grid>
                 {
                     blogs.map(blog => (
                         <Preview
@@ -41,4 +41,3 @@ const blogs = (await getCollection("blogs")).sort(
         <ContactCTA />
     </div>
 </Layout>
- @screens/blogs/index/Preview

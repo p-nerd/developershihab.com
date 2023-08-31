@@ -6,7 +6,12 @@ interface Props {
     alignHero?: "start" | "center" | "end";
 }
 
-const { tagline, title, align = "center", alignHero = "start" } = Astro.props;
+const {
+    tagline,
+    title,
+    align = "center",
+    alignHero = "start",
+} = Astro.props as Props;
 ---
 
 <header class:list={["hero flex flex-col gap-4", align]}>
