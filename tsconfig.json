@@ -6,9 +6,13 @@
         "baseUrl": ".",
         "paths": {
             "@components/*": ["src/components/*"],
-            "@screens/*": ["src/screens/*"],
+            "@content/*": ["src/content/*"],
+            "@helpers/*": ["src/helpers/*"],
             "@layouts/*": ["src/layouts/*"],
-            "@helpers/*": ["src/helpers/*"]
+            "@pages/*": ["src/pages/*"],
+            "@schemas/*": ["src/schemas/*"],
+            "@screens/*": ["src/screens/*"],
+            "@styles/*": ["src/styles/*"]
         }
     }
 }

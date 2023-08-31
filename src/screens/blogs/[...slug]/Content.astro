@@ -9,9 +9,9 @@ const { img, imgAlt } = Astro.props;
 
 <main class="m-auto w-full p-5 lg:max-w-[83rem]">
     <div
-        class="m-auto w-full gap-[2.5rem] border-2 border-[#e3e6ee] dark:border-[#283044] lg:max-w-[90ch]"
+        class="m-auto w-full gap-[2.5rem] rounded-lg border-2 border-[#e3e6ee] shadow-2xl dark:border-[#283044] dark:shadow-gray-600 lg:max-w-[90ch]"
     >
-        {img && <img src={img} alt={imgAlt || ""} class="w-full" />}
+        {img && <img src={img} alt={imgAlt || ""} class="w-full rounded-lg " />}
         <article
             class="prose prose-neutral w-full max-w-none p-[0.5rem] text-justify dark:prose-invert lg:prose-xl lg:p-[1.5rem]"
         >

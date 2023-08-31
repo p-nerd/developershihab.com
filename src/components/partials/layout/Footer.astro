@@ -1,0 +1,35 @@
+---
+import { socialLinks } from "site.config";
+---
+
+<footer
+    class="mt-auto flex flex-col gap-12 px-8 py-12 text-center text-[0.875rem] text-[#6474a2] dark:text-[#8490b5] lg:flex-row lg:justify-between lg:px-[5rem] lg:py-[2.5rem]"
+>
+    <div class="flex flex-col gap-2 lg:flex-row lg:flex-wrap lg:gap-4">
+        <p>
+            Designed inspired from
+            <a href="https://astro.build/themes/details/portfolio/">
+                Portfolio
+            </a>
+             Template by
+            <a href="https://astro.build/">Astro</a>
+        </p>
+        <p>&copy; <span id="copy-right-year"></span> Shihab Mahamud</p>
+    </div>
+    <p class="socials flex flex-wrap justify-center gap-4 lg:justify-end">
+        {
+            socialLinks.map(socialLink => (
+                <a href={socialLink.href}>{socialLink.label}</a>
+            ))
+        }
+    </p>
+</footer>
+
+<script>
+    import { getCurrentYear } from "@helpers/date";
+
+    const copyRightYear = document.getElementById("copy-right-year");
+    if (copyRightYear) {
+        copyRightYear.innerText = `${getCurrentYear()}`;
+    }
+</script>
