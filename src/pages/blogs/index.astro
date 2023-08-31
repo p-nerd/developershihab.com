@@ -14,8 +14,8 @@ const blogs = (await getCollection("blogs")).sort(
 ---
 
 <Layout title={titles["/blogs"]} description={descriptions["/blogs"]}>
-    <div class="stack gap-20">
-        <main class="wrapper stack gap-8">
+    <div class="flex flex-col gap-20">
+        <main class="wrapper flex flex-col gap-8">
             <Hero
                 title="My Blogs"
                 tagline="Explore my Latest Insights and Perspectives"

@@ -4,18 +4,15 @@ import BaseLayout from "../../layouts/Layout.astro";
 import ContactCTA from "../../components/pure/ContactCTA.astro";
 import Hero from "../../components/pure/Hero.astro";
 
-import {descriptions, titles} from "../../../site.config";
+import { descriptions, titles } from "../../../site.config";
 ---
 
-<BaseLayout
-        title={titles["/about"]}
-        description={descriptions["/about"]}
->
-    <div class="stack gap-20">
+<BaseLayout title={titles["/about"]} description={descriptions["/about"]}>
+    <div class="flex flex-col gap-20">
         <main class="wrapper about">
             <Hero
-                    title="About"
-                    tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+                title="About"
+                tagline="Thanks for stopping by. Read below to learn more about myself and my background."
             >
                 <!-- <img
                     width="1000"
@@ -30,12 +27,12 @@ import {descriptions, titles} from "../../../site.config";
                     <p>
                         Lorem ipsum dolor sit amet, <a
                             href="https://astro.build/">Astro</a
-                    > makes people happy. Sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Proin nibh nisl condimentum
-                        id venenatis a condimentum vitae. Dapibus ultrices in iaculis
-                        nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam
-                        quis enim lobortis scelerisque fermentum dui faucibus in
-                        ornare.
+                        > makes people happy. Sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Proin nibh nisl
+                        condimentum id venenatis a condimentum vitae. Dapibus
+                        ultrices in iaculis nunc. Arcu odio ut sem nulla
+                        pharetra diam sit amet. Diam quis enim lobortis
+                        scelerisque fermentum dui faucibus in ornare.
                     </p>
                     <p>
                         Arcu dui vivamus arcu felis bibendum ut tristique et
@@ -69,7 +66,7 @@ import {descriptions, titles} from "../../../site.config";
             </section>
         </main>
 
-        <ContactCTA/>
+        <ContactCTA />
     </div>
 </BaseLayout>
 

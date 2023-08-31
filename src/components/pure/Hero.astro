@@ -1,59 +1,65 @@
 ---
 interface Props {
-	title: string;
-	tagline?: string;
-	align?: "start" | "center" | "end";
-	alignHero?: "start" | "center" | "end";
+    title: string;
+    tagline?: string;
+    align?: "start" | "center" | "end";
+    alignHero?: "start" | "center" | "end";
 }
 
-const {  tagline, title, align = "center", alignHero = "start" } = Astro.props;
+const { tagline, title, align = "center", alignHero = "start" } = Astro.props;
 ---
 
-<header class:list={["hero stack gap-4", align]}>
-	<div style={`text-align: ${alignHero};`} class="stack gap-2">
-		<h1 class="title">{title}</h1>
-		{tagline && <p class="tagline" style={`text-align: ${alignHero}`}>{tagline}</p>}
-	</>
-	<slot />
+<header class:list={["hero flex flex-col gap-4", align]}>
+    <div style={`text-align: ${alignHero};`} class="flex flex-col gap-2">
+        <h1 class="title">{title}</h1>
+        {
+            tagline && (
+                <p class="tagline" style={`text-align: ${alignHero}`}>
+                    {tagline}
+                </p>
+            )
+        }
+    </div>
+    <slot />
 </header>
 
 <style>
-	.hero {
-		font-size: var(--text-lg);
-		text-align: center;
-	}
+    .hero {
+        font-size: var(--text-lg);
+        text-align: center;
+    }
 
-	.title,
-	.tagline {
-		/* max-width: 37ch; */
-		margin-inline: auto;
-	}
+    .title,
+    .tagline {
+        /* max-width: 37ch; */
+        margin-inline: auto;
+    }
 
-	.title {
-		font-size: var(--text-3xl);
-		color: var(--gray-0);
-	}
+    .title {
+        font-size: var(--text-3xl);
+        color: var(--gray-0);
+    }
 
-	@media (min-width: 50em) {
-		.hero {
-			font-size: var(--text-xl);
-		}
+    @media (min-width: 50em) {
+        .hero {
+            font-size: var(--text-xl);
+        }
 
-		.start {
-			text-align: start;
-		}
+        .start {
+            text-align: start;
+        }
 
-		.end {
-			text-align: end;
-		}
+        .end {
+            text-align: end;
+        }
 
-		.start .title,
-		.start .tagline {
-			margin-inline: unset;
-		}
+        .start .title,
+        .start .tagline {
+            margin-inline: unset;
+        }
 
-		.title {
-			font-size: var(--text-5xl);
-		}
-	}
+        .title {
+            font-size: var(--text-5xl);
+        }
+    }
 </style>
