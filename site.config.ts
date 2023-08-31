@@ -1,4 +1,4 @@
-import type { TSocialLink, TTextLink } from "./src/helpers/types";
+import type { TSocialLink, TNavLink } from "./src/helpers/types";
 
 export const titles = {
     "/": "Portfolio of Shihab Mahamud",
@@ -16,7 +16,7 @@ export const descriptions = {
     "/contact": "Make Contact with Shihab Mahamud. Retch out to Shihab Mahamud",
 };
 
-export const textLinks: TTextLink[] = [
+export const navLinks: TNavLink[] = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },

@@ -1,6 +1,6 @@
 import type { iconPaths } from "./IconPaths";
 
-export type TTextLink = {
+export type TNavLink = {
     label: string;
     href: string;
 };

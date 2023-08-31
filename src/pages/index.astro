@@ -3,14 +3,14 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { titles, descriptions } from "site.config";
 
-import ContactCTA from "@components/pure/ContactCTA.astro";
-import Grid from "@components/pure/Grid.astro";
-import Hero from "@components/pure/Hero.astro";
-import Icon from "@components/pure/Icon.astro";
-import Pill from "@components/pure/Pill.astro";
-import PortfolioPreview from "@components/pure/PortfolioPreview.astro";
+import CallToAction from "@components/CallToAction.astro";
+import ContactCTA from "@components/ContactCTA.astro";
+import Grid from "@components/Grid.astro";
+import Hero from "@components/Hero.astro";
+import Icon from "@components/Icon.astro";
+import Pill from "@components/Pill.astro";
+import PortfolioPreview from "@components/PortfolioPreview.astro";
 import Layout from "@layouts/Layout.astro";
-import CallToAction from "@components/pure/CallToAction.astro";
 import Skills from "@screens/home/Skills.astro";
 
 const projects = (await getCollection("projects"))
