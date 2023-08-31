@@ -24,6 +24,8 @@ export const textLinks: TTextLink[] = [
     { label: "Contact", href: "/contact" },
 ];
 
+export const email = "shihab4t@gmail.com";
+
 export const socialLinks: TSocialLink[] = [
     {
         label: "GitHub",
@@ -47,7 +49,7 @@ export const socialLinks: TSocialLink[] = [
     },
     {
         label: "Email",
-        href: "mailto:shihab4t@gmail.com",
+        href: `mailto:${email}`,
         icon: "email-logo",
     },
 ];

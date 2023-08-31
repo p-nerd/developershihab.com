@@ -10,7 +10,7 @@ import Icon from "@components/pure/Icon.astro";
 import Pill from "@components/pure/Pill.astro";
 import PortfolioPreview from "@components/pure/PortfolioPreview.astro";
 import Layout from "@layouts/Layout.astro";
-import CallToAction from "@screens/home/CallToAction.astro";
+import CallToAction from "@components/pure/CallToAction.astro";
 import Skills from "@screens/home/Skills.astro";
 
 const projects = (await getCollection("projects"))
@@ -27,7 +27,7 @@ const projects = (await getCollection("projects"))
                     tagline="I am a Full-stack Developer who is currently based in Faridpur, Bangladesh."
                     align="start"
                 >
-                    <div class="roles hidden lg:flex lg:gap-2 lg:mt-2">
+                    <div class="roles hidden lg:mt-2 lg:flex lg:gap-2">
                         <Pill>
                             <Icon icon="strategy" size="1.33em" />
                              Problem Solver

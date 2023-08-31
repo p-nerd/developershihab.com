@@ -1,5 +1,5 @@
 ---
-import {getCollection} from "astro:content";
+import { getCollection } from "astro:content";
 
 import BaseLayout from "../../layouts/Layout.astro";
 
@@ -7,34 +7,31 @@ import Hero from "../../components/pure/Hero.astro";
 import ContactCTA from "../../components/pure/ContactCTA.astro";
 import PortfolioPreview from "../../components/pure/PortfolioPreview.astro";
 import Grid from "../../components/pure/Grid.astro";
-import {descriptions, titles} from "../../../site.config";
+import { descriptions, titles } from "../../../site.config";
 
 const projects = (await getCollection("projects")).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 ---
 
-<BaseLayout
-        title={titles["/projects"]}
-        description={descriptions["/projects"]}
->
+<BaseLayout title={titles["/projects"]} description={descriptions["/projects"]}>
     <div class="flex flex-col gap-20">
         <main class="wrapper flex flex-col gap-8">
             <Hero
-                    title="My Projects"
-                    tagline="See my most recent projects below to get an idea of my past experience."
-                    align="start"
+                title="My Projects"
+                tagline="See my most recent projects below to get an idea of my past experience."
+                align="start"
             />
             <Grid variant="offset">
                 {
-                    projects.map((project) => (
-                            <li>
-                                <PortfolioPreview project={project}/>
-                            </li>
+                    projects.map(project => (
+                        <li>
+                            <PortfolioPreview project={project} />
+                        </li>
                     ))
                 }
             </Grid>
         </main>
-        <ContactCTA/>
+        <ContactCTA />
     </div>
 </BaseLayout>

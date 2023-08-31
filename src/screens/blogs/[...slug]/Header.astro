@@ -16,15 +16,15 @@ const { tags, description, title, publishDate } = Astro.props;
 ---
 
 <header
-    class="w-auto pb-[2.5rem] border-b-[1px] border-solid border-[#e3e6ee] dark:border-[#283044]"
+    class="w-auto border-b-[1px] border-solid border-[#e3e6ee] pb-[2.5rem] dark:border-[#283044]"
 >
     <div
-        class="w-full max-w-[83rem] flex flex-col gap-2"
+        class="flex w-full max-w-[83rem] flex-col gap-2"
         style="margin-inline: auto; padding-inline: 1.5rem;"
     >
         <div class="flex justify-between">
             <a
-                class="underline decoration-1 decoration-transparent decoration-solid underline-offset-[0.25rem] hover:decoration-current focus:decoration-current hidden lg:block self-start"
+                class="hidden self-start underline decoration-transparent decoration-solid decoration-1 underline-offset-[0.25rem] hover:decoration-current focus:decoration-current lg:block"
                 href="/blogs/"
             >
                 <Icon icon="arrow-left" />
@@ -34,12 +34,12 @@ const { tags, description, title, publishDate } = Astro.props;
         </div>
         <Hero title={title} align="start">
             <div
-                class="flex flex-col p-[0.5rem] gap-[1.5rem] justify-between items-center lg:flex-row lg:gap-[2.5rem]"
+                class="flex flex-col items-center justify-between gap-[1.5rem] p-[0.5rem] lg:flex-row lg:gap-[2.5rem]"
             >
-                <div class="w-full flex flex-wrap gap-[0.5rem]">
+                <div class="flex w-full flex-wrap gap-[0.5rem]">
                     {tags.map(t => <Pill slug={t.toLowerCase()}>{t}</Pill>)}
                 </div>
-                <p class="text-[1.25rem] max-w-[54ch]">{description}</p>
+                <p class="max-w-[54ch] text-[1.25rem]">{description}</p>
             </div>
         </Hero>
     </div>

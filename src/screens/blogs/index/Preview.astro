@@ -17,44 +17,44 @@ const { slug, publishDate, imgAlt, img, title, description, tags } =
 
 <li>
     <a
-        class="blog-card rounded-xl lg:py-10 py-4 px-1 gap-2 lg:p-5 border border-solid h-max overflow-hidden flex flex-col lg:rounded-3xl"
+        class="blog-card flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid px-1 py-4 lg:rounded-3xl lg:p-5 lg:py-10"
         href={`/blogs/${slug}`}
     >
-        <div class="lg:py-1 lg:px-2">
+        <div class="lg:px-2 lg:py-1">
             <time
-                class="blog-title rounded-md lg:py-2 lg:px-4 lg:rounded-2xl m-2 py-1 px-2"
+                class="blog-title m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
                 datetime="2023-06-19"
             >
                 {formatDateToMonthDayYear(publishDate)}
             </time>
         </div>
-        <div class="py-1 px-2 lg:py-2 lg:px-4">
+        <div class="px-2 py-1 lg:px-4 lg:py-2">
             <img
                 src={img}
                 alt={imgAlt || ""}
                 loading="lazy"
                 decoding="async"
-                class="object-contain w-full h-full rounded-xl"
+                class="h-full w-full rounded-xl object-contain"
             />
         </div>
-        <div class="lg:py-1 lg:px-2">
+        <div class="lg:px-2 lg:py-1">
             <h2
-                class="blog-title m-2 py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl"
+                class="blog-title m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
             >
                 {title}
             </h2>
         </div>
-        <div class="lg:py-1 lg:px-2">
+        <div class="lg:px-2 lg:py-1">
             <p
-                class="blog-title m-2 py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl"
+                class="blog-title m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
             >
                 {description}
             </p>
         </div>
-        <div class="py-1 lg:py-2 px-2 lg:px-4 flex gap-2 flex-wrap">
+        <div class="flex flex-wrap gap-2 px-2 py-1 lg:px-4 lg:py-2">
             {
                 tags.map(tag => (
-                    <span class="blog-title py-1 px-2 rounded-md lg:py-2 lg:px-4 lg:rounded-2xl">
+                    <span class="blog-title rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
                         {tag}
                     </span>
                 ))

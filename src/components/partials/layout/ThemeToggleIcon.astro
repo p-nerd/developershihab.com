@@ -68,58 +68,58 @@ import Icon from "@components/pure/Icon.astro";
 </style>
 
 <script is:inline>
-// This code is inlined in the head to make dark mode instant & blocking.
+    // This code is inlined in the head to make dark mode instant & blocking.
 
-const addLoadedClassInTheHTMLTagClass = () => {
-    // Add “loaded” class once the document has completely loaded.
-    addEventListener("load", () =>
-        document.documentElement.classList.add("loaded"),
-    );
-};
-
-const getThemePreference = () => {
-    if (
-        typeof localStorage !== "undefined" &&
-        localStorage.getItem("theme")
-    ) {
-        return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-};
-
-const addThemeModeClassInTheHTMLTagClass = (isFistTime = false) => {
-    let isDark = getThemePreference() === "dark";
-    if (isFistTime) isDark = !isDark;
-    if (isDark) {
-        localStorage.setItem("theme", "light");
-        document.documentElement.classList.remove("dark");
-    } else {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.classList.add("dark");
-    }
-};
-
-class ThemeToggle extends HTMLElement {
-    constructor() {
-        super();
-        const button = this.querySelector("button");
-        button.addEventListener("click", () =>
-            addThemeModeClassInTheHTMLTagClass(),
+    const addLoadedClassInTheHTMLTagClass = () => {
+        // Add “loaded” class once the document has completely loaded.
+        addEventListener("load", () =>
+            document.documentElement.classList.add("loaded"),
         );
+    };
+
+    const getThemePreference = () => {
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    };
+
+    const addThemeModeClassInTheHTMLTagClass = (isFistTime = false) => {
+        let isDark = getThemePreference() === "dark";
+        if (isFistTime) isDark = !isDark;
+        if (isDark) {
+            localStorage.setItem("theme", "light");
+            document.documentElement.classList.remove("dark");
+        } else {
+            localStorage.setItem("theme", "dark");
+            document.documentElement.classList.add("dark");
+        }
+    };
+
+    class ThemeToggle extends HTMLElement {
+        constructor() {
+            super();
+            const button = this.querySelector("button");
+            button.addEventListener("click", () =>
+                addThemeModeClassInTheHTMLTagClass(),
+            );
+        }
     }
-}
 
-registerThemeToggleElement = () => {
-    customElements.define("theme-toggle", ThemeToggle);
-};
+    registerThemeToggleElement = () => {
+        customElements.define("theme-toggle", ThemeToggle);
+    };
 
-document.addEventListener("astro:after-swap", () =>
-    addThemeModeClassInTheHTMLTagClass(true),
-);
+    document.addEventListener("astro:after-swap", () =>
+        addThemeModeClassInTheHTMLTagClass(true),
+    );
 
-addThemeModeClassInTheHTMLTagClass(true);
-addLoadedClassInTheHTMLTagClass();
-registerThemeToggleElement();
+    addThemeModeClassInTheHTMLTagClass(true);
+    addLoadedClassInTheHTMLTagClass();
+    registerThemeToggleElement();
 </script>

@@ -7,13 +7,13 @@ interface Props {
 const { img, imgAlt } = Astro.props;
 ---
 
-<main class="lg:max-w-[83rem] m-auto p-5 w-full">
+<main class="m-auto w-full p-5 lg:max-w-[83rem]">
     <div
-        class="gap-[2.5rem] lg:max-w-[90ch] m-auto w-full border-2 border-[#e3e6ee] dark:border-[#283044]"
+        class="m-auto w-full gap-[2.5rem] border-2 border-[#e3e6ee] dark:border-[#283044] lg:max-w-[90ch]"
     >
         {img && <img src={img} alt={imgAlt || ""} class="w-full" />}
         <article
-            class="text-justify p-[0.5rem] prose prose-neutral max-w-none lg:p-[1.5rem] w-full lg:prose-xl dark:prose-invert"
+            class="prose prose-neutral w-full max-w-none p-[0.5rem] text-justify dark:prose-invert lg:prose-xl lg:p-[1.5rem]"
         >
             <slot />
         </article>
