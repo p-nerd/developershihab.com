@@ -10,4 +10,7 @@ export default defineConfig({
     compilerOptions: {
         strictNullChecks: true,
     },
+    redirects: {
+        "/blogs": "/blogs/1",
+    },
 });

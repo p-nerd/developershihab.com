@@ -1,9 +1,9 @@
 ---
-import { formatDateToMonthDayYear } from "@helpers/date";
+import { formatDateToMonthDayYear } from "../../../helpers/date";
 
-import Hero from "@components/Hero.astro";
-import Icon from "@components/Icon.astro";
-import Pill from "@components/Pill.astro";
+import Hero from "../../pure/Hero.astro";
+import Icon from "../../pure/Icon.astro";
+import Pill from "../../pure/Pill.astro";
 
 interface Props {
     tags: string[];
@@ -37,7 +37,11 @@ const { tags, description, title, publishDate } = Astro.props;
                 class="flex flex-col items-center justify-between gap-[1.5rem] p-[0.5rem] lg:flex-row lg:gap-[2.5rem]"
             >
                 <div class="flex w-full flex-wrap gap-[0.5rem]">
-                    {tags.map(t => <Pill slug={t.toLowerCase()}>{t}</Pill>)}
+                    {
+                        tags.map(t => (
+                            <Pill slug={`/tags/${t.toLowerCase()}`}>{t}</Pill>
+                        ))
+                    }
                 </div>
                 <p class="max-w-[54ch] text-[1.25rem]">{description}</p>
             </div>

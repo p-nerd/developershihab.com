@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry } from "astro:content";
+import Preview from "./Preview.astro";
+import Grid from "./Grid.astro";
+
+export interface Props {
+    blogs: CollectionEntry<"blogs">[];
+}
+
+const { blogs } = Astro.props as Props;
+---
+
+<Grid>
+    {
+        blogs.map(blog => (
+            <Preview
+                slug={blog.slug}
+                publishDate={blog.data.publishDate}
+                imgAlt={blog.data.img_alt || ""}
+                img={blog.data.img}
+                title={blog.data.title}
+                description={blog.data.description}
+                tags={blog.data.tags}
+            />
+        ))
+    }
+</Grid>

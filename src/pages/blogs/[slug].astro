@@ -1,10 +1,10 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 
-import ContactCTA from "@components/ContactCTA.astro";
+import ContactCTA from "@components/pure/ContactCTA.astro";
 import Layout from "@layouts/Layout.astro";
-import Header from "@screens/blogs/[...slug]/Header.astro";
-import ContentBlog from "@screens/blogs/[...slug]/Content.astro";
+import Header from "@components/blogs/blog/Header.astro";
+import ContentBlog from "@components/blogs/blog/Content.astro";
 
 export async function getStaticPaths() {
     const blogs = await getCollection("blogs");
