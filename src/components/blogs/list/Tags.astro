@@ -1,0 +1,33 @@
+---
+import type { Tag } from "@helpers/blogs.ts";
+import { slugify } from "@helpers/slug.ts";
+import { getCollection } from "astro:content";
+
+interface Props {
+    tags: Tag[];
+    tagSlug?: string;
+}
+
+const { tags, tagSlug = "all" } = Astro.props as Props;
+
+const blogs = await getCollection("blogs");
+
+const tagsx = [{ label: "All", count: blogs.length }, ...tags];
+---
+
+<section class="flex flex-wrap justify-between gap-3">
+    {
+        tagsx.map(tag => (
+            <a
+                class={`flex cursor-pointer flex-col items-center rounded-xl border  px-4 py-2  dark:border-[#283043] ${
+                    tagSlug === slugify(tag.label)
+                        ? "bg-[#7611a6] text-white"
+                        : "bg-[#F9F9FB] text-black dark:bg-[#0F1119] dark:text-white"
+                }`}
+                href={`/tags/${slugify(tag.label)}`}
+            >
+                {tag.label} ({tag.count})
+            </a>
+        ))
+    }
+</section>

@@ -6,7 +6,7 @@ img_alt: Problem এর বাংলা হলো সমস্যা আর S
 description: |
     Problem এর বাংলা হলো সমস্যা আর Solving হলো সেই সমস্যা সমাধান করা। কিন্তু আমার কাছে Problem বা সমস্যা মানে হলো কোন unknown situation বা অজানা পরিস্থিতি
 tags:
-    - C/C++
+    - Cpp
     - Problem-solving
     - Programming
 ---
