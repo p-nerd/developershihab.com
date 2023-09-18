@@ -7,7 +7,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 
 <nav>
     <div class="menu-header">
-        <a href="/public" class="site-title">
+        <a href="/" class="site-title">
             <Icon
                 icon="terminal-window"
                 color="var(--accent-regular)"
@@ -42,7 +42,7 @@ import ThemeToggle from "./ThemeToggle.astro";
                                             )),
                                 },
                             ]}
-                            href={href}
+                            href={href === "/blogs" ? "/blogs/1" : href}
                         >
                             {label}
                         </a>
