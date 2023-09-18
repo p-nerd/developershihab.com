@@ -17,10 +17,10 @@ export async function getStaticPaths({}: {}) {
         tags = [...tags, ...blog.data.tags];
     });
 
-    return tags.map(tag => ({ params: { slug: slugify(tag) } }));
+    return tags.map(tag => ({ params: { tag: slugify(tag) } }));
 }
 
-const { slug } = Astro.params;
+const { tag: slug } = Astro.params;
 
 const blogs = (await getCollection("blogs")).filter(blog =>
     blog.data.tags.find(tag => slug === slugify(tag)),

@@ -15,7 +15,7 @@ const blogs = await getCollection("blogs");
 const tagsx = [{ label: "All", count: blogs.length }, ...tags];
 ---
 
-<section class="flex flex-wrap justify-between gap-3">
+<section class="flex flex-wrap justify-center gap-3">
     {
         tagsx.map(tag => (
             <a
@@ -24,7 +24,7 @@ const tagsx = [{ label: "All", count: blogs.length }, ...tags];
                         ? "bg-[#7611a6] text-white"
                         : "bg-[#F9F9FB] text-black dark:bg-[#0F1119] dark:text-white"
                 }`}
-                href={`/tags/${slugify(tag.label)}`}
+                href={`/blogs/${slugify(tag.label)}`}
             >
                 {tag.label} ({tag.count})
             </a>

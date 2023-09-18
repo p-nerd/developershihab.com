@@ -20,7 +20,7 @@ export const navLinks: TNavLink[] = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
-    { label: "Blogs", href: "/blogs" },
+    { label: "Blogs", href: "/blogs/1" },
     { label: "Contact", href: "/contact" },
 ];
 

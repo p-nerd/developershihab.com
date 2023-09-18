@@ -25,7 +25,7 @@ const { tags, description, title, publishDate } = Astro.props;
         <div class="flex justify-between">
             <a
                 class="hidden self-start underline decoration-transparent decoration-solid decoration-1 underline-offset-[0.25rem] hover:decoration-current focus:decoration-current lg:block"
-                href="/blogs/"
+                href="/blogs/1"
             >
                 <Icon icon="arrow-left" />
                 <span>Blogs</span>
@@ -39,7 +39,7 @@ const { tags, description, title, publishDate } = Astro.props;
                 <div class="flex w-full flex-wrap gap-[0.5rem]">
                     {
                         tags.map(t => (
-                            <Pill slug={`/tags/${t.toLowerCase()}`}>{t}</Pill>
+                            <Pill slug={`/blogs/${t.toLowerCase()}`}>{t}</Pill>
                         ))
                     }
                 </div>

@@ -13,6 +13,6 @@ export default defineConfig({
     },
     redirects: {
         "/blogs": "/blogs/1",
-        "/tags/all": "/blogs/1",
+        "/blogs/all": "/blogs/1",
     },
 });
