@@ -1,13 +1,13 @@
 ---
-import { navLinks, socialLinks } from "site.config";
+import { navLinks, socialLinks } from "site.config.ts";
 
-import Icon from "@components/pure/Icon.astro";
+import Icon from "../pure/Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <nav>
     <div class="menu-header">
-        <a href="/" class="site-title">
+        <a href="/public" class="site-title">
             <Icon
                 icon="terminal-window"
                 color="var(--accent-regular)"
