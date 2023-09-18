@@ -22,9 +22,13 @@ const tagsx = [{ label: "All", count: blogs.length }, ...tags];
                 class={`flex cursor-pointer flex-col items-center rounded-xl border  px-4 py-2  dark:border-[#283043] ${
                     tagSlug === slugify(tag.label)
                         ? "bg-[#7611a6] text-white"
-                        : "bg-[#F9F9FB] text-black dark:bg-[#0F1119] dark:text-white"
+                        : "bg-[#F4F5F7] text-black dark:bg-[#131823] dark:text-white"
                 }`}
-                href={`/blogs/${slugify(tag.label)}`}
+                href={
+                    tag.label === "All"
+                        ? "/blogs/1"
+                        : `/blogs/${slugify(tag.label)}`
+                }
             >
                 {tag.label} ({tag.count})
             </a>
