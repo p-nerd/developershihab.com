@@ -1,0 +1,60 @@
+<div id="project-grid">
+    <ul class="offset grid">
+        <slot />
+    </ul>
+</div>
+
+<style>
+    #project-grid .grid {
+        display: grid;
+        grid-auto-rows: auto;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        direction: rtl;
+    }
+
+    #project-grid .grid.small {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    /* If last row contains only one item, make it span both columns. */
+    #project-grid .grid.small > :global(:last-child:nth-child(even)) {
+        grid-column: 1 / 3;
+    }
+
+    @media (min-width: 50em) {
+        #project-grid .grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        #project-grid .grid.offset {
+            --row-offset: 7.5rem;
+            padding-bottom: var(--row-offset);
+        }
+
+        /* Shift first item in each row vertically to create staggered effect. */
+        #project-grid .grid.offset > :global(:nth-child(even)) {
+            transform: translateY(var(--row-offset));
+        }
+
+        /* If last row contains only one item, display it in the second column. */
+        #project-grid .grid.offset > :global(:last-child:nth-child(odd)) {
+            grid-column: 2 / 3;
+            transform: none;
+        }
+
+        #project-grid .grid.small {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        #project-grid .grid.small > :global(*) {
+            flex-basis: 20rem;
+        }
+    }
+</style>

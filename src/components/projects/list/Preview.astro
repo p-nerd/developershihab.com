@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    project: CollectionEntry<"projects">;
+}
+
+const { data, slug } = Astro.props.project;
+---
+
+<li>
+    <a
+        class="project-card flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid px-1 py-4 lg:rounded-3xl lg:p-5 lg:py-10"
+        href={`/projects/${slug}`}
+    >
+        <div class="lg:px-2 lg:py-1">
+            <span
+                class="project-title m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
+            >
+                {data.type}
+            </span>
+        </div>
+        <div class="px-2 py-1 lg:px-4 lg:py-2">
+            <img
+                src={data.img}
+                alt={data.img_alt || ""}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full rounded-xl object-contain"
+            />
+        </div>
+        <div class="lg:px-2 lg:py-1">
+            <h2
+                class="project-title m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
+            >
+                {data.title}
+            </h2>
+        </div>
+        <div class="lg:px-2 lg:py-1">
+            <p
+                class="project-title m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
+            >
+                {data.description}
+            </p>
+        </div>
+        <div class="flex flex-wrap gap-2 px-2 py-1 lg:px-4 lg:py-2">
+            {
+                data.technologies.map(tag => (
+                    <span class="project-title rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
+                        {tag}
+                    </span>
+                ))
+            }
+        </div>
+    </a>
+</li>
+
+<style scoped>
+    .project-card {
+        background: var(--gradient-subtle);
+        border-color: var(--gray-800);
+        box-shadow: var(--shadow-sm);
+        font-family: var(--font-brand);
+        font-size: 1.25rem;
+        transition: box-shadow var(--theme-transition);
+    }
+
+    .project-card:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    .project-title {
+        background: var(--gray-999);
+        color: var(--gray-200);
+    }
+</style>
