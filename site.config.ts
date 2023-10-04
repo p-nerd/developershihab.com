@@ -3,7 +3,7 @@ import type { TSocialLink, TNavLink } from "./src/helpers/types";
 export const titles = {
     "/": "Portfolio of Shihab Mahamud",
     "/about": "Know About Shihab Mahamud",
-    "/projects": "All of Projects Shihab Mahamud Does",
+    "/projects": "Projects by Shihab Mahamud",
     "/blogs": "Blogs by Shihab Mahamud",
     "/contact": "Make Contact with Shihab Mahamud",
 };
