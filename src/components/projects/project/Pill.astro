@@ -1,16 +1,5 @@
----
-interface Props {
-    slug?: string;
-}
-
-const { slug } = Astro.props as Props;
-
-const Tag = slug ? "a" : "button";
----
-
-<Tag
-    href={slug}
+<div
     class="flex gap-2 whitespace-nowrap rounded-full border border-solid border-purple-700 bg-white px-4 py-2 text-lg font-bold leading-[1.35] text-purple-700"
 >
     <slot />
-</Tag>
+</div>

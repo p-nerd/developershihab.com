@@ -20,6 +20,7 @@ const projects = (await getCollection("projects")).sort(
                 title="My Projects"
                 tagline="See my most recent projects below to get an idea of my past experience."
                 align="start"
+                alignHero="end"
             />
             <Grid>
                 {projects.map(project => <Preview project={project} />)}
