@@ -2,9 +2,10 @@
 interface Props {
     img?: string;
     imgAlt?: string;
+    imgLink?: string;
 }
 
-const { img, imgAlt } = Astro.props;
+const { img, imgAlt, imgLink } = Astro.props;
 ---
 
 <main class="m-auto w-full p-5">
@@ -12,11 +13,21 @@ const { img, imgAlt } = Astro.props;
         {
             img && (
                 <div class="w-full rounded-lg border-2 border-[#e3e6ee] shadow-2xl dark:border-[#283044] dark:shadow-gray-600">
-                    <img
-                        src={img}
-                        alt={imgAlt || ""}
-                        class="w-full rounded-lg "
-                    />
+                    {imgLink ? (
+                        <a href={imgLink}>
+                            <img
+                                src={img}
+                                alt={imgAlt || ""}
+                                class="w-full rounded-lg "
+                            />
+                        </a>
+                    ) : (
+                        <img
+                            src={img}
+                            alt={imgAlt || ""}
+                            class="w-full rounded-lg "
+                        />
+                    )}
                 </div>
             )
         }
