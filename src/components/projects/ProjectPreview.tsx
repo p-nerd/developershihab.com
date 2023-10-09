@@ -34,7 +34,7 @@ const ProjectPreview = (p: { project: TProject }) => {
                         {p.project.data.description}
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-2 px-2 py-1 lg:px-4 lg:py-2">
+                <div class="flex flex-wrap justify-between gap-2 px-2 py-1 lg:px-4 lg:py-2">
                     {p.project.data.technologies.map(tag => (
                         <span class="rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                             {tag}
