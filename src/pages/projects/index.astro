@@ -5,8 +5,8 @@ import { titles, descriptions } from "site.config";
 import Layout from "@layouts/Layout.astro";
 import ContactCTA from "@components/pure/ContactCTA.astro";
 import Hero from "@components/pure/Hero.astro";
-import Grid from "@components/projects/list/Grid.astro";
-import Preview from "@components/projects/list/Preview.astro";
+import Grid from "@components/projects/ProjectGrid.astro";
+import ProjectPreview from "@components/projects/ProjectPreview.tsx";
 
 const projects = (await getCollection("projects")).sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
@@ -23,9 +23,10 @@ const projects = (await getCollection("projects")).sort(
                 alignHero="end"
             />
             <Grid>
-                {projects.map(project => <Preview project={project} />)}
+                {projects.map(project => <ProjectPreview project={project} />)}
             </Grid>
         </main>
         <ContactCTA />
     </div>
 </Layout>
+ @components/projects/ProjectPreview
