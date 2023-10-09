@@ -4,7 +4,7 @@ import { titles, descriptions } from "site.config";
 
 import Layout from "@layouts/Layout.astro";
 import ContactCTA from "@components/pure/ContactCTA.astro";
-import Hero from "@components/pure/Hero.astro";
+import Hero from "@components/pure/Hero.tsx";
 import Grid from "@components/projects/ProjectGrid.astro";
 import ProjectPreview from "@components/projects/ProjectPreview.tsx";
 
@@ -21,7 +21,9 @@ const projects = (await getCollection("projects")).sort(
                 tagline="See my most recent projects below to get an idea of my past experience."
                 align="start"
                 alignHero="end"
-            />
+            >
+                <></>
+            </Hero>
             <Grid>
                 {projects.map(project => <ProjectPreview project={project} />)}
             </Grid>

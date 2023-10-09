@@ -15,6 +15,7 @@ module.exports = {
                 "sx-gray-800": "var(--gray-800)",
                 "sx-gray-999": "var(--gray-999)",
                 "sx-gray-200": "var(--gray-200)",
+                "sx-gray-0": "var(--gray-0)",
             },
             boxShadow: {
                 "sx-shadow-sm": "var(--shadow-sm)",

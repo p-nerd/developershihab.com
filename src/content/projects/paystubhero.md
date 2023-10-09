@@ -20,9 +20,7 @@ technologies:
         "PayPal",
     ]
 links:
-    "Source Code": "https://github.com/p-nerd"
-    "Live Link": "https://p.github.io"
-    "Live Link 2": "https://p.github.io"
+    "Live Link": "https://www.paystubhero.com/generate-pay-stubs"
 rank: 1
 draft: false
 ---

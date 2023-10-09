@@ -2,7 +2,7 @@
 import { titles, descriptions } from "site.config";
 
 import ContactCTA from "@components/pure/ContactCTA.astro";
-import Hero from "@components/pure/Hero.astro";
+import Hero from "@components/pure/Hero.tsx";
 import Layout from "@layouts/Layout.astro";
 ---
 
@@ -12,7 +12,9 @@ import Layout from "@layouts/Layout.astro";
             <Hero
                 title="Contact With ME"
                 tagline="Use the form below to reach out or find me on social media. I'll get back to you promptly!"
-            />
+            >
+                <></>
+            </Hero>
             <h3>Under construction</h3>
         </main>
 

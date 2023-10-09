@@ -5,7 +5,7 @@ import { deslugify, slugify } from "@helpers/slug.ts";
 import { generateTags } from "@helpers/blogs.ts";
 
 import ContactCTA from "@components/pure/ContactCTA.astro";
-import Hero from "@components/pure/Hero.astro";
+import Hero from "@components/pure/Hero.tsx";
 import Layout from "@layouts/Layout.astro";
 import List from "@components/blogs/list/List.astro";
 import Tags from "@components/blogs/list/Tags.astro";
@@ -39,7 +39,9 @@ const tags = generateTags(await getCollection("blogs"));
                 tagline={`Explore all "${tag}" related posts`}
                 align="start"
                 alignHero="end"
-            />
+            >
+                <></>
+            </Hero>
             <Tags tags={tags} tagSlug={slug} />
             <List blogs={blogs} />
         </main>

@@ -5,7 +5,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { generateTags } from "@helpers/blogs.ts";
 
 import ContactCTA from "@components/pure/ContactCTA.astro";
-import Hero from "@components/pure/Hero.astro";
+import Hero from "@components/pure/Hero.tsx";
 import Layout from "@layouts/Layout.astro";
 import List from "@components/blogs/list/List.astro";
 import PaginationLink from "@components/blogs/list/PaginationLink.astro";
@@ -40,9 +40,11 @@ const tags = generateTags(await getCollection("blogs"));
             <Hero
                 title="My Blogs"
                 tagline="Explore my Latest Insights and Perspectives"
-                align="start"
+                align="end"
                 alignHero="end"
-            />
+            >
+                <></>
+            </Hero>
             <Tags tags={tags} />
             <List blogs={blogs} />
             {
