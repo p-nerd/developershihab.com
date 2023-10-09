@@ -12,7 +12,7 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "prettier --write '*/**/*.{astro,ts,md,js,json}' --config prettier.config.cjs"
+        "format": "prettier --write '**/*.{astro,ts,md,js,json,mjs,cjs}' --config prettier.config.cjs"
     },
     "dependencies": {
         "@astrojs/sitemap": "^3.0.0",
