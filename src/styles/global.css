@@ -157,9 +157,9 @@
         margin: 0;
     }
 
-    a {
-        color: var(--link-color);
-    }
+    /*a {*/
+    /*    color: var(--link-color);*/
+    /*}*/
 
     h1,
     h2,
