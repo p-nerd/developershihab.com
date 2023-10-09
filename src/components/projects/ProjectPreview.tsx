@@ -2,9 +2,9 @@ import type { TProject } from "@content/config";
 
 const ProjectPreview = (p: { project: TProject }) => {
     return (
-        <li class="flex flex-col gap-2 font-sx-font-brand">
+        <li class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-[1.25rem] shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md dark:bg-[#111621] lg:rounded-3xl lg:p-5 lg:py-10">
             <a
-                class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 text-[1.25rem] shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md dark:bg-[#111621] lg:rounded-3xl lg:p-5 lg:py-10"
+                class="flex h-max flex-col gap-2"
                 href={`/projects/${p.project.slug}`}
             >
                 <div class="flex justify-between lg:px-2 lg:py-1">
@@ -42,7 +42,7 @@ const ProjectPreview = (p: { project: TProject }) => {
                     ))}
                 </div>
             </a>
-            <div class="l flex h-max gap-1 text-[1.25rem]">
+            <div class="l flex h-max gap-1 text-[1.25rem] lg:p-5">
                 {[...Object.keys(p.project.data.links)].map(key => (
                     <a
                         class="h-max w-full overflow-hidden rounded-xl  border border-solid border-sx-gray-800 bg-sx-gray-999 py-3 text-center text-sx-link-color shadow-sx-shadow-sm transition-shadow  duration-[0.2s] ease-in-out hover:text-sx-gradient-subtle hover:shadow-sx-shadow-md lg:rounded-3xl"

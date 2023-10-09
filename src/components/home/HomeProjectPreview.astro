@@ -1,8 +1,8 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { TProject } from "@content/config";
 
 interface Props {
-    project: CollectionEntry<"projects">;
+    project: TProject;
 }
 
 const { data, slug } = Astro.props.project;
