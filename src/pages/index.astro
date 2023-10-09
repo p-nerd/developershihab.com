@@ -3,13 +3,13 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { titles, descriptions } from "site.config";
 
-import CallToAction from "../components/pure/CallToAction.astro";
-import ContactCTA from "../components/pure/ContactCTA.astro";
+import CallToAction from "../components/pure/CallToAction.tsx";
+import ContactCTA from "../components/pure/ContactCTA.tsx";
 import Grid from "../components/pure/Grid.astro";
 import Hero from "../components/pure/Hero.tsx";
 import Icon from "../components/pure/Icon.astro";
 import Pill from "../components/pure/Pill.astro";
-import PortfolioPreview from "../components/pure/PortfolioPreview.astro";
+import PortfolioPreview from "../components/home/HomeProjectPreview.astro.tsx";
 import Layout from "@layouts/Layout.astro";
 import Skills from "../components/home/Skills.astro";
 
@@ -251,3 +251,5 @@ const projects = (await getCollection("projects"))
         }
     }
 </style>
+ ../components/pure/CallToAction.tsx/index.ts
+../components/pure/ContactCTA.tsx/index.ts

@@ -1,3 +1,4 @@
+import type { JSXElement } from "solid-js";
 import type { iconPaths } from "./IconPaths";
 
 export type TNavLink = {
@@ -10,3 +11,5 @@ export type TSocialLink = {
     href: string;
     icon: keyof typeof iconPaths;
 };
+
+export type TIconComponent = (p: { class?: string }) => JSXElement;

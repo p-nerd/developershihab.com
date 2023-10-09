@@ -16,6 +16,9 @@ module.exports = {
                 "sx-gray-999": "var(--gray-999)",
                 "sx-gray-200": "var(--gray-200)",
                 "sx-gray-0": "var(--gray-0)",
+                "sx-accent-text-over": "var(--accent-text-over)",
+                "sx-gradient-accent-orange": "var(--gradient-accent-orange)",
+                "sx-gray-999_40": "var(--gray-999_40)",
             },
             boxShadow: {
                 "sx-shadow-sm": "var(--shadow-sm)",
