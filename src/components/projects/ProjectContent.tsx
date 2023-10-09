@@ -1,7 +1,10 @@
+import { type JSX } from "solid-js";
+
 const ProjectContent = (p: {
     img?: string;
     imgAlt?: string;
     imgLink?: string;
+    children: JSX.Element;
 }) => {
     return (
         <main class="m-auto w-full p-5">
@@ -27,7 +30,7 @@ const ProjectContent = (p: {
                 )}
                 <div class="w-full rounded-lg border-2 border-[#e3e6ee] shadow-2xl dark:border-[#283044] dark:shadow-gray-600">
                     <article class="prose prose-neutral w-full max-w-none p-[0.5rem] text-justify dark:prose-invert lg:prose-xl lg:p-[1.5rem]">
-                        <slot />
+                        {p.children}
                     </article>
                 </div>
             </div>
