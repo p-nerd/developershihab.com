@@ -3,8 +3,8 @@ import { type CollectionEntry, getCollection } from "astro:content";
 
 import ContactCTA from "@components/pure/ContactCTA.astro";
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/projects/project/ProjectHeader.astro";
-import ContentProject from "@components/projects/project/ProjectContent.astro";
+import Header from "@components/projects/ProjectHeader.astro";
+import ContentProject from "@components/projects/ProjectContent.tsx";
 
 interface Props {
     entry: CollectionEntry<"projects">;
@@ -30,6 +30,7 @@ const { Content } = await entry.render();
                 description={entry.data.description}
                 technologies={entry.data.technologies}
                 type={entry.data.type}
+                domain={entry.data.domain}
             />
             <ContentProject
                 img={entry.data.img}
