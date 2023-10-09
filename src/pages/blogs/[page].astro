@@ -7,9 +7,9 @@ import { generateTags } from "@helpers/blogs.ts";
 import ContactCTA from "@components/pure/ContactCTA.tsx";
 import Hero from "@components/pure/Hero.tsx";
 import Layout from "@layouts/Layout.astro";
-import List from "@components/blogs/list/BlogList.astro";
-import PaginationLink from "@components/blogs/list/BlogPaginationLink.astro";
-import Tags from "@components/blogs/list/BlogTags.astro";
+import BlogTags from "@components/blogs/BlogTags.astro";
+import BlogList from "@components/blogs/BlogList.astro";
+import BlogPaginationLink from "@components/blogs/BlogPaginationLink.astro";
 
 export async function getStaticPaths({
     paginate,
@@ -45,13 +45,13 @@ const tags = generateTags(await getCollection("blogs"));
             >
                 <></>
             </Hero>
-            <Tags tags={tags} />
-            <List blogs={blogs} />
+            <BlogTags tags={tags} />
+            <BlogList blogs={blogs} />
             {
                 page.url.next ? (
-                    <PaginationLink link={page.url.next} />
+                    <BlogPaginationLink link={page.url.next} />
                 ) : (
-                    <PaginationLink
+                    <BlogPaginationLink
                         link={page.url.prev}
                         text="Previous Blogs"
                     />

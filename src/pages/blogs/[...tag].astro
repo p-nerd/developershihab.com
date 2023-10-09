@@ -7,8 +7,8 @@ import { generateTags } from "@helpers/blogs.ts";
 import ContactCTA from "@components/pure/ContactCTA.tsx";
 import Hero from "@components/pure/Hero.tsx";
 import Layout from "@layouts/Layout.astro";
-import List from "@components/blogs/list/BlogList.astro";
-import Tags from "@components/blogs/list/BlogTags.astro";
+import BlogTags from "@components/blogs/BlogTags.astro";
+import BlogList from "@components/blogs/BlogList.astro";
 
 export async function getStaticPaths({}: {}) {
     let tags: string[] = [];
@@ -42,8 +42,8 @@ const tags = generateTags(await getCollection("blogs"));
             >
                 <></>
             </Hero>
-            <Tags tags={tags} tagSlug={slug} />
-            <List blogs={blogs} />
+            <BlogTags tags={tags} tagSlug={slug} />
+            <BlogList blogs={blogs} />
         </main>
 
         <ContactCTA />
