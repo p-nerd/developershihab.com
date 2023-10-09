@@ -11,13 +11,9 @@ import Icon from "../components/pure/Icon.astro";
 import Pill from "../components/pure/Pill.astro";
 import PortfolioPreview from "@components/home/HomeProjectPreview.astro";
 import Layout from "@layouts/Layout.astro";
-import Skills from "../components/home/Skills.astro";
+import Skills from "../components/home/HomeSkills.astro";
 
-const projects = (await getCollection("projects"))
-    .sort(
-        (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
-    )
-    .slice(0, 4);
+const projects = (await getCollection("projects")).slice(0, 4);
 ---
 
 <Layout title={titles["/"]} description={descriptions["/"]}>

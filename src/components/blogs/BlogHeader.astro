@@ -1,9 +1,9 @@
 ---
-import { formatDateToMonthDayYear } from "../../../helpers/date";
+import { formatDateToMonthDayYear } from "@helpers/date";
 
-import Hero from "../../pure/Hero.tsx";
-import Icon from "../../pure/Icon.astro";
-import Pill from "../../pure/Pill.astro";
+import ArrowLeftIcon from "@components/icons/ArrowLeftIcon";
+import Hero from "@components/pure/Hero";
+import Pill from "@components/pure/Pill.astro";
 
 interface Props {
     tags: string[];
@@ -27,7 +27,7 @@ const { tags, description, title, publish_date } = Astro.props;
                 class="hidden self-start underline decoration-transparent decoration-solid decoration-1 underline-offset-[0.25rem] hover:decoration-current focus:decoration-current lg:block"
                 href="/blogs/1"
             >
-                <Icon icon="arrow-left" />
+                <ArrowLeftIcon />
                 <span>Blogs</span>
             </a>
             <p>{formatDateToMonthDayYear(publish_date)}</p>

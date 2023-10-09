@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import Preview from "../BlogPreview.tsx";
-import Grid from "./Grid.astro";
+import Grid from "./BlogGrid.astro";
+import BlogPreview from "./BlogPreview";
 
 export interface Props {
     blogs: CollectionEntry<"blogs">[];
@@ -13,7 +13,7 @@ const { blogs } = Astro.props as Props;
 <Grid>
     {
         blogs.map(blog => (
-            <Preview
+            <BlogPreview
                 slug={blog.slug}
                 publish_date={blog.data.publish_date}
                 img_alt={blog.data.img_alt || ""}
