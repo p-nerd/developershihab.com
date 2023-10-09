@@ -14,7 +14,9 @@ import Layout from "@layouts/Layout.astro";
 import Skills from "../components/home/Skills.astro";
 
 const projects = (await getCollection("projects"))
-    .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+    .sort(
+        (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
+    )
     .slice(0, 4);
 ---
 

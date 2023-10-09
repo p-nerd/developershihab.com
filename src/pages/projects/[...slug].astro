@@ -1,17 +1,18 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
 import ContactCTA from "@components/pure/ContactCTA.tsx";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/projects/ProjectHeader.tsx";
 import ContentProject from "@components/projects/ProjectContent.tsx";
+import { PROJECTS, type TProject } from "@content/config";
 
 interface Props {
-    entry: CollectionEntry<"projects">;
+    entry: TProject;
 }
 
 export async function getStaticPaths() {
-    const projects = await getCollection("projects");
+    const projects = await getCollection(PROJECTS);
     return projects.map(entry => ({
         params: { slug: entry.slug },
         props: { entry },
@@ -25,16 +26,10 @@ const { Content } = await entry.render();
 <Layout title={entry.data.title} description={entry.data.description}>
     <div class="flex flex-col gap-[5rem]">
         <div class="flex flex-col gap-[3.75rem]">
-            <Header
-                title={entry.data.title}
-                description={entry.data.description}
-                technologies={entry.data.technologies}
-                type={entry.data.type}
-                domain={entry.data.domain}
-            />
+            <Header project={entry} />
             <ContentProject
                 img={entry.data.img}
-                imgAlt={entry.data.img_alt || ""}
+                img_alt={entry.data.img_alt || ""}
                 imgLink={entry.data.img_link || ""}
             >
                 <Content />

@@ -1,6 +1,6 @@
 ---
 title: কিভাবে সি প্রোগ্রমিং শিখবো?
-publishDate: 2021-01-08 00:00:00
+publish_date: 2021-01-08 00:00:00
 img: /assets/blogs/c-image.jpg
 img_alt: সি প্রোগ্রামিং বা কম্পিউটার প্রোগ্রামিং শেখার ভালো ও কার্যকরী কিছু রিসোর্স(Resources) এবং রোডম্যপ(Roadmap)
 description: |

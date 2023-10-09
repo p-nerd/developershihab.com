@@ -30,9 +30,12 @@ const { Content } = await entry.render();
                 title={entry.data.title}
                 description={entry.data.description}
                 tags={entry.data.tags}
-                publishDate={entry.data.publishDate}
+                publish_date={entry.data.publish_date}
             />
-            <ContentBlog img={entry.data.img} imgAlt={entry.data.img_alt || ""}>
+            <ContentBlog
+                img={entry.data.img}
+                img_alt={entry.data.img_alt || ""}
+            >
                 <Content />
             </ContentBlog>
         </div>

@@ -1,6 +1,6 @@
 ---
 title: বইটি নিয়ে আমার কথা!
-publishDate: 2021-04-14 00:00:00
+publish_date: 2021-04-14 00:00:00
 img: /assets/blogs/f-images.jpg
 img_alt: Java Virtual Machines-এর জন্য একটি আধুনিক প্রোগ্রামিং ভাষা| Better Java
 description: |

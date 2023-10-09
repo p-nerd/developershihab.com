@@ -7,3 +7,11 @@ export const formatDateToMonthDayYear = (date: Date) => {
 export const getCurrentYear = () => {
     return new Date().getFullYear();
 };
+
+export const showProjectEndDate = (endDate: Date | null) => {
+    return endDate ? formatDateToMonthDayYear(endDate) : "Present";
+};
+
+export const showProjectStartDate = (startDate: Date) => {
+    return formatDateToMonthDayYear(startDate);
+};

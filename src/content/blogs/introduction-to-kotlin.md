@@ -1,6 +1,6 @@
 ---
 title: কোটলিনের পরিচয়
-publishDate: 2022-10-15 00:00:00
+publish_date: 2022-10-15 00:00:00
 img: /assets/blogs/kotlin.png
 img_alt: Java Virtual Machines-এর জন্য একটি আধুনিক প্রোগ্রামিং ভাষা| Better Java
 description: |

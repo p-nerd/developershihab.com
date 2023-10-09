@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import Preview from "./Preview.astro";
+import Preview from "../BlogPreview.tsx";
 import Grid from "./Grid.astro";
 
 export interface Props {
@@ -15,8 +15,8 @@ const { blogs } = Astro.props as Props;
         blogs.map(blog => (
             <Preview
                 slug={blog.slug}
-                publishDate={blog.data.publishDate}
-                imgAlt={blog.data.img_alt || ""}
+                publish_date={blog.data.publish_date}
+                img_alt={blog.data.img_alt || ""}
                 img={blog.data.img}
                 title={blog.data.title}
                 description={blog.data.description}

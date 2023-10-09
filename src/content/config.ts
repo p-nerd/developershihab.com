@@ -1,11 +1,15 @@
 import { defineCollection, z, type CollectionEntry } from "astro:content";
 
+export const PROJECTS = "projects";
+export const BLOGS = "blogs";
+
 export const collections = {
-    projects: defineCollection({
+    [PROJECTS]: defineCollection({
         schema: z.object({
             title: z.string(),
             description: z.string(),
-            publishDate: z.coerce.date(),
+            start_date: z.coerce.date(),
+            end_date: z.coerce.date().nullable(),
             type: z.string(),
             domain: z.string(),
             technologies: z.array(z.string()),
@@ -17,11 +21,11 @@ export const collections = {
             draft: z.boolean(),
         }),
     }),
-    blogs: defineCollection({
+    [BLOGS]: defineCollection({
         schema: z.object({
             title: z.string(),
             description: z.string(),
-            publishDate: z.coerce.date(),
+            publish_date: z.coerce.date(),
             tags: z.array(z.string()),
             img: z.string(),
             img_alt: z.string().optional(),
@@ -30,3 +34,4 @@ export const collections = {
 };
 
 export type TProject = CollectionEntry<"projects">;
+export type TBlog = CollectionEntry<"blogs">;

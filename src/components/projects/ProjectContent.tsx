@@ -2,7 +2,7 @@ import { type JSX } from "solid-js";
 
 const ProjectContent = (p: {
     img?: string;
-    imgAlt?: string;
+    img_alt?: string;
     imgLink?: string;
     children: JSX.Element;
 }) => {
@@ -15,14 +15,14 @@ const ProjectContent = (p: {
                             <a href={p.imgLink}>
                                 <img
                                     src={p.img}
-                                    alt={p.imgAlt || ""}
+                                    alt={p.img_alt || ""}
                                     class="w-full rounded-lg "
                                 />
                             </a>
                         ) : (
                             <img
                                 src={p.img}
-                                alt={p.imgAlt || ""}
+                                alt={p.img_alt || ""}
                                 class="w-full rounded-lg "
                             />
                         )}

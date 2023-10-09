@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { titles, descriptions } from "site.config";
+import { PROJECTS } from "@content/config";
 
 import Layout from "@layouts/Layout.astro";
 import ContactCTA from "@components/pure/ContactCTA.tsx";
@@ -8,9 +9,7 @@ import Hero from "@components/pure/Hero.tsx";
 import Grid from "@components/projects/ProjectGrid.astro";
 import ProjectPreview from "@components/projects/ProjectPreview.tsx";
 
-const projects = (await getCollection("projects")).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+const projects = await getCollection(PROJECTS);
 ---
 
 <Layout title={titles["/projects"]} description={descriptions["/projects"]}>
@@ -21,9 +20,7 @@ const projects = (await getCollection("projects")).sort(
                 tagline="See my most recent projects below to get an idea of my past experience."
                 align="start"
                 alignHero="end"
-            >
-                <></>
-            </Hero>
+            />
             <Grid>
                 {projects.map(project => <ProjectPreview project={project} />)}
             </Grid>

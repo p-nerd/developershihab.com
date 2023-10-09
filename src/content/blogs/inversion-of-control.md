@@ -1,6 +1,6 @@
 ---
 title: ইনভার্শন অব কন্ট্রোল নীতি
-publishDate: 2022-10-11 00:00:00
+publish_date: 2022-10-11 00:00:00
 img: /assets/blogs/ioc.png
 img_alt: Problem এর বাংলা হলো সমস্যা আর Solving হলো সেই সমস্যা সমাধান করা। কিন্তু আমার কাছে Problem বা সমস্যা মানে হলো কোন unknown situation বা অজানা পরিস্থিতি
 description: |

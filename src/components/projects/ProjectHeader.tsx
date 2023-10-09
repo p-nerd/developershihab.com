@@ -1,15 +1,14 @@
-import Icon from "@components/pure/Icon.astro";
 import ProjectPill from "./ProjectPill.tsx";
 import Hero from "@components/pure/Hero.tsx";
 import ArrowLeftIcon from "@components/icons/ArrowLeftIcon.tsx";
+import {
+    formatDateToMonthDayYear,
+    showProjectEndDate,
+    showProjectStartDate,
+} from "@helpers/date.ts";
+import type { TProject } from "@content/config.ts";
 
-const ProjectHeader = (p: {
-    technologies: string[];
-    description: string;
-    title: string;
-    type: string;
-    domain: string;
-}) => {
+const ProjectHeader = (p: { project: TProject }) => {
     return (
         <header class="w-auto border-b-[1px] border-solid border-[#e3e6ee] pb-[2.5rem] dark:border-[#283044]">
             <div
@@ -25,17 +24,22 @@ const ProjectHeader = (p: {
                         <span>Projects</span>
                     </a>
                     <p class="flex flex-col text-end text-2xl font-bold">
-                        <span>{p.type}</span>
-                        <span>{p.domain}</span>
+                        <span>
+                            {p.project.data.domain} - {p.project.data.type}
+                        </span>
+                        <span>
+                            {showProjectStartDate(p.project.data.start_date)} -{" "}
+                            {showProjectEndDate(p.project.data.end_date)}
+                        </span>
                     </p>
                 </div>
-                <Hero title={p.title} align="start">
+                <Hero title={p.project.data.title} align="start">
                     <div class="flex flex-col items-center justify-between gap-[1.5rem] p-[0.5rem] lg:flex-row lg:gap-[2.5rem]">
                         <p class="max-w-[50%] text-[1.25rem]">
-                            {p.description}
+                            {p.project.data.description}
                         </p>
                         <div class="flex max-w-[50%] flex-wrap justify-end gap-[0.5rem]">
-                            {p.technologies.map(t => (
+                            {p.project.data.technologies.map(t => (
                                 <ProjectPill>{t}</ProjectPill>
                             ))}
                         </div>
