@@ -1,11 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import { PROJECTS, type TProject } from "@/content/config";
+import { name } from "site.config";
 
-import ContactCTA from "@/components/ContactCTA";
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/screens/project/Header.tsx";
-import ContentX from "@/screens/project/Content";
+import Project from "@/screens/Project.tsx";
 
 interface Props {
     entry: TProject;
@@ -23,19 +22,9 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title} description={entry.data.description}>
-    <div class="flex flex-col gap-[5rem]">
-        <div class="flex flex-col gap-[3.75rem]">
-            <Header project={entry} />
-            <ContentX
-                img={entry.data.img}
-                img_alt={entry.data.img_alt || ""}
-                imgLink={entry.data.img_link || ""}
-            >
-                <Content />
-            </ContentX>
-        </div>
-        <ContactCTA />
-    </div>
+<Layout
+    title={`${entry.data.title} Project by ${name}`}
+    description={entry.data.description}
+>
+    <Project project={entry}><Content /></Project>
 </Layout>
- @/components/ContactCTA @/components/ContactCTA

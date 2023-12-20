@@ -12,4 +12,4 @@ const PaginationLink = (props: { link?: string; text?: string }) => {
     );
 };
 
-export default PaginationLink
+export default PaginationLink;
