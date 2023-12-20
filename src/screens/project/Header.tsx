@@ -1,14 +1,18 @@
-import ProjectPill from "./ProjectPill.tsx";
-import Hero from "@components/pure/Hero.tsx";
-import ArrowLeftIcon from "@components/icons/ArrowLeftIcon.tsx";
-import {
-    formatDateToMonthDayYear,
-    showProjectEndDate,
-    showProjectStartDate,
-} from "@helpers/date.ts";
+import Hero from "@/components/Hero";
+import ArrowLeftIcon from "@/icons/ArrowLeftIcon.tsx";
+import { showProjectEndDate, showProjectStartDate } from "@helpers/date.ts";
 import type { TProject } from "@content/config.ts";
+import type { JSX } from "solid-js";
 
-const ProjectHeader = (p: { project: TProject }) => {
+const ProjectPill = (p: { children: JSX.Element }) => {
+    return (
+        <div class="flex gap-2 whitespace-nowrap rounded-full border border-solid border-purple-700 bg-sx-gray-999 px-4 py-2 text-lg font-bold leading-[1.35] text-purple-700">
+            {p.children}
+        </div>
+    );
+};
+
+const Header = (p: { project: TProject }) => {
     return (
         <header class="w-auto border-b-[1px] border-solid border-[#e3e6ee] pb-[2.5rem] dark:border-[#283044]">
             <div
@@ -50,4 +54,4 @@ const ProjectHeader = (p: { project: TProject }) => {
     );
 };
 
-export default ProjectHeader;
+export default Header;

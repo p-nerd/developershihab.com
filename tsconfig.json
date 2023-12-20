@@ -5,6 +5,7 @@
         "jsxImportSource": "solid-js",
         "baseUrl": ".",
         "paths": {
+            "@/*": ["src/*"],
             "@components/*": ["src/components/*"],
             "@content/*": ["src/content/*"],
             "@helpers/*": ["src/helpers/*"],

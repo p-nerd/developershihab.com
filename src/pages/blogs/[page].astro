@@ -1,15 +1,18 @@
 ---
 import type { Page, PaginateFunction } from "astro";
-import { titles, descriptions } from "site.config.ts";
+
+import * as site_config from "site.config.ts";
+
 import { getCollection, type CollectionEntry } from "astro:content";
 import { generateTags } from "@helpers/blogs.ts";
 
-import ContactCTA from "@components/pure/ContactCTA.tsx";
-import Hero from "@components/pure/Hero.tsx";
-import Layout from "@layouts/Layout.astro";
-import BlogTags from "@components/blogs/BlogTags.astro";
-import BlogList from "@components/blogs/BlogList.astro";
-import BlogPaginationLink from "@components/blogs/BlogPaginationLink.astro";
+import ContactCTA from "@/components/ContactCTA";
+import Hero from "@/components/Hero.tsx";
+import Layout from "@/layouts/Layout.astro";
+
+import BlogTags from "@/screens/blogs/Tags.astro";
+import BlogList from "@/screens/blogs/List.astro";
+import BlogPaginationLink from "@/screens/blogs/PaginationLink.astro";
 
 export async function getStaticPaths({
     paginate,
@@ -20,7 +23,9 @@ export async function getStaticPaths({
         (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
     );
 
-    return paginate(blogs, { pageSize: 4 });
+    return paginate(blogs, {
+        pageSize: site_config.total_number_blogs_on_blogs_page,
+    });
 }
 
 export interface Props {
@@ -34,7 +39,10 @@ const blogs = page.data;
 const tags = generateTags(await getCollection("blogs"));
 ---
 
-<Layout title={titles["/blogs"]} description={descriptions["/blogs"]}>
+<Layout
+    title={site_config.titles["/blogs"]}
+    description={site_config.descriptions["/blogs"]}
+>
     <div class="flex flex-col gap-20">
         <main class="wrapper flex flex-col gap-20">
             <Hero
@@ -48,17 +56,20 @@ const tags = generateTags(await getCollection("blogs"));
             <BlogTags tags={tags} />
             <BlogList blogs={blogs} />
             {
-                page.url.next ? (
-                    <BlogPaginationLink link={page.url.next} />
-                ) : (
-                    <BlogPaginationLink
-                        link={page.url.prev}
-                        text="Previous Blogs"
-                    />
+                blogs.length > site_config.total_number_blogs_on_blogs_page && (
+                    <>
+                        {page.url.next ? (
+                            <BlogPaginationLink link={page.url.next} />
+                        ) : (
+                            <BlogPaginationLink
+                                link={page.url.prev}
+                                text="Previous Blogs"
+                            />
+                        )}
+                    </>
                 )
             }
         </main>
-
         <ContactCTA />
     </div>
 </Layout>

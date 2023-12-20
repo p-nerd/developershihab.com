@@ -4,11 +4,13 @@ import { getCollection } from "astro:content";
 import { deslugify, slugify } from "@helpers/slug.ts";
 import { generateTags } from "@helpers/blogs.ts";
 
-import ContactCTA from "@components/pure/ContactCTA.tsx";
-import Hero from "@components/pure/Hero.tsx";
-import Layout from "@layouts/Layout.astro";
-import BlogTags from "@components/blogs/BlogTags.astro";
-import BlogList from "@components/blogs/BlogList.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import ContactCTA from "@/components/ContactCTA";
+import Hero from "@/components/Hero.tsx";
+
+import BlogTags from "@/screens/blogs/Tags.astro";
+import BlogList from "@/screens/blogs/List.astro";
 
 export async function getStaticPaths({}: {}) {
     let tags: string[] = [];

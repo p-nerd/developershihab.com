@@ -26,7 +26,7 @@ export const navLinks: TNavLink[] = [
 
 export const email = "shihab4t@gmail.com";
 
-export const socialLinks: TSocialLink[] = [
+export const social_links: TSocialLink[] = [
     {
         label: "GitHub",
         href: "https://github.com/p-nerd",
@@ -53,3 +53,5 @@ export const socialLinks: TSocialLink[] = [
         icon: "email-logo",
     },
 ];
+
+export const total_number_blogs_on_blogs_page = 10;

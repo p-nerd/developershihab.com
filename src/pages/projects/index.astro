@@ -3,11 +3,10 @@ import { getCollection } from "astro:content";
 import { titles, descriptions } from "site.config";
 import { PROJECTS } from "@content/config";
 
-import Layout from "@layouts/Layout.astro";
-import ContactCTA from "@components/pure/ContactCTA.tsx";
-import Hero from "@components/pure/Hero.tsx";
-import Grid from "@components/projects/ProjectGrid.astro";
-import ProjectPreview from "@components/projects/ProjectPreview.tsx";
+import Layout from "@/layouts/Layout.astro";
+import ContactCTA from "@/components/ContactCTA";
+import Hero from "@/components/Hero.tsx";
+import Projects from "@/screens/projects/List";
 
 const projects = await getCollection(PROJECTS);
 ---
@@ -21,11 +20,10 @@ const projects = await getCollection(PROJECTS);
                 align="start"
                 alignHero="end"
             />
-            <Grid>
-                {projects.map(project => <ProjectPreview project={project} />)}
-            </Grid>
+            <Projects projects={projects} />
         </main>
         <ContactCTA />
     </div>
 </Layout>
- @components/projects/ProjectPreview
+ @/screens/projects/List@/components/ContactCTA@/components/Hero
+@/components/ContactCTA

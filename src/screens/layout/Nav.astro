@@ -1,7 +1,7 @@
 ---
-import { navLinks, socialLinks } from "site.config.ts";
+import { navLinks, social_links } from "site.config.ts";
 
-import Icon from "../pure/Icon.astro";
+import Icon from "@/components/Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
@@ -53,7 +53,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         <div class="menu-footer">
             <div class="socials">
                 {
-                    socialLinks.map(({ href, icon, label }) => (
+                    social_links.map(({ href, icon, label }) => (
                         <a href={href} class="social">
                             <span class="sr-only">{label}</span>
                             <Icon icon={icon} />

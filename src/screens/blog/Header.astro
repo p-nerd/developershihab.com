@@ -1,9 +1,9 @@
 ---
 import { formatDateToMonthDayYear } from "@helpers/date";
 
-import ArrowLeftIcon from "@components/icons/ArrowLeftIcon";
-import Hero from "@components/pure/Hero";
-import Pill from "@components/pure/Pill.astro";
+import ArrowLeftIcon from "@/icons/ArrowLeftIcon";
+import Hero from "@/components/Hero";
+import Pill from "@/components/Pill.astro";
 
 interface Props {
     tags: string[];
@@ -48,3 +48,4 @@ const { tags, description, title, publish_date } = Astro.props;
         </Hero>
     </div>
 </header>
+ @/components/Hero

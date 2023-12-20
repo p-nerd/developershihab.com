@@ -8,9 +8,10 @@ interface Props {
     description?: string;
 }
 
-const title = Astro.props.title || "Not Found";
-const description =
-    Astro.props.description || "404 Error — this page was not found";
+const props = Astro.props;
+
+const title = props.title || "Not Found";
+const description = props.description || "404 Error — this page was not found";
 ---
 
 <meta charset="UTF-8" />

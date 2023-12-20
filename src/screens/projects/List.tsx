@@ -1,4 +1,5 @@
 import type { TProject } from "@content/config";
+
 import { showProjectEndDate, showProjectStartDate } from "@helpers/date";
 
 const ProjectPreview = (p: { project: TProject }) => {
@@ -59,4 +60,18 @@ const ProjectPreview = (p: { project: TProject }) => {
     );
 };
 
-export default ProjectPreview;
+const Projects = (p: { projects: TProject[] }) => {
+    return (
+        <div>
+            <div id="project-grid">
+                <ul class="offset grid">
+                    {p.projects.map(project => (
+                        <ProjectPreview project={project} />
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default Projects;
