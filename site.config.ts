@@ -1,19 +1,22 @@
 import type { TSocialLink, TNavLink } from "./src/helpers/types";
 
+export const name = "Shihab Mahamud";
+export const email = "shihab4t@gmail.com";
+
 export const titles = {
-    "/": "Portfolio of Shihab Mahamud",
-    "/about": "Know About Shihab Mahamud",
-    "/projects": "Projects by Shihab Mahamud",
-    "/blogs": "Blogs by Shihab Mahamud",
-    "/contact": "Make Contact with Shihab Mahamud",
+    "/": `Portfolio of ${name}`,
+    "/about": `Know About ${name}`,
+    "/projects": `Projects by ${name}`,
+    "/blogs": `Blogs by ${name}`,
+    "/contact": `Make Contact with ${name}`,
 };
 
 export const descriptions = {
-    "/": "The personal site of Shihab Mahamud",
-    "/about": "About Shihab Mahamud Lorem Ipsum",
-    "/projects": "Learn about Shihab Mahamud's most recent projects",
-    "/blogs": "Learn about Shihab Mahamud's most recent blogs",
-    "/contact": "Make Contact with Shihab Mahamud. Retch out to Shihab Mahamud",
+    "/": `The personal site of ${name}`,
+    "/about": `About ${name}`,
+    "/projects": `Learn about ${name}'s most recent projects`,
+    "/blogs": `Learn about ${name}'s most recent blogs`,
+    "/contact": `Make Contact with ${name}. Retch out to ${name}`,
 };
 
 export const nav_links: TNavLink[] = [
@@ -23,8 +26,6 @@ export const nav_links: TNavLink[] = [
     { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },
 ];
-
-export const email = "shihab4t@gmail.com";
 
 export const social_links: TSocialLink[] = [
     {
