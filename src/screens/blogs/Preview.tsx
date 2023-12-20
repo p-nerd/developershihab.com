@@ -12,7 +12,7 @@ const BlogPreview = (p: {
     return (
         <li>
             <a
-                class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md dark:bg-[#111621] lg:rounded-3xl lg:p-5 lg:py-10"
+                class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]"
                 href={`/blogs/${p.slug}`}
             >
                 <div class="lg:px-2 lg:py-1">

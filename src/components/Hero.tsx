@@ -25,7 +25,7 @@ const Hero = (props: {
                 style={`text-align: ${p.alignHero};`}
                 class="flex flex-col gap-2"
             >
-                <h1 class="text-sx-gray-0 text-[2.625rem] lg:text-[4.5rem]">
+                <h1 class="text-[2.625rem] text-sx-gray-0 lg:text-[4.5rem]">
                     {p.title}
                 </h1>
                 {p.tagline && (

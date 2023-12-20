@@ -29,7 +29,7 @@ const ProjectContent = (p: {
                     </div>
                 )}
                 <div class="w-full rounded-lg border-2 border-[#e3e6ee] shadow-2xl dark:border-[#283044] dark:shadow-gray-600">
-                    <article class="prose prose-neutral w-full max-w-none p-[0.5rem] text-justify dark:prose-invert lg:prose-xl lg:p-[1.5rem]">
+                    <article class="prose prose-neutral w-full max-w-none p-[0.5rem] text-justify lg:prose-xl dark:prose-invert lg:p-[1.5rem]">
                         {p.children}
                     </article>
                 </div>

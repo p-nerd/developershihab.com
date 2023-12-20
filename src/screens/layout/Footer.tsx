@@ -4,7 +4,7 @@ import { For } from "solid-js";
 
 const Footer = () => {
     return (
-        <footer class="mt-auto flex flex-col gap-12 px-8 py-12 text-center text-[0.875rem] text-[#6474a2] dark:text-[#8490b5] lg:flex-row lg:justify-between lg:px-[5rem] lg:py-[2.5rem]">
+        <footer class="mt-auto flex flex-col gap-12 px-8 py-12 text-center text-[0.875rem] text-[#6474a2] lg:flex-row lg:justify-between lg:px-[5rem] lg:py-[2.5rem] dark:text-[#8490b5]">
             <div class="flex flex-col gap-2 lg:flex-row lg:flex-wrap lg:gap-2">
                 <p>
                     Designed inspired from

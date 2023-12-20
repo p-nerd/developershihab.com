@@ -4,7 +4,7 @@ const CallToAction = (p: { href: string; children: JSXElement }) => {
     return (
         <a
             href={p.href}
-            class="text-sx-accent-text-over bg-sx-gr group relative flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full px-8 py-2 text-center leading-[1.1] shadow-sx-shadow-md lg:px-10 lg:py-[1.125rem] lg:text-[1.625rem]"
+            class="bg-sx-gr group relative flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full px-8 py-2 text-center leading-[1.1] text-sx-accent-text-over shadow-sx-shadow-md lg:px-10 lg:py-[1.125rem] lg:text-[1.625rem]"
             style="text-decoration: none; background: var(--gradient-accent-orange);"
         >
             {p.children}

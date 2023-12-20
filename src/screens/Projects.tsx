@@ -45,7 +45,7 @@ const Links = (p: { links: Record<string, string> }) => {
 
 const Preview = (p: { project: TProject }) => {
     return (
-        <li class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md dark:bg-[#111621] lg:flex-row lg:rounded-3xl lg:p-5 lg:py-10">
+        <li class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md lg:flex-row lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]">
             <div class="px-2 py-1 lg:px-4 lg:py-2">
                 <Link slug={p.project.slug}>
                     <img
