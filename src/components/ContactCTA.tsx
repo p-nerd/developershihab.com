@@ -1,4 +1,4 @@
-import { email } from "site.config";
+import { email } from "site.config.ts";
 import PaperPlaneTilt from "@/icons/PaperPlaneTilt.tsx";
 import CallToAction from "./CallToAction.tsx";
 
