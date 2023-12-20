@@ -3,23 +3,24 @@ import type { Page, PaginateFunction } from "astro";
 
 import * as site_config from "site.config.ts";
 
+import { BLOGS } from "@/content/config";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { generate_tags } from "@/helpers/etc";
 
 import ContactCTA from "@/components/ContactCTA";
 import Hero from "@/components/Hero.tsx";
 import Layout from "@/layouts/Layout.astro";
 
-import BlogTags from "@/screens/blogs/Tags.astro";
-import BlogList from "@/screens/blogs/List.astro";
-import BlogPaginationLink from "@/screens/blogs/PaginationLink.astro";
-import { generate_tags } from "@/helpers/etc";
+import Tags from "@/screens/blogs/Tags.tsx";
+import List from "@/screens/blogs/List.astro";
+import PaginationLink from "@/screens/blogs/PaginationLink.tsx";
 
 export async function getStaticPaths({
     paginate,
 }: {
     paginate: PaginateFunction;
 }) {
-    const blogs = (await getCollection("blogs")).sort(
+    const blogs = (await getCollection(BLOGS)).sort(
         (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
     );
 
@@ -37,6 +38,7 @@ const { page } = Astro.props;
 const blogs = page.data;
 
 const tags = generate_tags(await getCollection("blogs"));
+const total_blogs_count = (await getCollection(BLOGS)).length;
 ---
 
 <Layout
@@ -53,15 +55,15 @@ const tags = generate_tags(await getCollection("blogs"));
             >
                 <></>
             </Hero>
-            <BlogTags tags={tags} />
-            <BlogList blogs={blogs} />
+            <Tags tags={tags} blogsCount={total_blogs_count} />
+            <List blogs={blogs} />
             {
                 blogs.length > site_config.total_number_blogs_on_blogs_page && (
                     <>
                         {page.url.next ? (
-                            <BlogPaginationLink link={page.url.next} />
+                            <PaginationLink link={page.url.next} />
                         ) : (
-                            <BlogPaginationLink
+                            <PaginationLink
                                 link={page.url.prev}
                                 text="Previous Blogs"
                             />

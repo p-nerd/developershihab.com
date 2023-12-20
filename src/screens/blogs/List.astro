@@ -1,10 +1,11 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import type { TBlog } from "@/content/config";
+
 import Grid from "./Grid.astro";
 import BlogPreview from "./Preview";
 
 export interface Props {
-    blogs: CollectionEntry<"blogs">[];
+    blogs: TBlog[];
 }
 
 const { blogs } = Astro.props as Props;
