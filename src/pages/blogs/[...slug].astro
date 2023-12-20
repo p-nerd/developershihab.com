@@ -1,33 +1,31 @@
 ---
 import type { TBlog } from "@/content/config";
-
-import { getCollection } from "astro:content";
 import { name } from "site.config.ts";
-
+import { get_blogs } from "@/helpers/collec";
 import Layout from "@/layouts/Layout.astro";
 import Blog from "@/screens/Blog.tsx";
 
-export async function getStaticPaths() {
-    const blogs = await getCollection("blogs");
-    return blogs.map(entry => ({
-        params: { slug: entry.slug },
-        props: { entry },
+export const getStaticPaths = async () => {
+    const blogs = await get_blogs();
+    return blogs.map(blog => ({
+        params: { slug: blog.slug },
+        props: { blog },
     }));
+};
+
+export interface Props {
+    blog: TBlog;
 }
 
-interface Props {
-    entry: TBlog;
-}
-
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { blog } = Astro.props as Props;
+const { Content } = await blog.render();
 ---
 
 <Layout
-    title={`${entry.data.title} by ${name}`}
-    description={entry.data.description}
+    title={`${blog.data.title} by ${name}`}
+    description={blog.data.description}
 >
-    <Blog blog={entry}>
+    <Blog blog={blog}>
         <Content />
     </Blog>
 </Layout>

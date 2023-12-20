@@ -1,30 +1,28 @@
 ---
-import { getCollection } from "astro:content";
-import { PROJECTS, type TProject } from "@/content/config";
+import type { TProject } from "@/content/config";
 import { name } from "site.config";
-
+import { get_projects } from "@/helpers/collec";
 import Layout from "@/layouts/Layout.astro";
 import Project from "@/screens/Project.tsx";
 
-interface Props {
-    entry: TProject;
-}
-
-export async function getStaticPaths() {
-    const projects = await getCollection(PROJECTS);
-    return projects.map(entry => ({
-        params: { slug: entry.slug },
-        props: { entry },
+export const getStaticPaths = async () => {
+    return (await get_projects()).map(project => ({
+        params: { slug: project.slug },
+        props: { project },
     }));
+};
+
+export interface Props {
+    project: TProject;
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { project } = Astro.props;
+const { Content } = await project.render();
 ---
 
 <Layout
-    title={`${entry.data.title} Project by ${name}`}
-    description={entry.data.description}
+    title={`${project.data.title} Project by ${name}`}
+    description={project.data.description}
 >
-    <Project project={entry}><Content /></Project>
+    <Project project={project}><Content /></Project>
 </Layout>

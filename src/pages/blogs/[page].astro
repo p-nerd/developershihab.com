@@ -1,77 +1,57 @@
 ---
+import {
+    descriptions,
+    titles,
+    total_number_blogs_on_blogs_page,
+} from "site.config.ts";
 import type { Page, PaginateFunction } from "astro";
-
-import * as site_config from "site.config.ts";
-
-import { BLOGS } from "@/content/config";
-import { getCollection, type CollectionEntry } from "astro:content";
+import type { TBlog } from "@/content/config";
+import { get_blogs } from "@/helpers/collec";
 import { generate_tags } from "@/helpers/etc";
-
-import ContactCTA from "@/components/ContactCTA";
-import Hero from "@/components/Hero.tsx";
 import Layout from "@/layouts/Layout.astro";
+import PaginationLink from "@/components/PaginationLink";
+import Blogs from "@/screens/Blogs.tsx";
 
-import Tags from "@/screens/blogs/Tags.tsx";
-import List from "@/screens/blogs/List.astro";
-import PaginationLink from "@/screens/blogs/PaginationLink.tsx";
-
-export async function getStaticPaths({
-    paginate,
-}: {
-    paginate: PaginateFunction;
-}) {
-    const blogs = (await getCollection(BLOGS)).sort(
-        (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
-    );
-
-    return paginate(blogs, {
-        pageSize: site_config.total_number_blogs_on_blogs_page,
-    });
-}
+export const getStaticPaths = async (o: { paginate: PaginateFunction }) => {
+    const blogs = await get_blogs();
+    return o.paginate(blogs, { pageSize: total_number_blogs_on_blogs_page });
+};
 
 export interface Props {
-    page: Page<CollectionEntry<"blogs">>;
+    page: Page<TBlog>;
 }
 
-const { page } = Astro.props;
-
+const page = Astro.props.page;
 const blogs = page.data;
 
-const tags = generate_tags(await getCollection("blogs"));
-const total_blogs_count = (await getCollection(BLOGS)).length;
+const all_blogs = await get_blogs();
+const tags = generate_tags(all_blogs);
+const total_blogs_count = all_blogs.length;
 ---
 
-<Layout
-    title={site_config.titles["/blogs"]}
-    description={site_config.descriptions["/blogs"]}
->
-    <div class="flex flex-col gap-20">
-        <main class="wrapper flex flex-col gap-20">
-            <Hero
-                title="My Blogs"
-                tagline="Explore my Latest Insights and Perspectives"
-                align="end"
-                alignHero="end"
-            >
-                <></>
-            </Hero>
-            <Tags tags={tags} blogsCount={total_blogs_count} />
-            <List blogs={blogs} />
-            {
-                blogs.length > site_config.total_number_blogs_on_blogs_page && (
-                    <>
-                        {page.url.next ? (
-                            <PaginationLink link={page.url.next} />
-                        ) : (
-                            <PaginationLink
-                                link={page.url.prev}
-                                text="Previous Blogs"
-                            />
-                        )}
-                    </>
-                )
-            }
-        </main>
-        <ContactCTA />
-    </div>
+<Layout title={titles["/blogs"]} description={descriptions["/blogs"]}>
+    <Blogs
+        tags={tags}
+        blogsCount={total_blogs_count}
+        blogs={blogs}
+        title="My Blogs"
+        tagline="Explore my Latest Insights and Perspectives"
+        align="end"
+        alignHero="end"
+    >
+        {
+            blogs.length > total_number_blogs_on_blogs_page && (
+                <>
+                    {page.url.next ? (
+                        <PaginationLink link={page.url.next} />
+                    ) : (
+                        <PaginationLink
+                            link={page.url.prev}
+                            text="Previous Blogs"
+                        />
+                    )}
+                </>
+            )
+        }
+    </Blogs>
 </Layout>

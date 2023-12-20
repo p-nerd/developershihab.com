@@ -1,53 +1,41 @@
 ---
 import { titles, descriptions } from "site.config.ts";
-import { getCollection } from "astro:content";
 import { deslugify, generate_tags, slugify } from "@/helpers/etc";
-import { BLOGS } from "@/content/config";
-
+import { get_blogs } from "@/helpers/collec";
 import Layout from "@/layouts/Layout.astro";
+import Blogs from "@/screens/Blogs.tsx";
 
-import ContactCTA from "@/components/ContactCTA";
-import Hero from "@/components/Hero.tsx";
-
-import Tags from "@/screens/blogs/Tags.tsx";
-import List from "@/screens/blogs/List.astro";
-
-export async function getStaticPaths({}: {}) {
+export const getStaticPaths = async () => {
     let tags: string[] = [];
-
-    (await getCollection(BLOGS)).forEach(blog => {
-        tags = [...tags, ...blog.data.tags];
-    });
-
+    (await get_blogs()).forEach(blog => (tags = [...tags, ...blog.data.tags]));
     return tags.map(tag => ({ params: { tag: slugify(tag) } }));
+};
+
+export interface Props {
+    tag: string;
 }
 
-const { tag: slug } = Astro.params;
+const { tag: slug } = Astro.params as Props;
 
-const blogs = (await getCollection(BLOGS)).filter(blog =>
-    blog.data.tags.find(tag => slug === slugify(tag)),
+const all_blogs = await get_blogs();
+const blogs = all_blogs.filter(b =>
+    b.data.tags.find(tag => slug === slugify(tag)),
 );
 
 const tag = deslugify(slug);
-
-const tags = generate_tags(await getCollection("blogs"));
-const total_blogs_count = (await getCollection(BLOGS)).length;
+const tags = generate_tags(all_blogs);
+const total_blogs_count = all_blogs.length;
 ---
 
 <Layout title={titles["/blogs"]} description={descriptions["/blogs"]}>
-    <div class="flex flex-col gap-20">
-        <main class="wrapper flex flex-col gap-20">
-            <Hero
-                title={`Tag: ${tag}`}
-                tagline={`Explore all "${tag}" related posts`}
-                align="start"
-                alignHero="end"
-            >
-                <></>
-            </Hero>
-            <Tags blogsCount={total_blogs_count} tags={tags} tagSlug={slug} />
-            <List blogs={blogs} />
-        </main>
-        <ContactCTA />
-    </div>
+    <Blogs
+        tags={tags}
+        blogsCount={total_blogs_count}
+        blogs={blogs}
+        title={`Tag: ${tag}`}
+        tagline={`Explore all "${tag}" related posts`}
+        align="start"
+        alignHero="end"
+        slug={slug}
+    />
 </Layout>
