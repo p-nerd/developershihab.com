@@ -1,10 +1,10 @@
-import type { TProject } from "@content/config";
+import type { TProject } from "@/content/config";
 import type { JSX } from "solid-js";
 
-import { PROJECTS } from "@content/config";
+import { PROJECTS } from "@/content/config";
 import { getCollection } from "astro:content";
 import { For } from "solid-js";
-import { showProjectEndDate, showProjectStartDate } from "@helpers/date";
+import { showProjectEndDate, showProjectStartDate } from "@/helpers/date";
 
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
@@ -75,7 +75,10 @@ const Preview = (p: { project: TProject }) => {
                 <div class="lg:px-2 lg:py-1">
                     <p class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                         {p.project.data.description}
-                        <Link slug={p.project.slug}> <span class="text">Read more...</span></Link>
+                        <Link slug={p.project.slug}>
+                            {" "}
+                            <span class="text">Read more...</span>
+                        </Link>
                     </p>
                 </div>
                 <Technologies technologies={p.project.data.technologies} />

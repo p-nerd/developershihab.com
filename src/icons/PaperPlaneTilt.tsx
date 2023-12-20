@@ -1,4 +1,4 @@
-import type { TIconComponent } from "@helpers/types";
+import type { TIconComponent } from "@/helpers/types";
 
 const PaperPlaneTilt: TIconComponent = p => {
     return (

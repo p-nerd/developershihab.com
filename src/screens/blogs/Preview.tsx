@@ -1,4 +1,4 @@
-import { formatDateToMonthDayYear } from "@helpers/date.ts";
+import { formatDateToMonthDayYear } from "@/helpers/date.ts";
 
 const BlogPreview = (p: {
     slug: string;

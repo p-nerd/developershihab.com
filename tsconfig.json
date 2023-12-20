@@ -5,16 +5,7 @@
         "jsxImportSource": "solid-js",
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"],
-            "@components/*": ["src/components/*"],
-            "@content/*": ["src/content/*"],
-            "@helpers/*": ["src/helpers/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@pages/*": ["src/pages/*"],
-            "@partials/*": ["src/partials/*"],
-            "@schemas/*": ["src/schemas/*"],
-            "@screens/*": ["src/screens/*"],
-            "@styles/*": ["src/styles/*"]
+            "@/*": ["src/*"]
         }
     }
 }
