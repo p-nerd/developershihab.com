@@ -1,8 +1,8 @@
 import type { CollectionEntry } from "astro:content";
-export type Tag = { label: string; count: number };
+import type { TTag } from "./types";
 
-export const generateTags = (blogs: CollectionEntry<"blogs">[]) => {
-    let tags: Tag[] = [];
+export const generate_tags = (blogs: CollectionEntry<"blogs">[]) => {
+    let tags: TTag[] = [];
 
     blogs.forEach(blog => {
         blog.data.tags.forEach(tag => {
@@ -29,4 +29,16 @@ export const generateTags = (blogs: CollectionEntry<"blogs">[]) => {
     });
 
     return tags;
+};
+
+export const slugify = (text: string): string => {
+    const cleanedInput = text.trim().toLowerCase();
+    const slug = cleanedInput.replace(/[^a-zA-Z0-9-]+/g, "-");
+    return slug.replace(/^-+|-+$/g, "");
+};
+
+export const deslugify = (slug?: string): string => {
+    if (!slug) return "";
+    const text = slug.replace(/-/g, " ");
+    return text.replace(/(?:^|\s)\S/g, match => match.toUpperCase());
 };

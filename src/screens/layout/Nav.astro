@@ -1,5 +1,5 @@
 ---
-import { navLinks, social_links } from "site.config.ts";
+import { nav_links, social_links } from "site.config.ts";
 
 import Icon from "@/components/Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
@@ -27,7 +27,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     <div id="menu-content">
         <ul class="nav-items">
             {
-                navLinks.map(({ label, href }) => (
+                nav_links.map(({ label, href }) => (
                     <li>
                         <a
                             aria-current={Astro.url.pathname === href}

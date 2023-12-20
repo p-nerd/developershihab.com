@@ -1,8 +1,7 @@
 ---
 import { titles, descriptions } from "site.config.ts";
 import { getCollection } from "astro:content";
-import { deslugify, slugify } from "@/helpers/slug.ts";
-import { generateTags } from "@/helpers/blogs.ts";
+import { deslugify, generate_tags, slugify } from "@/helpers/etc";
 
 import Layout from "@/layouts/Layout.astro";
 
@@ -30,7 +29,7 @@ const blogs = (await getCollection("blogs")).filter(blog =>
 
 const tag = deslugify(slug);
 
-const tags = generateTags(await getCollection("blogs"));
+const tags = generate_tags(await getCollection("blogs"));
 ---
 
 <Layout title={titles["/blogs"]} description={descriptions["/blogs"]}>
@@ -51,3 +50,4 @@ const tags = generateTags(await getCollection("blogs"));
         <ContactCTA />
     </div>
 </Layout>
+@/helpers/etc

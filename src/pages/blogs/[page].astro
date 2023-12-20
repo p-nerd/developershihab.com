@@ -4,7 +4,6 @@ import type { Page, PaginateFunction } from "astro";
 import * as site_config from "site.config.ts";
 
 import { getCollection, type CollectionEntry } from "astro:content";
-import { generateTags } from "@/helpers/blogs.ts";
 
 import ContactCTA from "@/components/ContactCTA";
 import Hero from "@/components/Hero.tsx";
@@ -13,6 +12,7 @@ import Layout from "@/layouts/Layout.astro";
 import BlogTags from "@/screens/blogs/Tags.astro";
 import BlogList from "@/screens/blogs/List.astro";
 import BlogPaginationLink from "@/screens/blogs/PaginationLink.astro";
+import { generate_tags } from "@/helpers/etc";
 
 export async function getStaticPaths({
     paginate,
@@ -36,7 +36,7 @@ const { page } = Astro.props;
 
 const blogs = page.data;
 
-const tags = generateTags(await getCollection("blogs"));
+const tags = generate_tags(await getCollection("blogs"));
 ---
 
 <Layout

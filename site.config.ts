@@ -16,7 +16,7 @@ export const descriptions = {
     "/contact": "Make Contact with Shihab Mahamud. Retch out to Shihab Mahamud",
 };
 
-export const navLinks: TNavLink[] = [
+export const nav_links: TNavLink[] = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },

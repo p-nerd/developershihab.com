@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import ArrowLeftIcon from "@/icons/ArrowLeftIcon.tsx";
+import ArrowLeft from "@/icons/ArrowLeft";
 import { show_project_end_date, show_project_start_date } from "@/helpers/time";
 import type { TProject } from "@/content/config.ts";
 import type { JSX } from "solid-js";
@@ -24,7 +24,7 @@ const Header = (p: { project: TProject }) => {
                         class="hidden self-start underline decoration-transparent decoration-solid decoration-1 underline-offset-[0.25rem] hover:decoration-current focus:decoration-current lg:block"
                         href="/projects"
                     >
-                        <ArrowLeftIcon />
+                        <ArrowLeft />
                         <span>Projects</span>
                     </a>
                     <p class="flex flex-col text-end text-2xl font-bold">

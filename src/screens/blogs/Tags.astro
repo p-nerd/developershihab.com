@@ -1,10 +1,11 @@
 ---
-import type { Tag } from "@/helpers/blogs.ts";
-import { slugify } from "@/helpers/slug.ts";
+import type { TTag } from "@/helpers/types";
+
+import { slugify } from "@/helpers/etc";
 import { getCollection } from "astro:content";
 
 interface Props {
-    tags: Tag[];
+    tags: TTag[];
     tagSlug?: string;
 }
 
@@ -35,3 +36,4 @@ const tagsx = [{ label: "All", count: blogs.length }, ...tags];
         ))
     }
 </section>
+@/helpers/etc

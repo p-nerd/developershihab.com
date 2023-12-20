@@ -1,5 +1,6 @@
 import type { JSXElement } from "solid-js";
-import type { iconPaths } from "./IconPaths";
+
+import icon_paths from "./icon_paths";
 
 export type TNavLink = {
     label: string;
@@ -9,7 +10,9 @@ export type TNavLink = {
 export type TSocialLink = {
     label: string;
     href: string;
-    icon: keyof typeof iconPaths;
+    icon: keyof typeof icon_paths;
 };
 
 export type TIconComponent = (p: { class?: string }) => JSXElement;
+
+export type TTag = { label: string; count: number };
