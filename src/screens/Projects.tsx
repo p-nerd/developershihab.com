@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 import { PROJECTS } from "@/content/config";
 import { getCollection } from "astro:content";
 import { For } from "solid-js";
-import { showProjectEndDate, showProjectStartDate } from "@/helpers/date";
+import { show_project_end_date, show_project_start_date } from "@/helpers/time";
 
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
@@ -60,8 +60,8 @@ const Preview = (p: { project: TProject }) => {
             <div>
                 <div class="flex justify-between text-base lg:px-2">
                     <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
-                        {showProjectStartDate(p.project.data.start_date)} -{" "}
-                        {showProjectEndDate(p.project.data.end_date)}
+                        {show_project_start_date(p.project.data.start_date)} -{" "}
+                        {show_project_end_date(p.project.data.end_date)}
                     </span>
                     <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                         {p.project.data.domain} - {p.project.data.type}

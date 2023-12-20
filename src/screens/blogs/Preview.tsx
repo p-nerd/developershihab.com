@@ -1,4 +1,4 @@
-import { formatDateToMonthDayYear } from "@/helpers/date.ts";
+import { format_date_to_month_day_year } from "@/helpers/time";
 
 const BlogPreview = (p: {
     slug: string;
@@ -20,7 +20,7 @@ const BlogPreview = (p: {
                         class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2"
                         datetime="2023-06-19"
                     >
-                        {formatDateToMonthDayYear(p.publish_date)}
+                        {format_date_to_month_day_year(p.publish_date)}
                     </time>
                 </div>
                 <div class="px-2 py-1 lg:px-4 lg:py-2">

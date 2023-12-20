@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import ArrowLeftIcon from "@/icons/ArrowLeftIcon.tsx";
-import { showProjectEndDate, showProjectStartDate } from "@/helpers/date.ts";
+import { show_project_end_date, show_project_start_date } from "@/helpers/time";
 import type { TProject } from "@/content/config.ts";
 import type { JSX } from "solid-js";
 
@@ -32,8 +32,8 @@ const Header = (p: { project: TProject }) => {
                             {p.project.data.domain} - {p.project.data.type}
                         </span>
                         <span>
-                            {showProjectStartDate(p.project.data.start_date)} -{" "}
-                            {showProjectEndDate(p.project.data.end_date)}
+                            {show_project_start_date(p.project.data.start_date)}{" "}
+                            - {show_project_end_date(p.project.data.end_date)}
                         </span>
                     </p>
                 </div>

@@ -1,7 +1,6 @@
+import { get_current_year } from "@/helpers/time";
 import { social_links } from "site.config.ts";
 import { For } from "solid-js";
-
-const get_current_year = () => new Date().getFullYear();
 
 const Footer = () => {
     return (
@@ -16,7 +15,7 @@ const Footer = () => {
                     <a href="https://astro.build/">Astro</a>
                 </p>
                 <p>
-                    &copy; 2021 - <span>{get_current_year()}</span>; Shihab
+                    &copy; 2021 - <span>{get_current_year()}</span> Shihab
                     Mahamud
                 </p>
             </div>

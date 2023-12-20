@@ -1,5 +1,5 @@
 ---
-import { formatDateToMonthDayYear } from "@/helpers/date";
+import { format_date_to_month_day_year } from "@/helpers/time";
 
 import ArrowLeftIcon from "@/icons/ArrowLeftIcon";
 import Hero from "@/components/Hero";
@@ -30,7 +30,7 @@ const { tags, description, title, publish_date } = Astro.props;
                 <ArrowLeftIcon />
                 <span>Blogs</span>
             </a>
-            <p>{formatDateToMonthDayYear(publish_date)}</p>
+            <p>{format_date_to_month_day_year(publish_date)}</p>
         </div>
         <Hero title={title} align="start">
             <div
@@ -48,3 +48,4 @@ const { tags, description, title, publish_date } = Astro.props;
         </Hero>
     </div>
 </header>
+ @/helpers/time
