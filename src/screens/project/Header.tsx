@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import ArrowLeftIcon from "@/icons/ArrowLeftIcon.tsx";
 import { showProjectEndDate, showProjectStartDate } from "@helpers/date.ts";
-import type { TProject } from "@content/config.ts";
+import type { TProject } from "@/content/config.ts";
 import type { JSX } from "solid-js";
 
 const ProjectPill = (p: { children: JSX.Element }) => {

@@ -1,29 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import { titles, descriptions } from "site.config";
-import { PROJECTS } from "@content/config";
 
 import Layout from "@/layouts/Layout.astro";
-import ContactCTA from "@/components/ContactCTA";
-import Hero from "@/components/Hero.tsx";
-import Projects from "@/screens/projects/List";
-
-const projects = await getCollection(PROJECTS);
+import Projects from "@/screens/Projects";
 ---
 
 <Layout title={titles["/projects"]} description={descriptions["/projects"]}>
-    <div class="flex flex-col gap-20">
-        <main class="wrapper flex flex-col gap-20">
-            <Hero
-                title="My Projects"
-                tagline="See my most recent projects below to get an idea of my past experience."
-                align="start"
-                alignHero="end"
-            />
-            <Projects projects={projects} />
-        </main>
-        <ContactCTA />
-    </div>
+    <Projects />
 </Layout>
- @/screens/projects/List@/components/ContactCTA@/components/Hero
-@/components/ContactCTA

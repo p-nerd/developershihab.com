@@ -1,5 +1,7 @@
 import { social_links } from "site.config.ts";
-import CopyrightYear from "./CopyrightYear.tsx";
+import { For } from "solid-js";
+
+const get_current_year = () => new Date().getFullYear();
 
 const Footer = () => {
     return (
@@ -14,13 +16,16 @@ const Footer = () => {
                     <a href="https://astro.build/">Astro</a>
                 </p>
                 <p>
-                    &copy; 2021 - <CopyrightYear /> Shihab Mahamud
+                    &copy; 2021 - <span>{get_current_year()}</span>; Shihab
+                    Mahamud
                 </p>
             </div>
             <p class="socials flex flex-wrap justify-center gap-4 lg:justify-end">
-                {social_links.map(social_link => (
-                    <a href={social_link.href}>{social_link.label}</a>
-                ))}
+                <For each={social_links}>
+                    {social_link => (
+                        <a href={social_link.href}>{social_link.label}</a>
+                    )}
+                </For>
             </p>
         </footer>
     );
