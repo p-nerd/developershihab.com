@@ -9,7 +9,11 @@ import { mergeProps } from "solid-js";
 import ContactCTA from "@/components/ContactCTA";
 import Hero from "@/components/Hero";
 
-const Tags = (props: { tags: TTag[]; blogsCount: number; tagSlug?: string }) => {
+const Tags = (props: {
+    tags: TTag[];
+    blogsCount: number;
+    tagSlug?: string;
+}) => {
     const p = mergeProps({ tagSlug: "all" }, props);
     const tags = [{ label: "All", count: p.blogsCount }, ...p.tags];
 
@@ -22,7 +26,11 @@ const Tags = (props: { tags: TTag[]; blogsCount: number; tagSlug?: string }) => 
                             ? "bg-[#7611a6] text-white"
                             : "bg-[#F4F5F7] text-black dark:bg-[#131823] dark:text-white"
                     }`}
-                    href={tag.label === "All" ? "/blogs/1" : `/blogs/${slugify(tag.label)}`}
+                    href={
+                        tag.label === "All"
+                            ? "/blogs/1"
+                            : `/blogs/${slugify(tag.label)}`
+                    }
                 >
                     {tag.label} ({tag.count})
                 </a>
@@ -119,8 +127,17 @@ const Blogs = (p: {
     return (
         <div class="flex flex-col gap-20">
             <main class="wrapper flex flex-col gap-20">
-                <Hero title={p.title} tagline={p.tagline} align={p.align} alignHero={p.alignHero} />
-                <Tags tags={p.tags} blogsCount={p.blogsCount} tagSlug={p.slug} />
+                <Hero
+                    title={p.title}
+                    tagline={p.tagline}
+                    align={p.align}
+                    alignHero={p.alignHero}
+                />
+                <Tags
+                    tags={p.tags}
+                    blogsCount={p.blogsCount}
+                    tagSlug={p.slug}
+                />
                 <List blogs={p.blogs} />
                 {p.children}
             </main>

@@ -1,7 +1,7 @@
-import type {TBlog, TProject} from "@/content/config.ts";
+import type { TBlog, TProject } from "@/content/config.ts";
 
-import {getCollection} from "astro:content";
-import {BLOGS, PROJECTS} from "@/content/config.ts";
+import { getCollection } from "astro:content";
+import { BLOGS, PROJECTS } from "@/content/config.ts";
 
 const sort_blogs_publish_date = (blogs: TBlog[]): TBlog[] => {
     return blogs.sort(

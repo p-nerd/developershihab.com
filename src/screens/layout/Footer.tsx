@@ -10,16 +10,21 @@ const Footer = () => {
             <div class="flex flex-col gap-2 lg:flex-row lg:flex-wrap lg:gap-2">
                 <p>
                     Designed inspired from{" "}
-                    <Link href="https://astro.build/themes/details/portfolio/">Portfolio</Link>{" "}
+                    <Link href="https://astro.build/themes/details/portfolio/">
+                        Portfolio
+                    </Link>{" "}
                     Template by <Link href="https://astro.build/">Astro</Link>
                 </p>
                 <p>
-                    &copy; 2021 - <span>{get_current_year()}</span> Shihab Mahamud
+                    &copy; 2021 - <span>{get_current_year()}</span> Shihab
+                    Mahamud
                 </p>
             </div>
             <p class="socials flex flex-wrap justify-center gap-4 lg:justify-end">
                 <For each={social_links}>
-                    {social_link => <Link href={social_link.href}>{social_link.label}</Link>}
+                    {social_link => (
+                        <Link href={social_link.href}>{social_link.label}</Link>
+                    )}
                 </For>
             </p>
         </footer>
