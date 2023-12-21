@@ -1,4 +1,5 @@
-import { defineCollection, z, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 export const PROJECTS = "projects";
 export const BLOGS = "blogs";
@@ -18,7 +19,7 @@ export const collections = {
             img_alt: z.string().optional(),
             links: z.record(z.string(), z.string()),
             rank: z.number(),
-            draft: z.boolean(),
+            draft: z.boolean().optional(),
         }),
     }),
     [BLOGS]: defineCollection({
@@ -29,6 +30,7 @@ export const collections = {
             tags: z.array(z.string()),
             img: z.string(),
             img_alt: z.string().optional(),
+            draft: z.boolean().optional(),
         }),
     }),
 };

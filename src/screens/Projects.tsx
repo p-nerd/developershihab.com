@@ -8,6 +8,7 @@ import { show_project_end_date, show_project_start_date } from "@/helpers/time";
 
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
+import { get_projects } from "@/helpers/collec";
 
 const Link = (p: { slug: string; children: JSX.Element }) => {
     return <a href={`/projects/${p.slug}`}>{p.children}</a>;
@@ -32,7 +33,7 @@ const Links = (p: { links: Record<string, string> }) => {
         <div class="l flex h-max flex-col gap-1 lg:p-5">
             {[...Object.keys(p.links)].map(key => (
                 <a
-                    class="h-max w-full overflow-hidden rounded-xl  border border-solid border-sx-gray-800 bg-sx-gray-999 py-3 text-center text-sx-link-color shadow-sx-shadow-sm transition-shadow  duration-[0.2s] ease-in-out hover:text-sx-gradient-subtle hover:shadow-sx-shadow-md lg:rounded-3xl"
+                    class="text-sx-link-color h-max w-full overflow-hidden  rounded-xl border border-solid border-sx-gray-800 bg-sx-gray-999 py-3 text-center shadow-sx-shadow-sm transition-shadow  duration-[0.2s] ease-in-out hover:text-sx-gradient-subtle hover:shadow-sx-shadow-md lg:rounded-3xl"
                     href={p.links[key]}
                     target="_blank"
                 >
@@ -102,7 +103,7 @@ const List = (p: { projects: TProject[] }) => {
     );
 };
 
-const projects: TProject[] = await getCollection(PROJECTS);
+const projects: TProject[] = await get_projects();
 
 const Projects = () => {
     return (
