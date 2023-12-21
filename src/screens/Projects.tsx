@@ -9,7 +9,7 @@ import {
 
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
-import TechnologyLink from "@/components/TechnologyLink";
+import TechnologyLink from "@/components/TechnologyLink.tsx";
 
 const Link = (p: { slug: string; children: JSX.Element; class?: string }) => {
     return (
@@ -113,8 +113,8 @@ const Projects = (p: { projects: TProject[] }) => {
                 <Hero
                     title="My Projects"
                     tagline="See my most recent projects below to get an idea of my past experience."
-                    align="start"
-                    alignHero="end"
+                    align="center"
+                    alignHero="center"
                 />
                 <ul class="flex flex-col gap-20">
                     <For each={p.projects}>
