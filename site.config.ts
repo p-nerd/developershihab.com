@@ -56,3 +56,19 @@ export const social_links: TSocialLink[] = [
 ];
 
 export const total_number_blogs_on_blogs_page = 10;
+
+export const technogies_links: Record<string, string> = {
+    // JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    TypeScript: "https://www.typescriptlang.org/",
+    "React.js": "https://react.dev",
+    SolidJS: "https://solidjs.com/",
+    Astro: "https://astro.build/",
+    Redux: "https://redux.js.org/",
+    TailwindCSS: "https://tailwindcss.com/",
+    WordPress: "https://wordpress.org/",
+    PHP: "https://www.php.net/",
+    mPDF: "https://mpdf.github.io/",
+    Stripe: "https://stripe.com/docs",
+    PayPal: "https://developer.paypal.com/docs",
+    "Github Pages": "https://pages.github.com/",
+};

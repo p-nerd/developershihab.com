@@ -6,6 +6,7 @@ import { show_project_end_date, show_project_start_date } from "@/helpers/time";
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
 import ArrowLeft from "@/icons/ArrowLeft.tsx";
+import TechnologyLink from "@/components/TechnologyLink";
 
 const Content = (p: {
     img?: string;
@@ -31,14 +32,6 @@ const Content = (p: {
                 </div>
             </div>
         </main>
-    );
-};
-
-const ProjectPill = (p: { children: JSXElement }) => {
-    return (
-        <div class="flex gap-2 whitespace-nowrap rounded-full border border-solid border-purple-700 bg-sx-gray-999 px-4 py-2 text-lg font-bold leading-[1.35] text-purple-700">
-            {p.children}
-        </div>
     );
 };
 
@@ -73,8 +66,11 @@ const Header = (p: { project: TProject }) => {
                             {p.project.data.description}
                         </p>
                         <div class="flex max-w-[50%] flex-wrap justify-end gap-[0.5rem]">
-                            {p.project.data.technologies.map(t => (
-                                <ProjectPill>{t}</ProjectPill>
+                            {p.project.data.technologies.map(technology => (
+                                <TechnologyLink
+                                    technology={technology}
+                                    class="flex gap-2 whitespace-nowrap rounded-full border border-solid border-purple-700 bg-sx-gray-999 px-4 py-2 text-lg font-bold leading-[1.35] text-purple-700"
+                                />
                             ))}
                         </div>
                     </div>

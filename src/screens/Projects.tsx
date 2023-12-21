@@ -1,7 +1,7 @@
-import type {TProject} from "@/content/config";
-import type {JSX} from "solid-js";
+import type { TProject } from "@/content/config";
+import type { JSX } from "solid-js";
 
-import {For} from "solid-js";
+import { For } from "solid-js";
 import {
     show_project_end_date,
     show_project_start_date,
@@ -9,6 +9,7 @@ import {
 
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
+import TechnologyLink from "@/components/TechnologyLink";
 
 const Link = (p: { slug: string; children: JSX.Element; class?: string }) => {
     return (
@@ -23,9 +24,10 @@ const Technologies = (p: { technologies: string[] }) => {
         <div class="flex flex-wrap  gap-2 px-2 py-1 lg:px-4 lg:py-2">
             <For each={p.technologies}>
                 {technology => (
-                    <span class="rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
-                        {technology}
-                    </span>
+                    <TechnologyLink
+                        technology={technology}
+                        class="rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:py-2 em50:rounded-2xl em50:px-4"
+                    />
                 )}
             </For>
         </div>
@@ -75,13 +77,11 @@ const Preview = (p: { project: TProject }) => {
             />
             <div class="h-[60%] em50:h-full em50:w-[60%]">
                 <div class="flex justify-between text-base lg:px-2">
-                    <span
-                        class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                         {show_project_start_date(p.project.data.start_date)} -{" "}
                         {show_project_end_date(p.project.data.end_date)}
                     </span>
-                    <span
-                        class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                         {p.project.data.domain} - {p.project.data.type}
                     </span>
                 </div>
@@ -99,8 +99,8 @@ const Preview = (p: { project: TProject }) => {
                         </Link>
                     </p>
                 </div>
-                <Technologies technologies={p.project.data.technologies}/>
-                <Links links={p.project.data.links}/>
+                <Technologies technologies={p.project.data.technologies} />
+                <Links links={p.project.data.links} />
             </div>
         </li>
     );
@@ -118,11 +118,11 @@ const Projects = (p: { projects: TProject[] }) => {
                 />
                 <ul class="flex flex-col gap-20">
                     <For each={p.projects}>
-                        {project => <Preview project={project}/>}
+                        {project => <Preview project={project} />}
                     </For>
                 </ul>
             </main>
-            <ContactCTA/>
+            <ContactCTA />
         </div>
     );
 };
