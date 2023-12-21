@@ -2,7 +2,7 @@
 title: PaystubHero
 domain: SaaS
 type: Live in Production
-start_date: 2023-04-01 00:00:00
+start_date: 2023-04-01
 end_date:
 img: /content/projects/paystubhero.webp
 img_alt: paystubhero front page

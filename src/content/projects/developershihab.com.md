@@ -1,11 +1,11 @@
 ---
 title: developershihab.com
-domain: Static Site
+domain: Portfolio Site
 type: Live in Production
-start_date: 2023-06-07 00:00:00
+start_date: 2023-06-07
 end_date:
 img: /content/projects/developershihab.svg
-img_alt: developershihab.com featured image
+img_alt: ""
 description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
 technologies: ["TypeScript", "Astro", "SolidJS", "TailwindCSS", "Github Pages"]
 links:
