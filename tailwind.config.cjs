@@ -10,7 +10,6 @@ module.exports = {
             colors: {
                 "a-gray-800": "var(--gray-800)",
                 "secondary-color": "var(--secondary-color)",
-                "sx-link-color": "var(--link-color)",
                 "sx-gradient-subtle": "var(--gradient-subtle)",
                 "sx-gray-800": "var(--gray-800)",
                 "sx-gray-999": "var(--gray-999)",
@@ -32,8 +31,5 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        require("@tailwindcss/forms"),
-        require("@tailwindcss/typography"),
-    ],
+    plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
