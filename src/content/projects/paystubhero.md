@@ -5,7 +5,6 @@ type: Live in Production
 start_date: 2023-04-01 00:00:00
 end_date:
 img: /content/projects/paystubhero.webp
-img_link: https://www.paystubhero.com/generate-pay-stubs
 img_alt: paystubhero front page
 description: I developed a WordPress plugin and a React frontend tailored to the specific requirements of paystubhero.com . The React application is exposed through WordPress shortcode, and for the backend, I created a custom WordPress REST API plugin.
 technologies:

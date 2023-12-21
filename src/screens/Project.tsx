@@ -9,8 +9,7 @@ import ArrowLeft from "@/icons/ArrowLeft.tsx";
 
 const Content = (p: {
     img?: string;
-    img_alt?: string;
-    imgLink?: string;
+    imgAlt?: string;
     children: JSXElement;
 }) => {
     return (
@@ -18,21 +17,11 @@ const Content = (p: {
             <div class="m-auto flex w-full flex-col gap-10 lg:max-w-[90ch]">
                 {p.img && (
                     <div class="w-full rounded-lg border-2 border-[#e3e6ee] shadow-2xl dark:border-[#283044] dark:shadow-gray-600">
-                        {p.imgLink ? (
-                            <a href={p.imgLink}>
-                                <img
-                                    src={p.img}
-                                    alt={p.img_alt || ""}
-                                    class="w-full rounded-lg "
-                                />
-                            </a>
-                        ) : (
-                            <img
-                                src={p.img}
-                                alt={p.img_alt || ""}
-                                class="w-full rounded-lg "
-                            />
-                        )}
+                        <img
+                            src={p.img}
+                            alt={p.imgAlt || ""}
+                            class="w-full rounded-lg "
+                        />
                     </div>
                 )}
                 <div class="w-full rounded-lg border-2 border-[#e3e6ee] shadow-2xl dark:border-[#283044] dark:shadow-gray-600">
@@ -102,8 +91,7 @@ const Project = (p: { project: TProject; children: JSXElement }) => {
                 <Header project={p.project} />
                 <Content
                     img={p.project.data.img}
-                    img_alt={p.project.data.img_alt || ""}
-                    imgLink={p.project.data.img_link || ""}
+                    imgAlt={p.project.data.img_alt || ""}
                 >
                     {p.children}
                 </Content>

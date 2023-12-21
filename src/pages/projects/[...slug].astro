@@ -1,7 +1,7 @@
 ---
 import type { TProject } from "@/content/config";
 import { name } from "site.config";
-import { get_projects } from "@/helpers/collec";
+import { get_projects } from "@/helpers/logic";
 import Layout from "@/layouts/Layout.astro";
 import Project from "@/screens/Project.tsx";
 
@@ -24,5 +24,7 @@ const { Content } = await project.render();
     title={`${project.data.title} Project by ${name}`}
     description={project.data.description}
 >
-    <Project project={project}><Content /></Project>
+    <Project project={project}>
+        <Content />
+    </Project>
 </Layout>
