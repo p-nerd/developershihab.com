@@ -115,7 +115,10 @@ const QuickProjectsList = (p: { projects: TProject[]; class?: string }) => {
             <div class="flex flex-col text-base">
                 <For each={p.projects}>
                     {(project, index) => (
-                        <a class="flex gap-2" href={`#${project.slug}`}>
+                        <a
+                            class="flex gap-2 leading-5"
+                            href={`#${project.slug}`}
+                        >
                             <div class="w-8 text-end">
                                 {index() <= 9 ? "0" : ""}
                                 {index() + 1}.{" "}

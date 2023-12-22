@@ -4,7 +4,6 @@
 
 @layer base {
     :root {
-        /* Colors */
         --gray-0: #090b11;
         --gray-50: #141925;
         --gray-100: #283044;
@@ -16,9 +15,9 @@
         --gray-700: #c3cadb;
         --gray-800: #e3e6ee;
         --gray-900: #f3f4f7;
-        --gray-999-basis: 0, 0%, 100%;
-        --gray-999_40: hsla(var(--gray-999-basis), 0.4);
         --gray-999: #ffffff;
+        --gray-999-basis: 0, 0%, 100%;
+        --gray-999-40: hsla(var(--gray-999-basis), 0.4);
 
         --accent-light: #c561f6;
         --accent-regular: #7611a6;
@@ -89,8 +88,8 @@
         --gray-700: #3d4663;
         --gray-800: #283044;
         --gray-900: #141925;
-        --gray-999-basis: 225, 31%, 5%;
         --gray-999: #090b11;
+        --gray-999-basis: 225, 31%, 5%;
 
         --accent-light: #1c0056;
         --accent-regular: #7611a6;
@@ -131,6 +130,13 @@
             0px 4px 9px rgba(255, 255, 255, 0.12);
     }
 
+    *,
+    *::after,
+    *::before {
+        box-sizing: border-box;
+        margin: 0;
+    }
+
     html,
     body {
         height: 100%;
@@ -143,13 +149,6 @@
         font-family: var(--font-body);
         -webkit-font-smoothing: antialiased;
         line-height: 1.5;
-    }
-
-    *,
-    *::after,
-    *::before {
-        box-sizing: border-box;
-        margin: 0;
     }
 
     h1,
