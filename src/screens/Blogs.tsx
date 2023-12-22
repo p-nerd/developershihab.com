@@ -4,7 +4,7 @@ import type { TBlog } from "@/content/config";
 
 import { format_date_to_month_day_year } from "@/helpers/time";
 import { slugify } from "@/helpers/etc";
-import { mergeProps } from "solid-js";
+import { For, mergeProps } from "solid-js";
 
 import ContactCTA from "@/components/ContactCTA";
 import Hero from "@/components/Hero";
@@ -93,7 +93,7 @@ const Preview = (p: {
 
 const List = (p: { blogs: TBlog[] }) => {
     return (
-        <ul class="grid list-none auto-rows-auto gap-4 p-0 em50:grid-cols-2 em50:gap-16">
+        <ul class="grid list-none auto-rows-auto gap-4 p-0 lg:grid-cols-2 lg:gap-16">
             <For each={p.blogs}>
                 {(blog, index) => (
                     <li>

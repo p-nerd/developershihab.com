@@ -11,7 +11,7 @@ interface Props {
 const { title, description } = Astro.props as Props;
 ---
 
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
     <head>
         <Head title={title} description={description} />
     </head>
@@ -61,7 +61,7 @@ const { title, description } = Astro.props as Props;
                 --bg-image-footer: url("/assets/backgrounds/bg-footer-dark-800w.jpg");
             }
 
-            @media (min-width: 50em) {
+            @media (min-width: 1024px) {
                 :root {
                     --bg-scale: 1;
                     --bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");

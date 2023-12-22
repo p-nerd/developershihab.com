@@ -1,3 +1,4 @@
+import { cn } from "@/helpers/etc";
 import { mergeProps, type JSXElement } from "solid-js";
 
 const Hero = (props: {
@@ -6,6 +7,7 @@ const Hero = (props: {
     align?: "start" | "center" | "end";
     alignHero?: "start" | "center" | "end";
     children?: JSXElement;
+    class?: string;
 }) => {
     const p = mergeProps(
         {
@@ -19,7 +21,10 @@ const Hero = (props: {
     return (
         <header
             style={`text-align: ${p.align};`}
-            class={`hero flex flex-col gap-4 text-center text-[1.25rem] lg:text-[1.625rem]`}
+            class={cn(
+                "flex flex-col gap-4 text-center text-[1.25rem] lg:text-[1.625rem]",
+                p.class,
+            )}
         >
             <div
                 style={`text-align: ${p.alignHero};`}

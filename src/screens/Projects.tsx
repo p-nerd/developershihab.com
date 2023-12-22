@@ -1,12 +1,11 @@
-import type { TProject } from "@/content/config";
-import type { JSX } from "solid-js";
-
-import { For } from "solid-js";
 import {
     show_project_end_date,
     show_project_start_date,
 } from "@/helpers/time.ts";
-
+import type { TProject } from "@/content/config";
+import type { JSX } from "solid-js";
+import { For } from "solid-js";
+import { cn } from "@/helpers/etc";
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
 import TechnologyLink from "@/components/TechnologyLink.tsx";
@@ -26,7 +25,7 @@ const Technologies = (p: { technologies: string[] }) => {
                 {technology => (
                     <TechnologyLink
                         technology={technology}
-                        class="rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:py-2 em50:rounded-2xl em50:px-4"
+                        class="rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2"
                     />
                 )}
             </For>
@@ -54,7 +53,7 @@ const FeaturedImage = (p: { slug: string; src: string; alt?: string }) => {
     return (
         <Link
             slug={p.slug}
-            class="flex h-[40%] flex-col px-2 py-1 lg:px-4 lg:py-2 em50:h-max em50:w-[40%]"
+            class="flex h-[40%] flex-col px-2 py-1 lg:h-max lg:w-[40%] lg:px-4 lg:py-2"
         >
             <img
                 src={p.src}
@@ -69,13 +68,16 @@ const FeaturedImage = (p: { slug: string; src: string; alt?: string }) => {
 
 const Preview = (p: { project: TProject }) => {
     return (
-        <li class="flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md lg:flex-row lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621] ">
+        <li
+            id={p.project.slug}
+            class="flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md lg:flex-row lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621] "
+        >
             <FeaturedImage
                 slug={p.project.slug}
                 src={p.project.data.img}
                 alt={p.project.data.img_alt}
             />
-            <div class="h-[60%] em50:h-full em50:w-[60%]">
+            <div class="h-[60%] lg:h-full lg:w-[60%]">
                 <div class="flex justify-between text-base lg:px-2">
                     <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                         {show_project_start_date(p.project.data.start_date)} -{" "}
@@ -106,16 +108,42 @@ const Preview = (p: { project: TProject }) => {
     );
 };
 
+const QuickProjectsList = (p: { projects: TProject[]; class?: string }) => {
+    return (
+        <div class={cn("flex w-max flex-col gap-1 text-x-gray-200", p.class)}>
+            <div class="pl-10 text-sm">Projects Quick List</div>
+            <div class="flex flex-col text-base">
+                <For each={p.projects}>
+                    {(project, index) => (
+                        <a class="flex gap-2" href={`#${project.slug}`}>
+                            <div class="w-8 text-end">
+                                {index() <= 9 ? "0" : ""}
+                                {index() + 1}.{" "}
+                            </div>
+                            <div class="w-max border-b border-b-x-gray-200">
+                                {project.data.title}
+                            </div>
+                        </a>
+                    )}
+                </For>
+            </div>
+        </div>
+    );
+};
+
 const Projects = (p: { projects: TProject[] }) => {
     return (
         <div class="flex flex-col gap-20">
             <main class="wrapper flex flex-col gap-20">
-                <Hero
-                    title="My Projects"
-                    tagline="See my most recent projects below to get an idea of my past experience."
-                    align="center"
-                    alignHero="center"
-                />
+                <div class="flex w-full justify-between gap-5">
+                    <QuickProjectsList projects={p.projects} />
+                    <Hero
+                        title="My Projects"
+                        tagline="See my most recent projects below to get an idea of my past experience."
+                        align="end"
+                        alignHero="end"
+                    />
+                </div>
                 <ul class="flex flex-col gap-20">
                     <For each={p.projects}>
                         {project => <Preview project={project} />}

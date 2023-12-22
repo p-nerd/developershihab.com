@@ -134,7 +134,7 @@ const projects = (await getCollection("projects")).slice(0, 4);
         box-shadow: var(--shadow-md);
     }
 
-    @media (min-width: 50em) {
+    @media (min-width: 1024px) {
         .hero {
             display: grid;
             grid-template-columns: 6fr 4fr;
@@ -195,7 +195,7 @@ const projects = (await getCollection("projects")).slice(0, 4);
         font-size: 2.125rem;
     }
 
-    @media (min-width: 50em) {
+    @media (min-width: 1024px) {
         .section {
             grid-template-columns: repeat(4, 1fr);
             grid-template-areas: "header header header header" "gallery gallery gallery gallery";
@@ -244,7 +244,7 @@ const projects = (await getCollection("projects")).slice(0, 4);
         box-shadow: var(--shadow-sm);
     }
 
-    @media (min-width: 50em) {
+    @media (min-width: 1024px) {
         .mention-card {
             border-radius: 1.5rem;
             height: 9.5rem;

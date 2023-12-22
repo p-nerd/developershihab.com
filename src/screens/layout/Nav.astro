@@ -100,7 +100,7 @@ import ThemeToggle from "./ThemeToggle.astro";
                 setExpanded(e.matches);
                 btn.hidden = e.matches;
             };
-            const mediaQueries = window.matchMedia("(min-width: 50em)");
+            const mediaQueries = window.matchMedia("(min-width: 1024px)");
             handleViewports(mediaQueries);
             mediaQueries.addEventListener("change", handleViewports);
         }
@@ -233,7 +233,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         height: calc(var(--icon-size) + 2 * var(--icon-padding));
     }
 
-    @media (min-width: 50em) {
+    @media (min-width: 1024px) {
         nav {
             display: grid;
             grid-template-columns: 1fr auto 1fr;

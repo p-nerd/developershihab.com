@@ -1,6 +1,9 @@
 import type { CollectionEntry } from "astro:content";
 import type { TTag } from "./types";
 
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export const generate_tags = (blogs: CollectionEntry<"blogs">[]) => {
     let tags: TTag[] = [];
 
@@ -41,4 +44,10 @@ export const deslugify = (slug?: string): string => {
     if (!slug) return "";
     const text = slug.replace(/-/g, " ");
     return text.replace(/(?:^|\s)\S/g, match => match.toUpperCase());
+};
+
+export const cn = (
+    ...inputs: (undefined | string | Record<string, boolean>)[]
+) => {
+    return twMerge(clsx(inputs));
 };
