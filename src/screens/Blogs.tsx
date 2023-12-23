@@ -50,7 +50,7 @@ const Preview = (p: {
 }) => {
     return (
         <a
-            class="border-xx-gray-800 flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]"
+            class="border-xx-gray-800 font-xx-font-brand flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid bg-[#f5f6f9] px-1 py-4 text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]"
             href={`/blogs/${p.slug}`}
         >
             <div class="lg:px-2 lg:py-1">

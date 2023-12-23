@@ -12,4 +12,5 @@ const TechnologyLink = (p: { technology: string; class?: string }) => (
         {p.technology}
     </a>
 );
+
 export default TechnologyLink;

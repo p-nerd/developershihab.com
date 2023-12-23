@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: "class",
-    content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+    content: ["./src/**/*.{astro,html,md,ts,tsx}"],
     theme: {
         extend: {
             colors: {
@@ -35,7 +35,7 @@ module.exports = {
                 },
             },
             fontFamily: {
-                "sx-font-brand": "var(--font-brand)",
+                "xx-font-brand": "var(--font-brand)",
             },
             transition: {
                 "sx-theme-transition": "box-shadow var(--theme-transition)",
