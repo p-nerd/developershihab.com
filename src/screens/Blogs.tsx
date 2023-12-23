@@ -50,12 +50,12 @@ const Preview = (p: {
 }) => {
     return (
         <a
-            class="border-xx-gray-800 font-xx-font-brand flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid bg-[#f5f6f9] px-1 py-4 text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]"
+            class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-xx-gray-800 bg-[#f5f6f9] px-1 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]"
             href={`/blogs/${p.slug}`}
         >
             <div class="lg:px-2 lg:py-1">
                 <time
-                    class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
+                    class="m-2 rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2"
                     datetime="2023-06-19"
                 >
                     {format_date_to_month_day_year(p.publish_date)}
@@ -71,18 +71,18 @@ const Preview = (p: {
                 />
             </div>
             <div class="lg:px-2 lg:py-1">
-                <h2 class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
+                <h2 class="m-2 rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                     {p.title}
                 </h2>
             </div>
             <div class="lg:px-2 lg:py-1">
-                <p class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
+                <p class="m-2 rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                     {p.description}
                 </p>
             </div>
             <div class="flex flex-wrap gap-2 px-2 py-1 lg:px-4 lg:py-2">
                 {p.tags.map(tag => (
-                    <span class="bg-xx-gray-999 text-xx-gray-200 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <span class="rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
                         {tag}
                     </span>
                 ))}

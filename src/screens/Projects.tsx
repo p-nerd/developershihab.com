@@ -133,16 +133,16 @@ const Preview = (p: { project: TProject }) => {
 
 const QuickProjectsList = (p: { projects: TProject[] }) => {
     return (
-        <div class="flex w-full flex-col items-end gap-1 text-xx-gray-200 lg:w-max">
-            <div class="pl-10 text-sm">Projects Quick List</div>
+        <div class="flex w-max flex-col gap-1 text-xx-gray-200">
+            <div class="pl-8 text-sm">Projects Quick List</div>
             <div class="flex flex-col text-base">
                 <For each={p.projects}>
                     {(project, index) => (
                         <a
-                            class="flex flex-row-reverse gap-2 leading-5 lg:flex-row"
+                            class="flex gap-2 leading-5"
                             href={`#${project.slug}`}
                         >
-                            <div class="w-8 text-end">
+                            <div class="w-6 text-end">
                                 {index() <= 9 ? "0" : ""}
                                 {index() + 1}.{" "}
                             </div>
@@ -166,8 +166,7 @@ const Projects = (p: { projects: TProject[] }) => {
                     <Hero
                         title="My Projects"
                         tagline="See my most recent projects below to get an idea of my past experience."
-                        align="end"
-                        alignHero="end"
+                        class="text-start lg:text-end"
                     />
                 </div>
                 <ul class="flex flex-col gap-20">
