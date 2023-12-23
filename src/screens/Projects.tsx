@@ -25,7 +25,7 @@ const Technologies = (p: { technologies: string[] }) => {
                 {technology => (
                     <TechnologyLink
                         technology={technology}
-                        class="rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2"
+                        class="bg-xx-gray-999 text-xx-gray-200 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2"
                     />
                 )}
             </For>
@@ -33,21 +33,19 @@ const Technologies = (p: { technologies: string[] }) => {
     );
 };
 
-const Links = (p: { links: Record<string, string> }) => {
-    return (
-        <div class="l flex h-max flex-col gap-1 lg:p-5">
-            {[...Object.keys(p.links)].map(key => (
-                <a
-                    class="text-sx-link-color h-max w-full overflow-hidden  rounded-xl border border-solid border-sx-gray-800 bg-sx-gray-999 py-3 text-center shadow-sx-shadow-sm transition-shadow  duration-[0.2s] ease-in-out hover:text-sx-gradient-subtle hover:shadow-sx-shadow-md lg:rounded-3xl"
-                    href={p.links[key]}
-                    target="_blank"
-                >
-                    {key}
-                </a>
-            ))}
-        </div>
-    );
-};
+const Links = (p: { links: Record<string, string> }) => (
+    <div class="l flex h-max flex-col gap-1 lg:p-5">
+        {[...Object.keys(p.links)].map(key => (
+            <a
+                class="border-xx-gray-800 bg-xx-gray-999 hover:text-xx-gradient-subtle h-max w-full overflow-hidden rounded-3xl border py-3 text-center shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md"
+                href={p.links[key]}
+                target="_blank"
+            >
+                {key}
+            </a>
+        ))}
+    </div>
+);
 
 const FeaturedImage = (p: { slug: string; src: string; alt?: string }) => {
     return (
@@ -70,7 +68,7 @@ const Preview = (p: { project: TProject }) => {
     return (
         <li
             id={p.project.slug}
-            class="flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-solid border-sx-gray-800 bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sx-shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-sx-shadow-md lg:flex-row lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621] "
+            class="border-xx-gray-800 flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-solid bg-[#f5f6f9] px-1 py-4 font-sx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:flex-row lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621] "
         >
             <FeaturedImage
                 slug={p.project.slug}
@@ -79,21 +77,21 @@ const Preview = (p: { project: TProject }) => {
             />
             <div class="h-[60%] lg:h-full lg:w-[60%]">
                 <div class="flex justify-between text-base lg:px-2">
-                    <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <span class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
                         {show_project_start_date(p.project.data.start_date)} -{" "}
                         {show_project_end_date(p.project.data.end_date)}
                     </span>
-                    <span class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <span class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
                         {p.project.data.domain} - {p.project.data.type}
                     </span>
                 </div>
                 <div class="lg:px-2 lg:py-1">
-                    <h2 class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-4xl text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <h2 class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 text-4xl lg:rounded-2xl lg:px-4 lg:py-2">
                         {p.project.data.title}
                     </h2>
                 </div>
                 <div class="lg:px-2 lg:py-1">
-                    <p class="m-2 rounded-md bg-sx-gray-999 px-2 py-1 text-sx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <p class="bg-xx-gray-999 text-xx-gray-200 m-2 rounded-md px-2 py-1 lg:rounded-2xl lg:px-4 lg:py-2">
                         {p.project.data.description}
                         <Link slug={p.project.slug}>
                             {" "}
@@ -110,7 +108,7 @@ const Preview = (p: { project: TProject }) => {
 
 const QuickProjectsList = (p: { projects: TProject[]; class?: string }) => {
     return (
-        <div class={cn("flex w-max flex-col gap-1 text-x-gray-200", p.class)}>
+        <div class={cn("text-xx-gray-200 flex w-max flex-col gap-1", p.class)}>
             <div class="pl-10 text-sm">Projects Quick List</div>
             <div class="flex flex-col text-base">
                 <For each={p.projects}>
@@ -123,7 +121,7 @@ const QuickProjectsList = (p: { projects: TProject[]; class?: string }) => {
                                 {index() <= 9 ? "0" : ""}
                                 {index() + 1}.{" "}
                             </div>
-                            <div class="w-max border-b border-b-x-gray-200">
+                            <div class="border-b-xx-gray-200 w-max border-b">
                                 {project.data.title}
                             </div>
                         </a>

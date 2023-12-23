@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                x: {
+                xx: {
                     gray: {
                         0: "var(--gray-0)",
                         50: "var(--gray-50)",
@@ -29,21 +29,10 @@ module.exports = {
                         "subtle-overlay": "var(--accent-subtle-overlay)",
                         "text-over": "var(--accent-text-over)",
                     },
+                    gradient: {
+                        subtle: "var(--gradient-subtle)",
+                    },
                 },
-                "a-gray-800": "var(--gray-800)",
-                "secondary-color": "var(--secondary-color)",
-                "sx-gradient-subtle": "var(--gradient-subtle)",
-                "sx-gray-800": "var(--gray-800)",
-                "sx-gray-999": "var(--gray-999)",
-                "sx-gray-200": "var(--gray-200)",
-                "sx-gray-0": "var(--gray-0)",
-                "sx-accent-text-over": "var(--accent-text-over)",
-                "sx-gradient-accent-orange": "var(--gradient-accent-orange)",
-                "sx-gray-999_40": "var(--gray-999-40)",
-            },
-            boxShadow: {
-                "sx-shadow-sm": "var(--shadow-sm)",
-                "sx-shadow-md": "var(--shadow-md)",
             },
             fontFamily: {
                 "sx-font-brand": "var(--font-brand)",
