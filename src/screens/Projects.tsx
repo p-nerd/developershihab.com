@@ -36,13 +36,28 @@ const FeaturedImage = (p: { slug: string; src: string; alt?: string }) => (
 const Text = (p: { children: string | JSXElement; class?: string }) => (
     <div
         class={cn(
-            "rounded-3xl bg-xx-gray-999 px-4 py-2.5 text-xx-gray-200",
+            "rounded-3xl bg-xx-gray-999 px-4 py-3 text-xx-gray-200",
             p.class,
         )}
     >
         {p.children}
     </div>
 );
+
+const Technologies = (p: { technologies: string[] }) => {
+    return (
+        <div class="flex flex-wrap gap-2">
+            <For each={p.technologies}>
+                {technology => (
+                    <TechnologyLink
+                        technology={technology}
+                        class="rounded-2xl bg-xx-gray-999 px-4 py-2 text-xx-gray-200"
+                    />
+                )}
+            </For>
+        </div>
+    );
+};
 
 const Links = (p: { links: Record<string, string> }) => (
     <div class="flex h-max flex-col gap-1">
@@ -82,19 +97,10 @@ const ProjectInfo = (p: {
         <Text>
             {p.description}{" "}
             <Link slug={p.slug}>
-                <span class="border-b-2">Read more...</span>
+                <span class="border-b-2"> Read more...</span>
             </Link>
         </Text>
-        <div class="flex flex-wrap gap-2">
-            <For each={p.technologies}>
-                {technology => (
-                    <TechnologyLink
-                        technology={technology}
-                        class="rounded-2xl bg-xx-gray-999 px-4 py-2 text-xx-gray-200"
-                    />
-                )}
-            </For>
-        </div>
+        <Technologies technologies={p.technologies} />
         <Links links={p.links} />
     </div>
 );
@@ -125,15 +131,15 @@ const Preview = (p: { project: TProject }) => {
     );
 };
 
-const QuickProjectsList = (p: { projects: TProject[]; class?: string }) => {
+const QuickProjectsList = (p: { projects: TProject[] }) => {
     return (
-        <div class={cn("flex w-max flex-col gap-1 text-xx-gray-200", p.class)}>
+        <div class="flex w-full flex-col items-end gap-1 text-xx-gray-200 lg:w-max">
             <div class="pl-10 text-sm">Projects Quick List</div>
             <div class="flex flex-col text-base">
                 <For each={p.projects}>
                     {(project, index) => (
                         <a
-                            class="flex gap-2 leading-5"
+                            class="flex flex-row-reverse gap-2 leading-5 lg:flex-row"
                             href={`#${project.slug}`}
                         >
                             <div class="w-8 text-end">
@@ -155,7 +161,7 @@ const Projects = (p: { projects: TProject[] }) => {
     return (
         <div class="flex flex-col gap-20">
             <main class="wrapper flex flex-col gap-20">
-                <div class="flex w-full justify-between gap-5">
+                <div class="flex w-full flex-col-reverse justify-between gap-10 lg:flex-row">
                     <QuickProjectsList projects={p.projects} />
                     <Hero
                         title="My Projects"
