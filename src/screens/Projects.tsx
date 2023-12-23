@@ -44,21 +44,6 @@ const Text = (p: { children: string | JSXElement; class?: string }) => (
     </div>
 );
 
-const Technologies = (p: { technologies: string[] }) => {
-    return (
-        <div class="flex flex-wrap gap-2">
-            <For each={p.technologies}>
-                {technology => (
-                    <TechnologyLink
-                        technology={technology}
-                        class="rounded-2xl bg-xx-gray-999 px-4 py-2 text-xx-gray-200"
-                    />
-                )}
-            </For>
-        </div>
-    );
-};
-
 const Links = (p: { links: Record<string, string> }) => (
     <div class="flex h-max flex-col gap-1">
         {[...Object.keys(p.links)].map(key => (
@@ -100,7 +85,16 @@ const ProjectInfo = (p: {
                 <span class="border-b-2">Read more...</span>
             </Link>
         </Text>
-        <Technologies technologies={p.technologies} />
+        <div class="flex flex-wrap gap-2">
+            <For each={p.technologies}>
+                {technology => (
+                    <TechnologyLink
+                        technology={technology}
+                        class="rounded-2xl bg-xx-gray-999 px-4 py-2 text-xx-gray-200"
+                    />
+                )}
+            </For>
+        </div>
         <Links links={p.links} />
     </div>
 );
