@@ -41,7 +41,7 @@ const ProjectInfo = (p: {
     links: Record<string, string>;
     title: string;
 }) => (
-    <div class="flex h-full flex-col gap-2 lg:w-[60%]">
+    <div class="flex h-full flex-col gap-3 lg:w-[60%]">
         <div class="hidden lg:block">
             <MetaInfo
                 domain={p.domain}
@@ -51,17 +51,17 @@ const ProjectInfo = (p: {
             />
         </div>
         <ProjectLink slug={p.slug}>
-            <PreviewText tag="h1" class="text-4xl">
+            <PreviewText tag="h1" class="text-3xl">
                 {p.title}
             </PreviewText>
         </ProjectLink>
         <PreviewText>
             {p.description}{" "}
             <ProjectLink slug={p.slug}>
-                <span class="border-b-2"> Read more...</span>
+                <span class="border-b"> Read more...</span>
             </ProjectLink>
         </PreviewText>
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-3">
             <For each={p.technologies}>
                 {technology => (
                     <TechnologyProjectLink technology={technology}>
@@ -88,7 +88,7 @@ const Preview = (p: { project: TProject }) => {
     return (
         <li
             id={p.project.slug}
-            class="flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]"
+            class="flex h-full w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]"
         >
             <div class="w-full lg:hidden">
                 <MetaInfo
@@ -100,7 +100,7 @@ const Preview = (p: { project: TProject }) => {
             </div>
             <ProjectLink
                 slug={p.project.slug}
-                class="flex flex-col px-2 py-1 lg:h-max lg:w-[40%] lg:px-4 lg:py-2"
+                class="flex flex-col lg:h-max lg:w-[40%]"
             >
                 <PreviewImg
                     src={p.project.data.img}
@@ -151,8 +151,8 @@ const QuickProjectsList = (p: { projects: TProject[] }) => {
 const Projects = (p: { projects: TProject[] }) => {
     return (
         <div class="flex flex-col gap-20">
-            <main class="wrapper flex flex-col gap-10 lg:gap-20">
-                <div class="flex w-full flex-col-reverse justify-between gap-10 lg:flex-row">
+            <main class="wrapper flex flex-col gap-20">
+                <div class="flex w-full flex-col-reverse justify-between gap-20 lg:flex-row">
                     <QuickProjectsList projects={p.projects} />
                     <Hero
                         title="My Projects"

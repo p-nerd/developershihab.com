@@ -61,7 +61,9 @@ const Preview = (p: {
                 </time>
             </PreviewText>
             <PreviewImg src={p.img} alt={p.img_alt || ""} />
-            <PreviewText tag="h1">{p.title}</PreviewText>
+            <PreviewText tag="h1" class="text-3xl">
+                {p.title}
+            </PreviewText>
             <PreviewText tag="p">{p.description}</PreviewText>
             <div class="flex flex-wrap gap-2">
                 {p.tags.map(tag => (
