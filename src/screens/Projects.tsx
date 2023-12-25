@@ -3,106 +3,84 @@ import {
     show_project_start_date,
 } from "@/helpers/time.ts";
 import type { TProject } from "@/content/config";
-import type { JSXElement } from "solid-js";
 import { For } from "solid-js";
-import { cn } from "@/helpers/etc";
 import ContactCTA from "@/components/ContactCTA.tsx";
 import Hero from "@/components/Hero.tsx";
-import TechnologyLink from "@/components/TechnologyLink.tsx";
+import TechnologyProjectLink from "@/components/TechnologyLink.tsx";
+import PreviewImg from "@/components/PreviewImg";
+import PreviewText from "@/components/PreviewText";
+import ProjectLink from "@/components/ProjectLink";
 
-const Link = (p: { slug: string; children: JSXElement; class?: string }) => {
+const MetaInfo = (p: {
+    domain: string;
+    type: string;
+    startDate: Date;
+    endDate?: Date | null;
+}) => {
     return (
-        <a href={`/projects/${p.slug}`} class={p.class}>
-            {p.children}
-        </a>
-    );
-};
-
-const FeaturedImage = (p: { slug: string; src: string; alt?: string }) => (
-    <Link
-        slug={p.slug}
-        class="flex h-[400px] flex-col px-2 py-1 lg:h-max lg:w-[40%] lg:px-4 lg:py-2"
-    >
-        <img
-            src={p.src}
-            alt={p.alt || ""}
-            loading="lazy"
-            decoding="async"
-            class="h-full w-full rounded-xl object-fill"
-        />
-    </Link>
-);
-
-const Text = (p: { children: string | JSXElement; class?: string }) => (
-    <div
-        class={cn(
-            "rounded-3xl bg-xx-gray-999 px-4 py-3 text-xx-gray-200",
-            p.class,
-        )}
-    >
-        {p.children}
-    </div>
-);
-
-const Technologies = (p: { technologies: string[] }) => {
-    return (
-        <div class="flex flex-wrap gap-2">
-            <For each={p.technologies}>
-                {technology => (
-                    <TechnologyLink
-                        technology={technology}
-                        class="rounded-2xl bg-xx-gray-999 px-4 py-2 text-xx-gray-200"
-                    />
-                )}
-            </For>
+        <div class="flex flex-col justify-between gap-3 text-base lg:flex-row">
+            <PreviewText>
+                {show_project_start_date(p.startDate)} -{" "}
+                {show_project_end_date(p.endDate)}
+            </PreviewText>
+            <PreviewText>
+                {p.domain} - {p.type}
+            </PreviewText>
         </div>
     );
 };
-
-const Links = (p: { links: Record<string, string> }) => (
-    <div class="flex h-max flex-col gap-1">
-        {[...Object.keys(p.links)].map(key => (
-            <a
-                class="h-max w-full overflow-hidden rounded-3xl border border-xx-gray-800 bg-xx-gray-999 py-3 text-center shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:text-xx-gradient-subtle hover:shadow-md"
-                href={p.links[key]}
-                target="_blank"
-            >
-                {key}
-            </a>
-        ))}
-    </div>
-);
 
 const ProjectInfo = (p: {
     domain: string;
     type: string;
     description: string;
     slug: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate: Date;
+    endDate?: Date | null;
     technologies: string[];
     links: Record<string, string>;
     title: string;
 }) => (
-    <div class="flex h-full flex-col gap-3 lg:w-[60%]">
-        <div class="flex justify-between text-base">
-            <Text>
-                {show_project_start_date(p.startDate)} -{" "}
-                {show_project_end_date(p.endDate)}
-            </Text>
-            <Text>
-                {p.domain} - {p.type}
-            </Text>
+    <div class="flex h-full flex-col gap-2 lg:w-[60%]">
+        <div class="hidden lg:block">
+            <MetaInfo
+                domain={p.domain}
+                type={p.type}
+                startDate={p.startDate}
+                endDate={p.endDate}
+            />
         </div>
-        <Text class="w-full text-4xl">{p.title}</Text>
-        <Text>
+        <ProjectLink slug={p.slug}>
+            <PreviewText tag="h1" class="text-4xl">
+                {p.title}
+            </PreviewText>
+        </ProjectLink>
+        <PreviewText>
             {p.description}{" "}
-            <Link slug={p.slug}>
+            <ProjectLink slug={p.slug}>
                 <span class="border-b-2"> Read more...</span>
-            </Link>
-        </Text>
-        <Technologies technologies={p.technologies} />
-        <Links links={p.links} />
+            </ProjectLink>
+        </PreviewText>
+        <div class="flex flex-wrap gap-2">
+            <For each={p.technologies}>
+                {technology => (
+                    <TechnologyProjectLink technology={technology}>
+                        <PreviewText>{technology}</PreviewText>
+                    </TechnologyProjectLink>
+                )}
+            </For>
+        </div>
+        <div class="flex h-max flex-col gap-1">
+            {[...Object.keys(p.links)].map(key => (
+                <a
+                    class="h-max w-full overflow-hidden rounded-md border border-xx-gray-800 bg-xx-gray-999 py-3 text-center shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:text-xx-gradient-subtle hover:shadow-md lg:rounded-3xl"
+                    href={p.links[key]}
+                    target="_blank"
+                >
+                    {key}
+                </a>
+            ))}
+        </div>
     </div>
 );
 
@@ -110,13 +88,25 @@ const Preview = (p: { project: TProject }) => {
     return (
         <li
             id={p.project.slug}
-            class="flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-3xl border border-xx-gray-800 bg-[#f5f6f9] px-6 py-10 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:flex-row dark:bg-[#111621]"
+            class="flex h-full w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]"
         >
-            <FeaturedImage
+            <div class="w-full lg:hidden">
+                <MetaInfo
+                    domain={p.project.data.domain}
+                    type={p.project.data.type}
+                    startDate={p.project.data.start_date}
+                    endDate={p.project.data.end_date}
+                />
+            </div>
+            <ProjectLink
                 slug={p.project.slug}
-                src={p.project.data.img}
-                alt={p.project.data.img_alt}
-            />
+                class="flex flex-col px-2 py-1 lg:h-max lg:w-[40%] lg:px-4 lg:py-2"
+            >
+                <PreviewImg
+                    src={p.project.data.img}
+                    alt={p.project.data.img_alt || ""}
+                />
+            </ProjectLink>
             <ProjectInfo
                 domain={p.project.data.domain}
                 type={p.project.data.type}
@@ -161,7 +151,7 @@ const QuickProjectsList = (p: { projects: TProject[] }) => {
 const Projects = (p: { projects: TProject[] }) => {
     return (
         <div class="flex flex-col gap-20">
-            <main class="wrapper flex flex-col gap-20">
+            <main class="wrapper flex flex-col gap-10 lg:gap-20">
                 <div class="flex w-full flex-col-reverse justify-between gap-10 lg:flex-row">
                     <QuickProjectsList projects={p.projects} />
                     <Hero
@@ -170,7 +160,7 @@ const Projects = (p: { projects: TProject[] }) => {
                         class="text-start lg:text-end"
                     />
                 </div>
-                <ul class="flex flex-col gap-20">
+                <ul class="flex flex-col gap-4 lg:gap-16">
                     <For each={p.projects}>
                         {project => <Preview project={project} />}
                     </For>

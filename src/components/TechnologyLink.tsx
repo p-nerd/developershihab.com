@@ -1,6 +1,11 @@
+import type { TChildren } from "@/helpers/types";
 import { technogies_links } from "site.config.ts";
 
-const TechnologyLink = (p: { technology: string; class?: string }) => (
+const TechnologyLink = (p: {
+    technology: string;
+    class?: string;
+    children?: TChildren;
+}) => (
     <a
         href={
             technogies_links[p.technology] ||
@@ -9,7 +14,7 @@ const TechnologyLink = (p: { technology: string; class?: string }) => (
         target="_blank"
         class={p.class}
     >
-        {p.technology}
+        {p.children || p.technology}
     </a>
 );
 
