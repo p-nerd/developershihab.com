@@ -7,7 +7,7 @@ const PreviewImg = (p: { src: string; alt?: string; class?: string }) => (
         loading="lazy"
         decoding="async"
         class={cn(
-            "h-full w-full rounded-md bg-xx-gray-999 object-contain text-xx-gray-200 lg:rounded-2xl",
+            "h-full w-full rounded-md object-contain text-xx-gray-200 lg:rounded-2xl",
             p.class,
         )}
     />

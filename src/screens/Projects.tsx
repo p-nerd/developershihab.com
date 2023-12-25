@@ -105,6 +105,7 @@ const Preview = (p: { project: TProject }) => {
                 <PreviewImg
                     src={p.project.data.img}
                     alt={p.project.data.img_alt || ""}
+                    class="lg:bg-none"
                 />
             </ProjectLink>
             <ProjectInfo
