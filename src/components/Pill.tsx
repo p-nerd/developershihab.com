@@ -1,3 +1,4 @@
+import { cn } from "@/helpers/etc";
 import type { JSXElement } from "solid-js";
 
 const Pill = (p: { slug?: string; children: JSXElement }) => {
@@ -11,7 +12,7 @@ const Pill = (p: { slug?: string; children: JSXElement }) => {
                     {p.children}
                 </a>
             ) : (
-                <button class={_class}>{p.children}</button>
+                <div class={cn(_class, "cursor-auto")}>{p.children}</div>
             )}
         </>
     );

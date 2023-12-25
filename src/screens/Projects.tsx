@@ -88,7 +88,7 @@ const Preview = (p: { project: TProject }) => {
     return (
         <li
             id={p.project.slug}
-            class="flex h-full w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]"
+            class="flex w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:min-h-[500px] lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]"
         >
             <div class="w-full lg:hidden">
                 <MetaInfo
@@ -105,7 +105,7 @@ const Preview = (p: { project: TProject }) => {
                 <PreviewImg
                     src={p.project.data.img}
                     alt={p.project.data.img_alt || ""}
-                    class="lg:bg-none"
+                    class="lg:max-h-[330px]"
                 />
             </ProjectLink>
             <ProjectInfo

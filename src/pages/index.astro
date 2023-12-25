@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { titles, descriptions } from "site.config.ts";
 
@@ -14,8 +13,9 @@ import Pill from "@/components/Pill.tsx";
 
 import PortfolioPreview from "@/screens/home/ProjectPreview.astro";
 import Skills from "@/screens/home/Skills.astro";
+import { get_projects } from "@/helpers/logic";
 
-const projects = (await getCollection("projects")).slice(0, 4);
+const projects = (await get_projects()).slice(0, 4);
 ---
 
 <Layout title={titles["/"]} description={descriptions["/"]}>
@@ -25,12 +25,12 @@ const projects = (await getCollection("projects")).slice(0, 4);
                 <Hero
                     title="Hello, my name is Shihab Mahamud"
                     tagline="I am a Full-stack Developer who is currently based in Faridpur, Bangladesh."
-                    align="start"
+                    class="text-start"
                 >
                     <div class="roles hidden lg:mt-2 lg:flex lg:gap-2">
                         <Pill>
                             <Icon icon="strategy" size="1.33em" />
-                             Problem Solver
+                             Web Artisan
                         </Pill>
                         <Pill>
                             <Icon icon="code" size="1.33em" />
@@ -42,7 +42,6 @@ const projects = (await getCollection("projects")).slice(0, 4);
                         </Pill>
                     </div>
                 </Hero>
-
                 <Image
                     alt="Shihab Mahamud smiling in a red plaid shirt and tortoise shell glasses"
                     width="1200"
