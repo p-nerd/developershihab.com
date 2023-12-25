@@ -8,6 +8,8 @@ import { For, mergeProps } from "solid-js";
 
 import ContactCTA from "@/components/ContactCTA";
 import Hero from "@/components/Hero";
+import PreviewText from "@/components/PreviewText";
+import PreviewImg from "@/components/PreviewImg";
 
 const Tags = (props: {
     tags: TTag[];
@@ -50,41 +52,25 @@ const Preview = (p: {
 }) => {
     return (
         <a
-            class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-xx-gray-800 bg-[#f5f6f9] px-1 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:rounded-3xl lg:p-5 lg:py-10 dark:bg-[#111621]"
+            class="flex h-max flex-col gap-2 overflow-hidden rounded-xl border border-solid border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:rounded-3xl lg:px-7 lg:py-11 dark:bg-[#111621]"
             href={`/blogs/${p.slug}`}
         >
-            <div class="lg:px-2 lg:py-1">
-                <time
-                    class="m-2 rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2"
-                    datetime="2023-06-19"
-                >
+            <PreviewText>
+                <time datetime="2023-06-19">
                     {format_date_to_month_day_year(p.publish_date)}
                 </time>
-            </div>
-            <div class="px-2 py-1 lg:px-4 lg:py-2">
-                <img
-                    src={p.img}
-                    alt={p.img_alt || ""}
-                    loading="lazy"
-                    decoding="async"
-                    class="h-full w-full rounded-xl object-contain"
-                />
-            </div>
-            <div class="lg:px-2 lg:py-1">
-                <h2 class="m-2 rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
-                    {p.title}
-                </h2>
-            </div>
-            <div class="lg:px-2 lg:py-1">
-                <p class="m-2 rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
-                    {p.description}
-                </p>
-            </div>
-            <div class="flex flex-wrap gap-2 px-2 py-1 lg:px-4 lg:py-2">
+            </PreviewText>
+            <PreviewImg src={p.img} alt={p.img_alt || ""} />
+            <PreviewText tag="h1">{p.title}</PreviewText>
+            <PreviewText tag="p">{p.description}</PreviewText>
+            <div class="flex flex-wrap gap-2">
                 {p.tags.map(tag => (
-                    <span class="rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2">
+                    <PreviewText
+                        tag="span"
+                        class="rounded-md bg-xx-gray-999 px-2 py-1 text-xx-gray-200 lg:rounded-2xl lg:px-4 lg:py-2"
+                    >
                         {tag}
-                    </span>
+                    </PreviewText>
                 ))}
             </div>
         </a>
@@ -95,7 +81,7 @@ const List = (p: { blogs: TBlog[] }) => {
     return (
         <ul class="grid list-none auto-rows-auto gap-4 p-0 lg:grid-cols-2 lg:gap-16">
             <For each={p.blogs}>
-                {(blog, index) => (
+                {blog => (
                     <li>
                         <Preview
                             slug={blog.slug}
@@ -127,12 +113,7 @@ const Blogs = (p: {
     return (
         <div class="flex flex-col gap-20">
             <main class="wrapper flex flex-col gap-20">
-                <Hero
-                    title={p.title}
-                    tagline={p.tagline}
-                    align={p.align}
-                    alignHero={p.alignHero}
-                />
+                <Hero title={p.title} tagline={p.tagline} />
                 <Tags
                     tags={p.tags}
                     blogsCount={p.blogsCount}

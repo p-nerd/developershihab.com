@@ -2,7 +2,7 @@ export const get_current_year = (): number => {
     return new Date().getFullYear();
 };
 
-export const format_date_to_month_day_year = (date: Date): string => {
+export const format_date_to_month_day_year = (date?: Date): string => {
     return new Intl.DateTimeFormat("en-US", {
         year: "numeric",
         month: "long",
@@ -10,7 +10,7 @@ export const format_date_to_month_day_year = (date: Date): string => {
     }).format(date);
 };
 
-export const show_project_end_date = (endDate: Date | null) => {
+export const show_project_end_date = (endDate?: Date | null) => {
     return endDate ? format_date_to_month_day_year(endDate) : "Present";
 };
 

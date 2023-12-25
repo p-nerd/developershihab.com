@@ -78,10 +78,11 @@ const ProjectInfo = (p: {
     type: string;
     description: string;
     slug: string;
-    startDate: Date;
-    endDate: Date;
+    startDate?: Date;
+    endDate?: Date;
     technologies: string[];
     links: Record<string, string>;
+    title: string;
 }) => (
     <div class="flex h-full flex-col gap-3 lg:w-[60%]">
         <div class="flex justify-between text-base">
@@ -121,7 +122,7 @@ const Preview = (p: { project: TProject }) => {
                 type={p.project.data.type}
                 title={p.project.data.title}
                 description={p.project.data.description}
-                slug={p.project.data.slug}
+                slug={p.project.slug}
                 startDate={p.project.data.start_date}
                 endDate={p.project.data.end_date}
                 technologies={p.project.data.technologies}

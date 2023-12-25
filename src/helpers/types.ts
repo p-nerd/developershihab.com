@@ -16,3 +16,5 @@ export type TSocialLink = {
 export type TIconComponent = (p: { class?: string }) => JSXElement;
 
 export type TTag = { label: string; count: number };
+
+export type TChildren = JSXElement | string | number | boolean;
