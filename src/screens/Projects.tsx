@@ -86,39 +86,38 @@ const ProjectInfo = (p: {
 
 const Preview = (p: { project: TProject }) => {
     return (
-        <li
-            id={p.project.slug}
-            class="flex w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:min-h-[500px] lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]"
-        >
-            <div class="w-full lg:hidden">
-                <MetaInfo
+        <li id={p.project.slug} class="pt-4 lg:pt-16">
+            <div class="flex w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-md border border-xx-gray-800 bg-[#f5f6f9] px-3 py-4 font-xx-font-brand text-xl shadow-sm transition-shadow duration-[0.2s] ease-in-out hover:shadow-md lg:min-h-[500px] lg:flex-row lg:rounded-3xl lg:px-6 lg:py-10 dark:bg-[#111621]">
+                <div class="w-full lg:hidden">
+                    <MetaInfo
+                        domain={p.project.data.domain}
+                        type={p.project.data.type}
+                        startDate={p.project.data.start_date}
+                        endDate={p.project.data.end_date}
+                    />
+                </div>
+                <ProjectLink
+                    slug={p.project.slug}
+                    class="flex flex-col lg:h-max lg:w-[40%]"
+                >
+                    <PreviewImg
+                        src={p.project.data.img}
+                        alt={p.project.data.img_alt || ""}
+                        class="lg:max-h-[330px]"
+                    />
+                </ProjectLink>
+                <ProjectInfo
                     domain={p.project.data.domain}
                     type={p.project.data.type}
+                    title={p.project.data.title}
+                    description={p.project.data.description}
+                    slug={p.project.slug}
                     startDate={p.project.data.start_date}
                     endDate={p.project.data.end_date}
+                    technologies={p.project.data.technologies}
+                    links={p.project.data.links}
                 />
             </div>
-            <ProjectLink
-                slug={p.project.slug}
-                class="flex flex-col lg:h-max lg:w-[40%]"
-            >
-                <PreviewImg
-                    src={p.project.data.img}
-                    alt={p.project.data.img_alt || ""}
-                    class="lg:max-h-[330px]"
-                />
-            </ProjectLink>
-            <ProjectInfo
-                domain={p.project.data.domain}
-                type={p.project.data.type}
-                title={p.project.data.title}
-                description={p.project.data.description}
-                slug={p.project.slug}
-                startDate={p.project.data.start_date}
-                endDate={p.project.data.end_date}
-                technologies={p.project.data.technologies}
-                links={p.project.data.links}
-            />
         </li>
     );
 };
@@ -161,7 +160,7 @@ const Projects = (p: { projects: TProject[] }) => {
                         class="text-start lg:text-end"
                     />
                 </div>
-                <ul class="flex flex-col gap-4 lg:gap-16">
+                <ul class="flex flex-col">
                     <For each={p.projects}>
                         {project => <Preview project={project} />}
                     </For>

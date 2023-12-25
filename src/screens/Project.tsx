@@ -69,7 +69,7 @@ const Header = (p: { project: TProject }) => {
                             {p.project.data.technologies.map(technology => (
                                 <TechnologyLink
                                     technology={technology}
-                                    class="bg-xx-gray-999 flex gap-2 whitespace-nowrap rounded-full border border-solid border-purple-700 px-4 py-2 text-lg font-bold leading-[1.35] text-purple-700"
+                                    class="flex gap-2 whitespace-nowrap rounded-full border border-solid border-purple-700 bg-xx-gray-999 px-4 py-2 text-lg font-bold leading-[1.35] text-purple-700"
                                 />
                             ))}
                         </div>
