@@ -28,7 +28,7 @@ const ContactSocialItem = (p: { socialLink: TSocialLink }) => {
 
 const Contact = () => {
     return (
-        <main class="wrapper flex flex-col items-center gap-10 pb-14 lg:gap-20 lg:pb-24">
+        <main class="wrapper flex flex-col items-center gap-10 pb-10 lg:gap-20 lg:pb-24">
             <Hero
                 title="Contact With ME"
                 tagline="Interested in working together? Reach out to me via email or find me on social media, and I'll get back to you!"
