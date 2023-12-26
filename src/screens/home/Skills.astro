@@ -1,83 +1,85 @@
 ---
 import Icon from "@/components/Icon.astro";
+import TechnologyLink from "@/components/TechnologyLink";
+import type { TIconPath } from "@/helpers/types";
+
+type TSkill = {
+    icon: TIconPath;
+    name: string;
+    desc: string;
+    technologies: string[];
+};
+
+const skills: TSkill[] = [
+    {
+        icon: "terminal-window",
+        name: "Full Stack Development",
+        desc: "Build a fast, scalable, and maintainable web application with me. I can handle the end-to-end development of your web application, starting from the frontend to the backend.",
+        technologies: [
+            "JavaScript",
+            "TypeScript",
+            "React.js",
+            "SolidJS",
+            "Node.js",
+            "Koa.js",
+            "Laravel",
+        ],
+    },
+    {
+        icon: "paper-plane-tilt",
+        name: "Wordpress Plugin Development",
+        desc: "Create your custom WordPress plugin with me. I'll turn your dream idea into powerful software, including custom WordPress shortcodes.",
+        technologies: [
+            "PHP",
+            "Wordpress",
+            "WooCommerce",
+            "Composer",
+            "JavaScrpit",
+            "React.js",
+        ],
+    },
+    {
+        icon: "list",
+        name: "API Server Development",
+        desc: "Construct your API server for web applications, mobile apps, desktop, and more. I specialize in building your envisioned UI-agnostic API server.",
+        technologies: [
+            "Node.js",
+            "JavaScript",
+            "TypeScript",
+            "Express.js",
+            "Koa.js",
+            "Laravel",
+            "Go",
+        ],
+    },
+];
 ---
 
-<section class="box skills">
-    <div class="flex flex-col gap-2 lg:gap-4">
-        <Icon
-            icon="terminal-window"
-            color="var(--accent-regular)"
-            size="2.5rem"
-            gradient
-        />
-        <h2>Full Stack</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod.
-        </p>
-    </div>
-    <div class="flex flex-col gap-2 lg:gap-4">
-        <Icon
-            icon="trophy"
-            color="var(--accent-regular)"
-            size="2.5rem"
-            gradient
-        />
-        <h2>Industry Leader</h2>
-        <p>
-            Neque viverra justo nec ultrices dui. Est ultricies integer quis
-            auctor elit.
-        </p>
-    </div>
-    <div class="flex flex-col gap-2 lg:gap-4">
-        <Icon
-            icon="strategy"
-            color="var(--accent-regular)"
-            size="2.5rem"
-            gradient
-        />
-        <h2>Strategy-Minded</h2>
-        <p>Urna porttitor rhoncus dolor purus non enim praesent ornare.</p>
-    </div>
+<section
+    class="flex flex-col gap-8 rounded-xl border border-xx-gray-800 bg-xx-gray-999-40 p-6 shadow-sm lg:flex-row lg:gap-12 lg:rounded-[1.5rem] lg:p-[2.5rem]"
+>
+    {
+        skills.map(skill => (
+            <div class="flex w-full flex-col gap-2 lg:w-1/3 lg:gap-4">
+                <Icon
+                    icon={skill.icon}
+                    color="var(--accent-regular)"
+                    size="2.5rem"
+                    gradient
+                />
+                <h2 class="text-[1.25rem] lg:text-[2.125rem]">{skill.name}</h2>
+                <p class="min-h-[100px] text-xx-gray-400">{skill.desc}</p>
+                <div class="flex flex-wrap gap-2">
+                    {skill.technologies.map(technology => (
+                        <TechnologyLink
+                            technology={technology}
+                            class="rounded-full border border-purple-700 bg-xx-gray-999 px-3 py-1 font-bold text-purple-700"
+                        >
+                            {technology}
+                        </TechnologyLink>
+                    ))}
+                </div>
+            </div>
+        ))
+    }
 </section>
-
-<style>
-    .box {
-        border: 1px solid var(--gray-800);
-        border-radius: 0.75rem;
-        padding: 1.5rem;
-        background-color: var(--gray-999-40);
-        box-shadow: var(--shadow-sm);
-    }
-
-    .skills {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-    }
-
-    .skills h2 {
-        font-size: 1.25rem;
-    }
-
-    .skills p {
-        color: var(--gray-400);
-    }
-
-    @media (min-width: 1024px) {
-        .box {
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-        }
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5rem;
-        }
-
-        .skills h2 {
-            font-size: 2.125rem;
-        }
-    }
-</style>

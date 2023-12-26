@@ -68,7 +68,7 @@ export const social_links: TSocialLink[] = [
 
 export const total_number_blogs_on_blogs_page = 10;
 
-export const technogies_links: Record<string, string> = {
+export const technologies_links: Record<string, string> = {
     JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     TypeScript: "https://www.typescriptlang.org/",
     "React.js": "https://react.dev",
