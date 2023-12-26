@@ -1,6 +1,6 @@
-import type { TIconComponent } from "@/helpers/types.ts";
+import type { TIcon } from "@/helpers/types";
 
-const ArrowLeft: TIconComponent = () => (
+const ArrowLeft: TIcon = p => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"
@@ -9,8 +9,8 @@ const ArrowLeft: TIconComponent = () => (
         aria-hidden="true"
         stroke="currentcolor"
         fill="currentcolor"
-        class="astro-tt5qvl6n"
         data-astro-cid-tt5qvl6n=""
+        class={p.class}
     >
         <g data-astro-cid-tt5qvl6n="">
             <path

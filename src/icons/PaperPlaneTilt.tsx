@@ -1,6 +1,6 @@
-import type { TIconComponent } from "@/helpers/types";
+import type { TIcon } from "@/helpers/types";
 
-const PaperPlaneTilt: TIconComponent = p => (
+const PaperPlaneTilt: TIcon = p => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"
@@ -11,9 +11,8 @@ const PaperPlaneTilt: TIconComponent = p => (
         fill="currentcolor"
         style="--size:1.2em"
         class={p.class}
-        data-astro-cid-tt5qvl6n=""
     >
-        <g data-astro-cid-tt5qvl6n="">
+        <g>
             <path
                 fill="none"
                 stroke-linecap="round"

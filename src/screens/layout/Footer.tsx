@@ -2,7 +2,7 @@ import { get_current_year } from "@/helpers/time";
 import { social_links } from "site.config.ts";
 import { For } from "solid-js";
 
-import Link from "@/components/Link";
+import A from "@/components/A";
 
 const Footer = () => {
     return (
@@ -10,10 +10,10 @@ const Footer = () => {
             <div class="flex flex-col gap-2 lg:flex-row lg:flex-wrap lg:gap-2">
                 <p>
                     Designed inspired from{" "}
-                    <Link href="https://astro.build/themes/details/portfolio/">
+                    <A href="https://astro.build/themes/details/portfolio/">
                         Portfolio
-                    </Link>{" "}
-                    Template by <Link href="https://astro.build/">Astro</Link>
+                    </A>{" "}
+                    Template by <A href="https://astro.build/">Astro</A>
                 </p>
                 <p>
                     &copy; 2021 - <span>{get_current_year()}</span> Shihab
@@ -23,7 +23,7 @@ const Footer = () => {
             <p class="socials flex flex-wrap justify-center gap-4 lg:justify-end">
                 <For each={social_links}>
                     {social_link => (
-                        <Link href={social_link.href}>{social_link.label}</Link>
+                        <A href={social_link.href}>{social_link.label}</A>
                     )}
                 </For>
             </p>
