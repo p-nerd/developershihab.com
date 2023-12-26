@@ -4,15 +4,16 @@ import { titles, descriptions } from "site.config.ts";
 
 import Layout from "@/layouts/Layout.astro";
 
+import Grid from "@/components/Grid.astro";
+import Icon from "@/components/Icon.astro";
+import Skills from "@/screens/home/Skills.astro";
+
+import Hero from "@/components/Hero.tsx";
+import Pill from "@/components/Pill.tsx";
 import CallToAction from "@/components/CallToAction.tsx";
 import ContactCTA from "../components/ContactCTA.tsx";
-import Grid from "@/components/Grid.astro";
-import Hero from "@/components/Hero.tsx";
-import Icon from "@/components/Icon.astro";
-import Pill from "@/components/Pill.tsx";
 
 import { FeaturedProjects } from "@/screens/home/Home.tsx";
-import Skills from "@/screens/home/Skills.astro";
 import { get_projects } from "@/helpers/logic";
 import Testimonials, { TestimonialHead } from "@/screens/home/Testimonials.tsx";
 
@@ -22,13 +23,13 @@ const projects = (await get_projects()).slice(0, 4);
 <Layout title={titles["/"]} description={descriptions["/"]}>
     <div class="flex flex-col gap-20 lg:gap-48">
         <div class="wrapper flex flex-col gap-8 lg:gap-20">
-            <header class="hero">
+            <header class="hero flex flex-col items-center gap-8">
                 <Hero
                     title="Hello, my name is Shihab Mahamud"
                     tagline="I am a Full-stack Developer who is currently based in Faridpur, Bangladesh."
                     class="text-start"
                 >
-                    <div class="roles hidden lg:mt-2 lg:flex lg:gap-2">
+                    <div class="hidden lg:mt-2 lg:flex lg:gap-2">
                         <Pill>
                             <Icon icon="strategy" size="1.33em" />
                              Problem Solver
@@ -48,6 +49,7 @@ const projects = (await get_projects()).slice(0, 4);
                     width="1200"
                     height="1600"
                     src="/assets/portrait.jpg"
+                    class="aspect-[5/4] rounded-3xl object-cover object-top shadow-md lg:aspect-[3/4] lg:gap-[3.75rem] lg:rounded-[4.5rem]"
                 />
             </header>
             <Skills />
@@ -55,8 +57,12 @@ const projects = (await get_projects()).slice(0, 4);
 
         <main class="wrapper flex flex-col gap-20 lg:gap-48">
             <section class="section with-background with-cta">
-                <header class="section-header flex flex-col gap-2 lg:gap-4">
-                    <h3>Selected Projects</h3>
+                <header
+                    class="section-header flex max-w-[50ch] flex-col gap-2 justify-self-center text-center text-[1.125rem] text-xx-gray-300 lg:gap-4"
+                >
+                    <h3 class="text-[2.125rem] lg:text-[3.5rem]">
+                        Selected Projects
+                    </h3>
                     <p>
                         Take a look below at some of my featured projects for
                         clients from the past few years.
@@ -68,7 +74,6 @@ const projects = (await get_projects()).slice(0, 4);
                         <FeaturedProjects projects={projects} />
                     </Grid>
                 </div>
-
                 <div class="cta">
                     <CallToAction href="/projects/">
                         View All
@@ -87,32 +92,11 @@ const projects = (await get_projects()).slice(0, 4);
 </Layout>
 
 <style>
-    .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .hero img {
-        aspect-ratio: 5 / 4;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 1.5rem;
-        box-shadow: var(--shadow-md);
-    }
-
     @media (min-width: 1024px) {
         .hero {
             display: grid;
             grid-template-columns: 6fr 4fr;
             padding-inline: 2.5rem;
-            gap: 3.75rem;
-        }
-        .hero img {
-            aspect-ratio: 3 / 4;
-            border-radius: 4.5rem;
-            object-fit: cover;
         }
     }
 
@@ -151,18 +135,6 @@ const projects = (await get_projects()).slice(0, 4);
         --hero-bg: var(--bg-image-subtle-1);
     }
 
-    .section-header {
-        justify-self: center;
-        text-align: center;
-        max-width: 50ch;
-        font-size: 1.125rem;
-        color: var(--gray-300);
-    }
-
-    .section-header h3 {
-        font-size: 2.125rem;
-    }
-
     @media (min-width: 1024px) {
         .section {
             grid-template-columns: repeat(4, 1fr);
@@ -179,10 +151,6 @@ const projects = (await get_projects()).slice(0, 4);
             font-size: 1.25rem;
         }
 
-        .section-header h3 {
-            font-size: 3.5rem;
-        }
-
         .with-cta .section-header {
             justify-self: flex-start;
             text-align: left;
@@ -194,28 +162,6 @@ const projects = (await get_projects()).slice(0, 4);
 
         .cta {
             grid-area: cta;
-        }
-    }
-
-    /* ====================================================== */
-
-    .mention-card {
-        display: flex;
-        height: 7rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border: 1px solid var(--gray-800);
-        border-radius: 1.5rem;
-        color: var(--gray-300);
-        background: var(--gradient-subtle);
-        box-shadow: var(--shadow-sm);
-    }
-
-    @media (min-width: 1024px) {
-        .mention-card {
-            border-radius: 1.5rem;
-            height: 9.5rem;
         }
     }
 </style>
