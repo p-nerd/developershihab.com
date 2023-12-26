@@ -60,7 +60,7 @@ const Header = (p: { project: TProject }) => {
                         </span>
                     </p>
                 </div>
-                <Hero title={p.project.data.title} align="start">
+                <Hero title={p.project.data.title} class="text-start">
                     <div class="flex flex-col items-center justify-between gap-[1.5rem] p-[0.5rem] lg:flex-row lg:gap-[2.5rem]">
                         <p class="max-w-[50%] text-[1.25rem]">
                             {p.project.data.description}

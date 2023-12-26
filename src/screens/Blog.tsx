@@ -30,7 +30,7 @@ const Header = (p: {
                     </a>
                     <p>{format_date_to_month_day_year(p.publish_date)}</p>
                 </div>
-                <Hero title={p.title} align="start">
+                <Hero title={p.title} class="text-start">
                     <div class="flex flex-col items-center justify-between gap-[1.5rem] p-[0.5rem] lg:flex-row lg:gap-[2.5rem]">
                         <div class="flex w-full flex-wrap gap-[0.5rem]">
                             {p.tags.map(t => (
