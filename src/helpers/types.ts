@@ -13,3 +13,9 @@ export type TSocialLink = {
     icon?: TIconPath;
     icon_x?: TIcon;
 };
+
+export type TTestimonial = {
+    title: string;
+    subtitle: string;
+    src: string;
+};

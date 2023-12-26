@@ -1,4 +1,4 @@
-import type { TSocialLink, TNavLink } from "./src/helpers/types";
+import type { TSocialLink, TNavLink, TTestimonial } from "./src/helpers/types";
 
 import Github from "@/icons/Github";
 import LinkedIn from "@/icons/LinkedIn";
@@ -84,3 +84,12 @@ export const technogies_links: Record<string, string> = {
     "Github Pages": "https://pages.github.com",
     Go: "https://go.dev",
 };
+
+export const testimonials: TTestimonial[] = [
+    {
+        title: "Tony and Ty",
+        subtitle:
+            "Owners of paystubhero.com, expressing their thoughts about working with me and Finnext.co",
+        src: "https://www.youtube.com/embed/41t-c74Ot98",
+    },
+];

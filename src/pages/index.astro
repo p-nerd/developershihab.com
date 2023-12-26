@@ -14,6 +14,7 @@ import Pill from "@/components/Pill.tsx";
 import PortfolioPreview from "@/screens/home/ProjectPreview.astro";
 import Skills from "@/screens/home/Skills.astro";
 import { get_projects } from "@/helpers/logic";
+import Testimonials, { TestimonialHead } from "@/screens/home/Testimonials.tsx";
 
 const projects = (await get_projects()).slice(0, 4);
 ---
@@ -82,36 +83,11 @@ const projects = (await get_projects()).slice(0, 4);
                 </div>
             </section>
 
-            <section class="section with-background bg-variant">
-                <header class="section-header flex flex-col gap-2 lg:gap-4">
-                    <h3>Mentions</h3>
-                    <p>
-                        I have been fortunate enough to receive praise for my
-                        work in several publications. Take a look below to learn
-                        more.
-                    </p>
-                </header>
-
-                <div class="gallery">
-                    <Grid variant="small">
-                        {
-                            [
-                                "Medium",
-                                "BuzzFeed",
-                                "The Next Web",
-                                "awwwards.",
-                                "TechCrunch",
-                            ].map(brand => (
-                                <li class="mention-card">
-                                    <p>{brand}</p>
-                                </li>
-                            ))
-                        }
-                    </Grid>
-                </div>
+            <section class="flex flex-col items-center gap-20">
+                <TestimonialHead />
+                <Testimonials client:idle />
             </section>
         </main>
-
         <ContactCTA />
     </div>
 </Layout>
