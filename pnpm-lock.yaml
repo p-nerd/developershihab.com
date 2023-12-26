@@ -14,6 +14,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.0.3
     version: 5.0.3(astro@4.0.6)(tailwindcss@3.4.0)
+  '@solid-primitives/pagination':
+    specifier: ^0.2.9
+    version: 0.2.9(solid-js@1.8.7)
   astro:
     specifier: ^4.0.6
     version: 4.0.6
@@ -845,6 +848,23 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@solid-primitives/pagination@0.2.9(solid-js@1.8.7):
+    resolution: {integrity: sha512-WPUnD8jX23+5lzuH5aK2bf5dLSnWrLmtpJabR3Z5MvHZ450MOAvwloLcuzR5ILT5K8Y8UjqqDwfWGF8O2fwtZw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.2.1(solid-js@1.8.7)
+      solid-js: 1.8.7
+    dev: false
+
+  /@solid-primitives/utils@6.2.1(solid-js@1.8.7):
+    resolution: {integrity: sha512-TsecNzxiO5bLfzqb4OOuzfUmdOROcssuGqgh5rXMMaasoFZ3GoveUgdY1wcf17frMJM7kCNGNuK34EjErneZkg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.8.7
+    dev: false
 
   /@tailwindcss/forms@0.5.7(tailwindcss@3.4.0):
     resolution: {integrity: sha512-QE7X69iQI+ZXwldE+rzasvbJiyV/ju1FGHH0Qn2W3FKbuYtqp8LKcy6iSw79fVUT5/Vvf+0XgLCeYVG+UV6hOw==}

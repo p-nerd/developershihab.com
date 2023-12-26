@@ -92,4 +92,37 @@ export const testimonials: TTestimonial[] = [
             "Owners of paystubhero.com, expressing their thoughts about working with me and Finnext.co",
         src: "https://www.youtube.com/embed/41t-c74Ot98",
     },
+    /*
+    {
+        title: "ThePrimeogen",
+        subtitle: "32 Reasons WHY TS IS BETTER Than Go",
+        src: "https://www.youtube.com/embed/lvKQh3Od6V4",
+    },
+    {
+        title: "Omar Hisham Al Arabi",
+        subtitle: "Surah Al Isra | سورة الاسراء - عمر هشام العربي",
+        src: "https://www.youtube.com/embed/wFclWz2QeJE",
+    },
+    {
+        title: "Fireship",
+        subtitle: "My Bleeding Edge Tech Stack for 2025",
+        src: "https://www.youtube.com/embed/rFP7rUYtOOg",
+    },
+    {
+        title: "ThePrimeogen",
+        subtitle: "100 Seconds of Rust | Prime Reacts",
+        src: "https://www.youtube.com/embed/APfS3vgV9pU",
+    },
+    {
+        title: "Fireship",
+        subtitle: "Stop calling Fleet a VS Code Killer",
+        src: "https://www.youtube.com/embed/h55emgImrLk",
+    },
+
+    {
+        title: "Theo",
+        subtitle: "Teaching NextJS To Primeagen",
+        src: "https://www.youtube.com/embed/CpBXikakzks",
+    },
+    */
 ];

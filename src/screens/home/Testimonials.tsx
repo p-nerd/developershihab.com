@@ -1,6 +1,7 @@
+import { cn } from "@/helpers/etc";
 import type { TChildren } from "@/helpers/types";
 import { testimonials } from "site.config.ts";
-import Iframe from "@/components/Iframe";
+import { createEffect, createSignal, For, Show } from "solid-js";
 
 export const TestimonialHead = () => {
     return (
@@ -14,28 +15,169 @@ export const TestimonialHead = () => {
     );
 };
 
-const SideButton = (p: { children: TChildren }) => {
+const TestimonialIframe = (p: { src: string; title: string }) => {
+    const [loaded, setLoaded] = createSignal(false);
+
     return (
-        <div class="w-max cursor-pointer text-xl lg:text-[100px]">
+        <div class="flex h-full w-full flex-row items-center gap-3 lg:px-28">
+            <div class="relative w-full overflow-hidden pt-[56.25%]">
+                {!loaded() && (
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        Loading testimonial...
+                    </div>
+                )}
+                <iframe
+                    src={p.src}
+                    title={p.title}
+                    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-md lg:rounded-2xl"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen={true}
+                    onLoad={() => {
+                        setLoaded(true);
+                    }}
+                />
+            </div>
+        </div>
+    );
+};
+
+const SideButton = (p: {
+    class?: string;
+    children: TChildren;
+    onClick?: () => void;
+}) => {
+    return (
+        <div
+            onClick={p.onClick}
+            class={cn(
+                "w-max cursor-pointer text-[25px] lg:text-[50px]",
+                p.class,
+            )}
+        >
             {p.children}
         </div>
     );
 };
 
-const Testimonials = () => {
-    const index = 0;
-    const testimonial = testimonials[index];
+const Navigator = (p: {
+    seletedVideoIndex: number;
+    onClick: (index: number) => void;
+}) => {
+    const indexs = () => {
+        const _indexs: number[] = [];
+        let first_index = p.seletedVideoIndex - 2;
+        if (first_index + 4 > testimonials.length - 1) {
+            first_index = testimonials.length - 1 - 4;
+        }
+        if (first_index < 0) {
+            first_index = 0;
+        }
+        for (let i = first_index; i <= first_index + 4; i++) {
+            _indexs.push(i);
+        }
+        return _indexs;
+    };
+
+    createEffect(() => {
+        console.log(indexs());
+    });
+
     return (
-        <div class="flex h-full w-full flex-col gap-5">
-            <div class="w-full px-6 text-center text-base lg:text-xl">
-                <h4 class="text-lg lg:text-2xl">{testimonial.title}</h4>
-                <p>{testimonial.subtitle}</p>
+        <div class="flex items-center gap-2">
+            <SideButton
+                class={cn({
+                    "opacity-40": indexs()[0] <= 0,
+                })}
+                onClick={() => p.onClick(p.seletedVideoIndex - 1)}
+            >
+                &lt;
+            </SideButton>
+            <For each={indexs()}>
+                {index => (
+                    <div
+                        onClick={() => p.onClick(index)}
+                        class={cn(
+                            "cursor-pointer rounded-full bg-xx-gray-900 px-2 py-0.5 text-base lg:px-3.5 lg:py-1 lg:text-2xl",
+                            {
+                                "bg-purple-700": index === p.seletedVideoIndex,
+                            },
+                        )}
+                    >
+                        {index}
+                    </div>
+                )}
+            </For>
+            <SideButton
+                class={cn({
+                    "opacity-40":
+                        indexs()[indexs().length - 1] >=
+                        testimonials.length - 1,
+                })}
+                onClick={() => p.onClick(p.seletedVideoIndex + 1)}
+            >
+                &gt;
+            </SideButton>
+        </div>
+    );
+};
+
+const rand = (min: number, max: number): number => {
+    if (min > max) {
+        throw new Error(
+            "Invalid range. 'min' should be less than or equal to 'max'.",
+        );
+    }
+    return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+const Testimonials = () => {
+    const [isNavigatorUsedByUser, setIsNavigatroUsedByUser] =
+        createSignal(false);
+    const [seletedVideoIndex, setSelectedVideoIndex] = createSignal(
+        rand(0, testimonials.length - 1),
+    );
+
+    const fc = setInterval(() => {
+        if (!isNavigatorUsedByUser())
+            setSelectedVideoIndex(rand(0, testimonials.length - 1));
+    }, 3000);
+
+    if (testimonials.length === 1) {
+        console.log("1 video clearing interval");
+        clearInterval(fc);
+    }
+
+    createEffect(() => {
+        if (isNavigatorUsedByUser()) {
+            clearInterval(fc);
+        }
+    });
+
+    const testimonial = () => testimonials[seletedVideoIndex()];
+
+    return (
+        <div class="flex h-full w-full flex-col items-center gap-5">
+            <div class="flex h-full w-full flex-col items-center gap-5">
+                <div class="w-full px-6 text-center text-base lg:text-xl">
+                    <h4 class="text-lg lg:text-2xl">{testimonial().title}</h4>
+                    <p>{testimonial().subtitle}</p>
+                </div>
+                <TestimonialIframe
+                    title={testimonial().title}
+                    src={testimonial().src}
+                />
             </div>
-            <div class="flex h-full w-full flex-row items-center gap-3">
-                <SideButton>&lt;</SideButton>
-                <Iframe title={testimonial.title} src={testimonial.src} />
-                <SideButton>&gt;</SideButton>
-            </div>
+            <Show when={testimonials.length !== 1}>
+                <Navigator
+                    onClick={index => {
+                        setSelectedVideoIndex(index);
+                        if (!isNavigatorUsedByUser()) {
+                            setIsNavigatroUsedByUser(true);
+                        }
+                    }}
+                    seletedVideoIndex={seletedVideoIndex()}
+                />
+            </Show>
         </div>
     );
 };
