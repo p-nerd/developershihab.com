@@ -11,7 +11,7 @@ import Hero from "@/components/Hero.tsx";
 import Icon from "@/components/Icon.astro";
 import Pill from "@/components/Pill.tsx";
 
-import PortfolioPreview from "@/screens/home/ProjectPreview.astro";
+import { FeaturedProjects } from "@/screens/home/Home.tsx";
 import Skills from "@/screens/home/Skills.astro";
 import { get_projects } from "@/helpers/logic";
 import Testimonials, { TestimonialHead } from "@/screens/home/Testimonials.tsx";
@@ -65,13 +65,7 @@ const projects = (await get_projects()).slice(0, 4);
 
                 <div class="gallery">
                     <Grid variant="offset">
-                        {
-                            projects.map(project => (
-                                <li>
-                                    <PortfolioPreview project={project} />
-                                </li>
-                            ))
-                        }
+                        <FeaturedProjects projects={projects} />
                     </Grid>
                 </div>
 
