@@ -8,7 +8,7 @@ export const TestimonialHead = () => {
             <h3 class="text-[2.125rem] lg:text-[3.5rem]">Testimonials</h3>
             <p>
                 I have been a part of several successful projects. Here are
-                testimonials from clients and their stories.
+                testimonials and their stories from clients.
             </p>
         </header>
     );

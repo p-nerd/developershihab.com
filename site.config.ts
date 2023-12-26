@@ -87,7 +87,7 @@ export const technogies_links: Record<string, string> = {
 
 export const testimonials: TTestimonial[] = [
     {
-        title: "Tony and Ty",
+        title: "Tony & Ty",
         subtitle:
             "Owners of paystubhero.com, expressing their thoughts about working with me and Finnext.co",
         src: "https://www.youtube.com/embed/41t-c74Ot98",
