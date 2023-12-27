@@ -51,3 +51,11 @@ export const cn = (
 ) => {
     return twMerge(clsx(inputs));
 };
+
+export const is_youtube_link = (link: string): boolean => {
+    return link.includes("youtube.com");
+};
+
+export const is_link_has_rel_suffix_prefix = (link: string): boolean => {
+    return link.includes("rel");
+};

@@ -1,4 +1,8 @@
-import { cn } from "@/helpers/etc";
+import {
+    cn,
+    is_link_has_rel_suffix_prefix,
+    is_youtube_link,
+} from "@/helpers/etc";
 import type { TChildren } from "@/helpers/types";
 import { testimonials } from "site.config.ts";
 import { createEffect, createSignal, For, Show } from "solid-js";
@@ -18,6 +22,15 @@ export const TestimonialHead = () => {
 const TestimonialIframe = (p: { src: string; title: string }) => {
     const [loaded, setLoaded] = createSignal(false);
 
+    const src = () => {
+        const x =
+            is_youtube_link(p.src) && !is_link_has_rel_suffix_prefix(p.src)
+                ? p.src + "?rel=0&color=white"
+                : p.src;
+        console.log(x);
+        return x;
+    };
+
     return (
         <div class="flex h-full w-full flex-row items-center gap-3 lg:px-28">
             <div class="relative w-full overflow-hidden pt-[56.25%]">
@@ -27,7 +40,7 @@ const TestimonialIframe = (p: { src: string; title: string }) => {
                     </div>
                 )}
                 <iframe
-                    src={p.src}
+                    src={src()}
                     title={p.title}
                     class="absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-md lg:rounded-2xl"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
