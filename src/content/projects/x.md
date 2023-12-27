@@ -1,5 +1,5 @@
 ---
-title: X CLI Tool
+title: x
 domain: CLI Application
 type: Developer Tool
 start_date: 2023-12-25
