@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { titles, descriptions } from "site.config.ts";
+import { titles, descriptions, digresses } from "site.config.ts";
 
 import Layout from "@/layouts/Layout.astro";
 
@@ -30,18 +30,14 @@ const projects = (await get_projects()).slice(0, 4);
                     class="text-start"
                 >
                     <div class="hidden lg:mt-2 lg:flex lg:gap-2">
-                        <Pill>
-                            <Icon icon="strategy" size="1.33em" />
-                             Problem Solver
-                        </Pill>
-                        <Pill>
-                            <Icon icon="code" size="1.33em" />
-                             Web Artisan
-                        </Pill>
-                        <Pill>
-                            <Icon icon="rocket-launch" size="1.33em" />
-                             Full-stack Developer
-                        </Pill>
+                        {
+                            digresses.map(digress => (
+                                <Pill>
+                                    <Icon icon={digress.icon} size="1.33em" />
+                                    {digress.text}
+                                </Pill>
+                            ))
+                        }
                     </div>
                 </Hero>
                 <Image

@@ -1,4 +1,10 @@
-import type { TSocialLink, TNavLink, TTestimonial } from "./src/helpers/types";
+import type {
+    TSocialLink,
+    TNavLink,
+    TTestimonial,
+    TDigress,
+    TStrStr,
+} from "./src/helpers/types";
 
 import Github from "@/icons/Github";
 import LinkedIn from "@/icons/LinkedIn";
@@ -9,7 +15,7 @@ import Email from "@/icons/Email";
 export const name = "Shihab Mahamud";
 export const email = "shihab4t@gmail.com";
 
-export const titles = {
+export const titles: TStrStr = {
     "/": `Portfolio of ${name}`,
     "/about": `Know About ${name}`,
     "/projects": `Projects by ${name}`,
@@ -17,7 +23,7 @@ export const titles = {
     "/contact": `Make Contact with ${name}`,
 };
 
-export const descriptions = {
+export const descriptions: TStrStr = {
     "/": `The personal site of ${name}`,
     "/about": `About ${name}`,
     "/projects": `Learn about ${name}'s most recent projects`,
@@ -31,6 +37,12 @@ export const nav_links: TNavLink[] = [
     { label: "Projects", href: "/projects" },
     { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },
+];
+
+export const digresses: TDigress[] = [
+    { text: "Programmer", icon: "code" },
+    { text: "Problem Solver", icon: "strategy" },
+    { text: "Full-stack Developer", icon: "rocket-launch" },
 ];
 
 export const social_links: TSocialLink[] = [
@@ -66,7 +78,7 @@ export const social_links: TSocialLink[] = [
     },
 ];
 
-export const total_number_blogs_on_blogs_page = 10;
+export const total_number_blogs_on_blogs_page: number = 10;
 
 export const technologies_links: Record<string, string> = {
     JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",

@@ -7,6 +7,8 @@ export type TTag = { label: string; count: number };
 export type TNavLink = { label: string; href: string };
 export type TIconPath = keyof typeof icon_paths;
 
+export type TStrStr = Record<string, string>;
+
 export type TSocialLink = {
     label: string;
     href: string;
@@ -18,4 +20,9 @@ export type TTestimonial = {
     title: string;
     subtitle: string;
     src: string;
+};
+
+export type TDigress = {
+    text: string;
+    icon: TIconPath;
 };
