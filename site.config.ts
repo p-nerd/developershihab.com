@@ -4,13 +4,15 @@ import type {
     TTestimonial,
     TDigress,
     TStrStr,
-} from "./src/helpers/types";
+} from "@/helpers/types";
 
 import Github from "@/icons/Github";
 import LinkedIn from "@/icons/LinkedIn";
 import Facebook from "@/icons/Facebook";
 import Twitter from "@/icons/Twitter";
 import Email from "@/icons/Email";
+
+// glob config
 
 export const name = "Shihab Mahamud";
 export const email = "shihab4t@gmail.com";
@@ -37,12 +39,6 @@ export const nav_links: TNavLink[] = [
     { label: "Projects", href: "/projects" },
     { label: "Blogs", href: "/blogs" },
     { label: "Contact", href: "/contact" },
-];
-
-export const digresses: TDigress[] = [
-    { text: "Programmer", icon: "code" },
-    { text: "Problem Solver", icon: "strategy" },
-    { text: "Full-stack Developer", icon: "rocket-launch" },
 ];
 
 export const social_links: TSocialLink[] = [
@@ -78,8 +74,6 @@ export const social_links: TSocialLink[] = [
     },
 ];
 
-export const total_number_blogs_on_blogs_page: number = 10;
-
 export const technologies_links: Record<string, string> = {
     JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     TypeScript: "https://www.typescriptlang.org/",
@@ -97,44 +91,32 @@ export const technologies_links: Record<string, string> = {
     Go: "https://go.dev",
 };
 
-export const testimonials: TTestimonial[] = [
+// home page config
+
+const title = "Hello, my name is Shihab Mahamud";
+
+const tagline =
+    "I am a Software Developer currently working remote from Faridpur, Bangladesh.";
+
+const digresses: TDigress[] = [
+    { text: "Programmer", icon: "code" },
+    { text: "Problem Solver", icon: "strategy" },
+    { text: "Full-stack Developer", icon: "rocket-launch" },
+];
+
+const portrait = "/assets/portrait.jpg";
+
+const testimonials: TTestimonial[] = [
     {
         title: "Tony & Ty",
         subtitle:
             "Owners of paystubhero.com, expressing their thoughts about working with me and Finnext.co",
         src: "https://www.youtube.com/embed/41t-c74Ot98",
     },
-    /*
-    {
-        title: "ThePrimeogen",
-        subtitle: "32 Reasons WHY TS IS BETTER Than Go",
-        src: "https://www.youtube.com/embed/lvKQh3Od6V4",
-    },
-    {
-        title: "Omar Hisham Al Arabi",
-        subtitle: "Surah Al Isra | سورة الاسراء - عمر هشام العربي",
-        src: "https://www.youtube.com/embed/wFclWz2QeJE",
-    },
-    {
-        title: "Fireship",
-        subtitle: "My Bleeding Edge Tech Stack for 2025",
-        src: "https://www.youtube.com/embed/rFP7rUYtOOg",
-    },
-    {
-        title: "ThePrimeogen",
-        subtitle: "100 Seconds of Rust | Prime Reacts",
-        src: "https://www.youtube.com/embed/APfS3vgV9pU",
-    },
-    {
-        title: "Fireship",
-        subtitle: "Stop calling Fleet a VS Code Killer",
-        src: "https://www.youtube.com/embed/h55emgImrLk",
-    },
-
-    {
-        title: "Theo",
-        subtitle: "Teaching NextJS To Primeagen",
-        src: "https://www.youtube.com/embed/CpBXikakzks",
-    },
-    */
 ];
+
+export const home = { title, tagline, digresses, testimonials, portrait };
+
+// blogs page config
+
+export const total_number_blogs_on_blogs_page: number = 10;

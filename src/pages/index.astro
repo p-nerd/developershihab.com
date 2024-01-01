@@ -1,23 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import { titles, descriptions, digresses } from "site.config.ts";
+import { titles, descriptions, home } from "site.config.ts";
+import { get_featured_projects } from "@/helpers/logic.ts";
+import { FeaturedProjects } from "@/screens/home/Home.tsx";
+import { TestimonialHead } from "@/screens/home/Testimonials.tsx";
 
 import Layout from "@/layouts/Layout.astro";
 
 import Grid from "@/components/Grid.astro";
 import Icon from "@/components/Icon.astro";
-import Skills from "@/screens/home/Skills.astro";
-
 import Hero from "@/components/Hero.tsx";
 import Pill from "@/components/Pill.tsx";
 import CallToAction from "@/components/CallToAction.tsx";
-import ContactCTA from "../components/ContactCTA.tsx";
+import ContactCTA from "@/components/ContactCTA.tsx";
 
-import { FeaturedProjects } from "@/screens/home/Home.tsx";
-import { get_projects } from "@/helpers/logic";
-import Testimonials, { TestimonialHead } from "@/screens/home/Testimonials.tsx";
+import Skills from "@/screens/home/Skills.astro";
+import Testimonials from "@/screens/home/Testimonials.tsx";
 
-const projects = (await get_projects()).slice(0, 4);
+const projects = await get_featured_projects();
 ---
 
 <Layout title={titles["/"]} description={descriptions["/"]}>
@@ -25,13 +25,13 @@ const projects = (await get_projects()).slice(0, 4);
         <div class="wrapper flex flex-col gap-8 lg:gap-20">
             <header class="hero flex flex-col items-center gap-8">
                 <Hero
-                    title="Hello, my name is Shihab Mahamud"
-                    tagline="I am a Full-stack Developer who is currently based in Faridpur, Bangladesh."
+                    title={home.title}
+                    tagline={home.tagline}
                     class="text-start"
                 >
-                    <div class="hidden lg:mt-2 lg:flex lg:gap-2">
+                    <div class="mt-2 flex flex-col gap-2 lg:flex-row">
                         {
-                            digresses.map(digress => (
+                            home.digresses.map(digress => (
                                 <Pill>
                                     <Icon icon={digress.icon} size="1.33em" />
                                     {digress.text}
@@ -44,8 +44,8 @@ const projects = (await get_projects()).slice(0, 4);
                     alt="Shihab Mahamud smiling in a red plaid shirt and tortoise shell glasses"
                     width="1200"
                     height="1600"
-                    src="/assets/portrait.jpg"
-                    class="rounded-3xl object-cover object-top shadow-md lg:aspect-[3/4] lg:gap-[3.75rem] lg:rounded-[4.5rem]"
+                    src={home.portrait}
+                    class="hidden rounded-3xl object-cover object-top shadow-md lg:block lg:aspect-[3/4] lg:gap-[3.75rem] lg:rounded-[4.5rem]"
                 />
             </header>
             <Skills />
@@ -80,7 +80,7 @@ const projects = (await get_projects()).slice(0, 4);
 
             <section class="flex flex-col items-center gap-8 lg:gap-16">
                 <TestimonialHead />
-                <Testimonials client:idle />
+                <Testimonials testimonials={home.testimonials} />
             </section>
         </main>
         <ContactCTA />

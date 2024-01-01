@@ -34,3 +34,7 @@ export const get_projects = async (): Promise<TProject[]> => {
     projects = sort_projects_with_rank(projects);
     return projects;
 };
+
+export const get_featured_projects = async () => {
+    return (await get_projects()).slice(0, 4);
+};
