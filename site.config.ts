@@ -96,7 +96,7 @@ export const technologies_links: Record<string, string> = {
 const title = "Hello, my name is Shihab Mahamud";
 
 const tagline =
-    "I am a Software Developer currently working remote from Faridpur, Bangladesh.";
+    "I am a Software Developer currently thriving in remote work from Faridpur, Bangladesh.";
 
 const digresses: TDigress[] = [
     { text: "Programmer", icon: "code" },
