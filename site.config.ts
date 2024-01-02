@@ -11,6 +11,7 @@ import LinkedIn from "@/icons/LinkedIn";
 import Facebook from "@/icons/Facebook";
 import Twitter from "@/icons/Twitter";
 import Email from "@/icons/Email";
+import Devto from "@/icons/Devto";
 
 // glob config
 
@@ -71,6 +72,12 @@ export const social_links: TSocialLink[] = [
         href: "https://twitter.com/p_nerd2",
         icon: "twitter-logo",
         icon_x: Twitter,
+    },
+    {
+        label: "Dev.to",
+        href: "https://dev.to/p-nerd",
+        icon: "dev-to",
+        icon_x: Devto,
     },
 ];
 
