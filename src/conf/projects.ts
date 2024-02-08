@@ -49,6 +49,12 @@ const projects: TProject[] = [
         description: "Execute any script from anywhere on the path",
         tags: ["Go"],
         imageUrl: x_image,
+        links: [
+            {
+                label: "Source Code",
+                link: "https://github.com/p-nerd/x",
+            },
+        ],
     },
 ];
 
