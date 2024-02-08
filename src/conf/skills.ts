@@ -8,6 +8,7 @@ const skills = [
     "Laravel",
     "Next.js",
     "Node.js",
+    "Solid.js",
     "Git",
     "TailwindCSS",
     "MongoDB",
