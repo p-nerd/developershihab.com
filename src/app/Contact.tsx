@@ -1,14 +1,16 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./section-heading";
+import toast from "react-hot-toast";
+import person from "@/conf/person";
+
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-btn";
-import toast from "react-hot-toast";
 
-export default function Contact() {
+import SectionHeading from "@/components/SectionHeading";
+import SubmitBtn from "@/components/SubmitBtn";
+
+const Contact = () => {
     const { ref } = useSectionInView("Contact");
 
     return (
@@ -33,8 +35,8 @@ export default function Contact() {
 
             <p className="-mt-6 text-gray-700 dark:text-white/80">
                 Please contact me directly at{" "}
-                <a className="underline" href="mailto:example@gmail.com">
-                    example@gmail.com
+                <a className="underline" href={`mailto:${person.email}`}>
+                    {person.email}
                 </a>{" "}
                 or through this form.
             </p>
@@ -42,18 +44,16 @@ export default function Contact() {
             <form
                 className="mt-10 flex flex-col dark:text-black"
                 action={async formData => {
-                    const { data, error } = await sendEmail(formData);
-
+                    const { error } = await sendEmail(formData);
                     if (error) {
                         toast.error(error);
                         return;
                     }
-
                     toast.success("Email sent successfully!");
                 }}
             >
                 <input
-                    className="borderBlack h-14 rounded-lg px-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+                    className="borderBlack h-14 rounded-lg px-4 transition-all placeholder:text-gray-500 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
                     name="senderEmail"
                     type="email"
                     required
@@ -61,7 +61,7 @@ export default function Contact() {
                     placeholder="Your email"
                 />
                 <textarea
-                    className="borderBlack my-3 h-52 rounded-lg p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+                    className="borderBlack my-3 h-52 rounded-lg p-4 transition-all placeholder:text-gray-500 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
                     name="message"
                     placeholder="Your message"
                     required
@@ -71,4 +71,6 @@ export default function Contact() {
             </form>
         </motion.section>
     );
-}
+};
+
+export default Contact;

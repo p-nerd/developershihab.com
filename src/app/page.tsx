@@ -1,11 +1,11 @@
-import About from "@/components/about";
-import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Projects from "@/components/projects";
-import SectionDivider from "@/components/section-divider";
-import Skills from "@/components/skills";
+import SectionDivider from "@/components/SectionDivider";
 
 import Intro from "./Intro";
+import Contact from "./Contact";
+import About from "./About";
+import Skills from "./Skills";
 
 const Home = () => (
     <main className="flex flex-col items-center px-4">
