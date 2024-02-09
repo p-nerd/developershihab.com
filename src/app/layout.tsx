@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import { Analytics } from "@vercel/analytics/react";
 
 import ThemeContextProvider from "@/context/theme-context";
 import ActiveSectionContextProvider from "@/context/active-section-context";
@@ -41,7 +40,6 @@ const Layout = (p: { children: ReactNode }) => (
                     <ThemeSwitch />
                 </ActiveSectionContextProvider>
             </ThemeContextProvider>
-            <Analytics />
         </body>
     </html>
 );
