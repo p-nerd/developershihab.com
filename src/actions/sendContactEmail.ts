@@ -6,6 +6,7 @@ import { render } from "@react-email/render";
 
 import nodemailer from "nodemailer";
 import ContactFormEmail from "@/emails/ContactFormEmail";
+import person from "@/conf/person";
 
 const transporter = nodemailer.createTransport({
     host: process.env.NODEMAILER_HOST,
@@ -42,7 +43,7 @@ const sendContactEmail = async (formData: FormData) => {
 
         await transporter.sendMail({
             from: "Contact From<contact@developershihab.com>",
-            to: "shihab4t@gmail.com",
+            to: person.email,
             subject: "Message from contact form",
             replyTo: senderEmail,
             html: emailHtml,

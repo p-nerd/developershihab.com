@@ -20,6 +20,10 @@ const nav_links = [
         hash: "#experience",
     },
     {
+        name: "Blogs",
+        hash: "#blogs",
+    },
+    {
         name: "Contact",
         hash: "#contact",
     },
