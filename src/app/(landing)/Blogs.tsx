@@ -14,8 +14,8 @@ const Blogs = () => {
             <SectionHeading>My blogs</SectionHeading>
             <PreviewBlogs />
             <div className="mt-5 flex justify-center">
-                <Link href="/blogs" className="text-lg underline">
-                    Read all blogs
+                <Link href="/blogs" className="text-lg underline underline-offset-2">
+                    Open all blogs
                 </Link>
             </div>
         </section>
