@@ -8,9 +8,14 @@ const Footer = () => {
                 &copy; {year} {person.name}. All rights reserved.
             </small>
             <p className="text-xs">
-                <span className="font-semibold">About this website:</span> built with React &
-                Next.js (App Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion,
-                React Email & Resend, Vercel hosting.
+                <span className="font-semibold">Built with:</span> Next.js 13, React, TypeScript,
+                Tailwind CSS, Framer Motion, React Email & Resend, Vercel hosting.
+            </p>
+            <p className="text-xs">
+                <span className="font-semibold">Design Inspired by:</span>{" "}
+                <a href="https://youtu.be/sUKptmUVIBM" className="underline" target="_blank">
+                    ByteGrad
+                </a>
             </p>
         </footer>
     );

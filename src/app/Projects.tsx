@@ -1,10 +1,12 @@
 "use client";
 
+import type { TProject } from "@/conf/projects";
+
 import { useRef } from "react";
 import { useSectionInView } from "@/lib/hooks";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import projects, { TProject } from "@/conf/projects";
+import projects from "@/conf/projects";
 
 import SectionHeading from "@/components/SectionHeading";
 import Image from "next/image";
@@ -53,7 +55,7 @@ const Project = ({ title, description, tags, imageUrl, more, links }: TProject) 
                             ))}
                         </ul>
                         {!!links && (
-                            <ul className="mt-4 flex flex-col gap-3 sm:mt-auto">
+                            <ul className="mt-4 flex flex-col gap-1 sm:mt-auto">
                                 {links.map((link, index) => (
                                     <li key={index} className="w-full text-center">
                                         <a

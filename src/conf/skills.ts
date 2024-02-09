@@ -16,6 +16,8 @@ const skills = [
     "PostgreSQL",
     "Elixir",
     "Phoenix",
+    "Linux",
+    "Docker",
 ] as const;
 
 export default skills;
