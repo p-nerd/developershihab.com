@@ -101,10 +101,11 @@ const Intro = () => {
                     Download CV{" "}
                     <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
                 </a>
-
-                <SocialLink href={person.linkedin} icon={<BsLinkedin />} />
-                <SocialLink href={person.github} icon={<FaGithubSquare />} />
-                <SocialLink href={person.dev_to} icon={<FaDev />} />
+                <div className="flex gap-2">
+                    <SocialLink href={person.linkedin} icon={<BsLinkedin />} />
+                    <SocialLink href={person.github} icon={<FaGithubSquare />} />
+                    <SocialLink href={person.dev_to} icon={<FaDev />} />
+                </div>
             </motion.div>
         </section>
     );

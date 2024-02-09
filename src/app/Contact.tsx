@@ -3,15 +3,18 @@
 import toast from "react-hot-toast";
 import person from "@/conf/person";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
 
 import SectionHeading from "@/components/SectionHeading";
 import SubmitBtn from "@/components/SubmitBtn";
+import sendContactEmail from "@/actions/sendContactEmail";
 
 const Contact = () => {
     const { ref } = useSectionInView("Contact");
+
+    const fromRef = useRef<HTMLFormElement | null>(null);
 
     return (
         <motion.section
@@ -42,18 +45,20 @@ const Contact = () => {
             </p>
 
             <form
+                ref={fromRef}
                 className="mt-10 flex flex-col dark:text-black"
                 action={async formData => {
-                    const { error } = await sendEmail(formData);
+                    const { error } = await sendContactEmail(formData);
                     if (error) {
                         toast.error(error);
                         return;
                     }
+                    fromRef.current?.reset();
                     toast.success("Email sent successfully!");
                 }}
             >
                 <input
-                    className="borderBlack h-14 rounded-lg px-4 transition-all placeholder:text-gray-500 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+                    className="borderBlack h-14 rounded-lg px-4 transition-all placeholder:text-gray-400 dark:bg-gray-800 dark:bg-opacity-80  dark:text-white dark:outline-none dark:focus:bg-opacity-100"
                     name="senderEmail"
                     type="email"
                     required
@@ -61,7 +66,7 @@ const Contact = () => {
                     placeholder="Your email"
                 />
                 <textarea
-                    className="borderBlack my-3 h-52 rounded-lg p-4 transition-all placeholder:text-gray-500 dark:bg-white dark:bg-opacity-80 dark:outline-none dark:focus:bg-opacity-100"
+                    className="borderBlack my-3 h-52 rounded-lg p-4 transition-all placeholder:text-gray-400 dark:bg-gray-800 dark:bg-opacity-80 dark:text-white dark:outline-none dark:focus:bg-opacity-100"
                     name="message"
                     placeholder="Your message"
                     required

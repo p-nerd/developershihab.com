@@ -1,4 +1,4 @@
-export const links = [
+const nav_links = [
     {
         name: "Home",
         hash: "#home",
@@ -24,3 +24,5 @@ export const links = [
         hash: "#contact",
     },
 ] as const;
+
+export default nav_links;

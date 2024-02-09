@@ -9,7 +9,7 @@ const Footer = () => {
             </small>
             <p className="text-xs">
                 <span className="font-semibold">Built with:</span> Next.js 13, React, TypeScript,
-                Tailwind CSS, Framer Motion, React Email & Resend, Vercel hosting.
+                Tailwind CSS, Framer Motion, React Email, Vercel hosting.
             </p>
             <p className="text-xs">
                 <span className="font-semibold">Design Inspired by:</span>{" "}
