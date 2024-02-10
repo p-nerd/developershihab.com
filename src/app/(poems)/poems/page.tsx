@@ -21,7 +21,7 @@ const metadata: Metadata = {
 
 const Poem = () => {
     return (
-        <div className="mx-auto rounded-2xl bg-slate-50/70 px-5 py-10 text-center dark:bg-slate-800/50 sm:w-[500px] ">
+        <div className="mx-auto rounded-2xl bg-slate-200/50 px-5 py-10 text-center dark:bg-slate-800/50 sm:w-[500px] ">
             <h2 className="mb-5 text-2xl">"তুমি"</h2>
             <div>
                 <div>তোমার চোখের সাথে তুলনা আমি কিসের করি।</div>
