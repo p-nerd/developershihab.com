@@ -16,7 +16,7 @@ const topsLinks = [
 ];
 
 const metadata: Metadata = {
-    title: `Blogs written by ${person.name}`,
+    title: `Poems by ${person.name}`,
 };
 
 const Poem = () => {
