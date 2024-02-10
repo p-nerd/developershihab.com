@@ -73,7 +73,7 @@ const PreviewBlogs = () => {
         <div className="relative sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
             <div className="absolute bottom-0 right-full top-3 mr-7 hidden w-px bg-slate-200 dark:bg-slate-800 sm:block md:mr-[3.25rem]" />
             <div className="space-y-16">
-                {[...Array(20).keys()].map(k => (
+                {[...Array(5).keys()].map(k => (
                     <PreviewBlog key={k} />
                 ))}
             </div>
