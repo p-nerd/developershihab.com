@@ -1,9 +1,5 @@
-import type { Metadata } from "next";
-
 import PreviewBlogs from "@/components/PreviewBlogs";
 import BreadCrumb from "@/components/BreadCrumb";
-
-import person from "@/conf/person";
 
 const topsLinks = [
     {
@@ -16,10 +12,6 @@ const topsLinks = [
     },
 ];
 
-const metadata: Metadata = {
-    title: `Blogs written by ${person.name}`,
-};
-
 const Blogs = () => {
     return (
         <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
@@ -29,5 +21,4 @@ const Blogs = () => {
     );
 };
 
-export { metadata };
 export default Blogs;

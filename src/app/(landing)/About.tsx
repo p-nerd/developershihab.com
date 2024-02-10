@@ -42,8 +42,12 @@ const About = () => {
                 <span className="italic">When I'm not coding</span>, I enjoy walking on street,
                 watching movies, and chat with friends and family. I also enjoy{" "}
                 <span className="font-medium">learning new things</span>. I am currently learning
-                about <span className="font-medium">Islam and Philosophy</span>. I'm also learning
-                how to cook.
+                about <span className="font-medium">Islam and Philosophy</span>. Sometime I also
+                write some{" "}
+                <a className="underline underline-offset-2" href="/poems">
+                    bangla poems
+                </a>
+                .
             </p>
         </motion.section>
     );
