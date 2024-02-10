@@ -24,7 +24,7 @@ const Poem = () => {
         <div className="mx-auto rounded-2xl bg-slate-200/50 px-5 py-10 text-center dark:bg-slate-800/50 sm:w-[500px] ">
             <h2 className="mb-5 text-2xl">"তুমি"</h2>
             <div>
-                <div>তোমার চোখের সাথে তুলনা আমি কিসের করি।</div>
+                <div className="font-semibold">তোমার চোখের সাথে তুলনা আমি কিসের করি।</div>
                 <div>তোমার চোখের মায়ায় আমি প্রেমে পড়ি।</div>
                 <div>তোমার ওই মিস্টি হাসি এখনো আমার চোখে।</div>
                 <div>তোমার চোখের পাপড়ি গুলা আমায় দেখে হাসে।</div>
