@@ -1,8 +1,6 @@
 import portrait from "@/assets/home/portrait.jpg";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-
-import x from "@/assets/projects/developershihab.jpg";
 
 const GoBack = () => {
     return (
@@ -36,7 +34,7 @@ const Writer = () => {
     return (
         <div className="mt-6">
             <ul className="-mx-5 -mt-6 flex flex-wrap text-sm leading-6">
-                <li className="mt-6 flex items-center whitespace-nowrap px-5 font-medium">
+                <li className="mt-6 flex items-center justify-center whitespace-nowrap px-5 font-medium">
                     <Image
                         src={portrait}
                         alt="Shihab Mahamud"
@@ -44,7 +42,7 @@ const Writer = () => {
                         height="120"
                         quality="95"
                         priority={true}
-                        className="mr-3 h-12 w-12 rounded-full object-cover shadow-xl"
+                        className="mr-3 h-11 w-11 rounded-full object-cover shadow-xl"
                     />
                     <div className="text-sm leading-4">
                         <div className="text-slate-900 dark:text-slate-200">Shihab Mahamud</div>
@@ -62,23 +60,6 @@ const Writer = () => {
             </ul>
         </div>
     );
-};
-
-const format_date = (inputDate: string) => {
-    const dateObject = new Date(inputDate);
-    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const weekday = weekdays[dateObject.getDay()];
-    const monthName = dateObject.toLocaleString("en-US", { month: "long" });
-    const day = dateObject.getDate();
-    const year = dateObject.getFullYear();
-    return `${weekday}, ${monthName} ${day}, ${year}`;
-};
-
-export type TBlog = {
-    title: string;
-    date: string;
-    image: StaticImageData;
-    content: string;
 };
 
 const Blog = (p: { blog: TBlog }) => {
@@ -104,11 +85,20 @@ const Blog = (p: { blog: TBlog }) => {
                             </div>
                             <Writer />
                             <div className="not-prose relative mt-12 overflow-hidden rounded-2xl first:mt-0 last:mb-0 [a:not(:first-child)>&]:mt-12 [a:not(:last-child)>&]:mb-12 [figure>&]:my-0">
-                                <Image src={p.blog.image} alt={p.blog.title} />
+                                <Image
+                                    src={p.blog.img}
+                                    alt={p.blog.title}
+                                    width={1000}
+                                    height={1000}
+                                    className="object-contain"
+                                />
                             </div>
-                            <div className="prose prose-slate dark:prose-dark mt-5">
-                                {p.blog.content}
-                            </div>
+                            <div
+                                className="prose prose-slate dark:prose-invert mt-5 max-w-none text-justify"
+                                dangerouslySetInnerHTML={{
+                                    __html: render_markdown(p.blog.body),
+                                }}
+                            ></div>
                         </article>
                     </main>
                 </div>
@@ -117,17 +107,28 @@ const Blog = (p: { blog: TBlog }) => {
     );
 };
 
-const Page = () => {
-    return (
-        <Blog
-            blog={{
-                title: "Tailwind CSS v3.4: Dynamic viewport units, :has() support, balanced headlines, subgrid, and more",
-                date: "2023-12-19T17:45:00.000Z",
-                image: x,
-                content: "<b>Hello<b/>",
-            }}
-        />
-    );
+import { format_date } from "@/lib/utils";
+import { TBlog, get_blog, get_blogs, render_markdown } from "@/lib/content";
+import { Metadata } from "next";
+
+export function generateStaticParams() {
+    return get_blogs().map(blog => ({
+        slug: blog.slug,
+    }));
+}
+
+type TProps = { params: { slug: string } };
+
+export async function generateMetadata({ params }: TProps): Promise<Metadata> {
+    const blog = get_blog(params.slug);
+    return {
+        title: `${blog.title} - Shihab Mahamud`,
+        description: blog.excerpt,
+    };
+}
+
+const Page = ({ params }: TProps) => {
+    return <Blog blog={get_blog(params.slug)} />;
 };
 
 export default Page;

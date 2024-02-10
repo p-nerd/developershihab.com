@@ -4,6 +4,7 @@ import PreviewBlogs from "@/components/PreviewBlogs";
 import BreadCrumb from "@/components/BreadCrumb";
 
 import person from "@/conf/person";
+import { get_blogs } from "@/lib/content";
 
 const topsLinks = [
     {
@@ -24,7 +25,7 @@ const Blogs = () => {
     return (
         <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
             <BreadCrumb links={topsLinks} />
-            <PreviewBlogs />
+            <PreviewBlogs blogs={get_blogs()} />
         </div>
     );
 };

@@ -29,4 +29,14 @@ const cn = (...inputs: ClassValue[]) => {
     return twMerge(clsx(inputs));
 };
 
-export { validateString, getErrorMessage, cn };
+const format_date = (inputDate: string) => {
+    const dateObject = new Date(inputDate);
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const weekday = weekdays[dateObject.getDay()];
+    const monthName = dateObject.toLocaleString("en-US", { month: "long" });
+    const day = dateObject.getDate();
+    const year = dateObject.getFullYear();
+    return `${weekday}, ${monthName} ${day}, ${year}`;
+};
+
+export { validateString, getErrorMessage, cn, format_date };
