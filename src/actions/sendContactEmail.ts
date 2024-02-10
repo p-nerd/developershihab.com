@@ -9,8 +9,10 @@ import ContactFormEmail from "@/emails/ContactFormEmail";
 import person from "@/conf/person";
 
 const transporter = nodemailer.createTransport({
+    service: process.env.NODEMAILER_SERVICE,
     host: process.env.NODEMAILER_HOST,
     port: Number(process.env.NODEMAILER_PORT),
+    secure: Boolean(process.env.NODEMAILER_SECURE),
     auth: {
         user: process.env.NODEMAILER_USER,
         pass: process.env.NODEMAILER_PASS,
