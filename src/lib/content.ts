@@ -15,7 +15,7 @@ export const render_markdown = (md: string) => {
     return marked.parse(md);
 };
 
-const blogs_content_path = path.join("content", "blogs");
+const blogs_content_path = path.join(process.cwd(), "content", "blogs");
 
 export type TBlog = {
     slug: string;
