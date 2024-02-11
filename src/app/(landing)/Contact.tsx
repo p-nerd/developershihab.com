@@ -1,15 +1,15 @@
 "use client";
 
-import toast from "react-hot-toast";
-import person from "@/conf/person";
-
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
+import toast from "react-hot-toast";
+import person from "@/conf/person";
+import sendContactEmail from "@/actions/sendContactEmail";
+
 import SectionHeading from "@/components/SectionHeading";
 import SubmitBtn from "@/components/SubmitBtn";
-import sendContactEmail from "@/actions/sendContactEmail";
 import Anchor from "@/components/Anchor";
 
 const Contact = () => {
@@ -22,24 +22,16 @@ const Contact = () => {
             id="contact"
             ref={ref}
             className="mb-20 w-[min(100%,38rem)] text-center sm:mb-28"
-            initial={{
-                opacity: 0,
-            }}
-            whileInView={{
-                opacity: 1,
-            }}
-            transition={{
-                duration: 1,
-            }}
-            viewport={{
-                once: true,
-            }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
         >
             <SectionHeading>Contact me</SectionHeading>
 
             <p className="-mt-6 text-gray-700 dark:text-white/80">
                 Please contact me directly at{" "}
-                <Anchor className="underline" href={`mailto:${person.email}`}>
+                <Anchor className="underline underline-offset-2" href={`mailto:${person.email}`}>
                     {person.email}
                 </Anchor>{" "}
                 or through this form.
