@@ -25,7 +25,12 @@ const Poems = () => {
     return (
         <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
             <BreadCrumb links={topsLinks} />
-            <PreviewProjects projects={projects} />
+            <h1 className="text-center text-3xl font-bold">All Projects</h1>
+            <div className="flex  items-center justify-center">
+                <div className="max-w-[45rem]">
+                    <PreviewProjects projects={projects} />
+                </div>
+            </div>
         </div>
     );
 };

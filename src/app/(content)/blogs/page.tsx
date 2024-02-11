@@ -9,7 +9,7 @@ import { get_blogs } from "@/lib/content";
 const topsLinks = [
     {
         label: "Home",
-        href: "/",
+        href: "/#blogs",
     },
     {
         label: "Blogs",
