@@ -4,8 +4,8 @@ import person from "@/conf/person";
 const Footer = () => {
     const year = new Date().getFullYear();
     return (
-        <footer className="mb-10 mt-10 px-4 text-center text-gray-500">
-            <small className="mb-2 block text-xs">
+        <footer className="my-10 flex flex-col gap-1 px-4 text-center text-gray-500">
+            <small className="block text-xs">
                 &copy; {year} {person.name}. All rights reserved.
             </small>
             <p className="text-xs">
