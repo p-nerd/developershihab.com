@@ -72,7 +72,7 @@ const Writer = () => {
 
 const Blog = (p: { blog: TBlog }) => {
     return (
-        <div className="mb-10 overflow-hidden">
+        <div className="mb-20 overflow-hidden">
             <GoBack />
             <div className="px-4 sm:px-6 md:px-8">
                 <div className="mx-auto max-w-3xl">
@@ -102,7 +102,7 @@ const Blog = (p: { blog: TBlog }) => {
                                 />
                             </div>
                             <div
-                                className="prose prose-slate mt-5 max-w-none text-justify dark:prose-invert"
+                                className="prose prose-slate mt-5 max-w-none dark:prose-invert"
                                 dangerouslySetInnerHTML={{
                                     __html: render_markdown(p.blog.body),
                                 }}
@@ -133,12 +133,7 @@ export const generateMetadata = async ({ params }: TProps): Promise<Metadata> =>
 
 const Page = ({ params }: TProps) => {
     const blog = get_blog(params.slug);
-    return (
-        <>
-            <title>{blog.title} - Shihab Mahamud</title>
-            <Blog blog={blog} />
-        </>
-    );
+    return <Blog blog={blog} />;
 };
 
 export default Page;

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
 import SectionHeading from "@/components/SectionHeading";
+import Link from "next/link";
 
 const About = () => {
     const { ref } = useSectionInView("About");
@@ -44,9 +45,9 @@ const About = () => {
                 <span className="font-medium">learning new things</span>. I am currently learning
                 about <span className="font-medium">Islam and Philosophy</span>. Sometime I also
                 write some{" "}
-                <a className="underline underline-offset-2" href="/poems">
+                <Link className="underline underline-offset-2" href="/poems">
                     bangla poems
-                </a>
+                </Link>
                 .
             </p>
         </motion.section>

@@ -24,6 +24,8 @@ export type TBlog = {
     date: string;
     excerpt: string;
     img: string;
+    draft?: boolean;
+    priority?: number;
     body: string;
 };
 
@@ -37,11 +39,21 @@ export const get_blog = (slug: string) => {
         date: frontmatter.date as string,
         excerpt: frontmatter.excerpt as string,
         img: frontmatter.img as string,
+        draft: Boolean(frontmatter.draft),
+        priority: Number(frontmatter.priority),
         body: content as string,
     };
 };
 
 export const get_blogs = (): TBlog[] => {
     const files = fs.readdirSync(blogs_content_path);
-    return files.map(filename => get_blog(filename.replace(".md", "")));
+    const blogs = files.map(filename => get_blog(filename.replace(".md", "")));
+    const filtered_blogs = blogs.filter(blog => (blog.draft ? !blog.draft : true));
+    const priority_sorted_blogs = filtered_blogs
+        .filter(x => !!x.priority)
+        .sort((a, b) => b.priority - a.priority);
+    const not_priority_sorted_blogs = filtered_blogs
+        .filter(x => !x.priority)
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return [...priority_sorted_blogs, ...not_priority_sorted_blogs];
 };

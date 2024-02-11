@@ -59,6 +59,7 @@ const Project = ({ title, description, tags, imageUrl, more, links }: TProject) 
                                 {links.map((link, index) => (
                                     <li key={index} className="w-full text-center">
                                         <a
+                                            target="_blank"
                                             href={link.link}
                                             className="block w-full rounded-full bg-black/[0.7] px-3 py-1 text-[0.8rem] tracking-wider text-white dark:text-white/70"
                                         >
