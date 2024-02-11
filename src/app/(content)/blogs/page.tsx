@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 
+import { get_blogs } from "@/lib/content";
+
 import PreviewBlogs from "@/components/PreviewBlogs";
 import BreadCrumb from "@/components/BreadCrumb";
 
 import person from "@/conf/person";
-import { get_blogs } from "@/lib/content";
 
 const topsLinks = [
     {

@@ -6,9 +6,9 @@ import type { TBlog } from "@/lib/types";
 
 import { useSectionInView } from "@/lib/hooks";
 
+import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import PreviewBlogs from "@/components/PreviewBlogs";
-import Link from "next/link";
 
 const Blogs = (p: { blogs: TBlog[] }) => {
     const { ref } = useSectionInView("Blogs", 0.5);
@@ -19,7 +19,7 @@ const Blogs = (p: { blogs: TBlog[] }) => {
             <PreviewBlogs blogs={p.blogs} />
             <div className="mt-5 flex justify-center">
                 <Link href="/blogs" className="text-lg underline underline-offset-2">
-                    Open all blogs
+                    All Blogs
                 </Link>
             </div>
         </section>
