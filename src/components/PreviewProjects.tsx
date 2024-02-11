@@ -9,6 +9,7 @@ import projects from "@/conf/projects";
 
 import Image from "next/image";
 import Link from "next/link";
+import Anchor from "./Anchor";
 
 const Project = ({ title, description, tags, imageUrl, more, links }: TProject) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -56,13 +57,12 @@ const Project = ({ title, description, tags, imageUrl, more, links }: TProject) 
                             <ul className="mt-4 flex flex-col gap-1 sm:mt-auto">
                                 {links.map((link, index) => (
                                     <li key={index} className="w-full text-center">
-                                        <a
-                                            target="_blank"
+                                        <Anchor
                                             href={link.link}
                                             className="block w-full rounded-full bg-black/[0.7] px-3 py-1 text-[0.8rem] tracking-wider text-white dark:text-white/70"
                                         >
                                             {link.label}
-                                        </a>
+                                        </Anchor>
                                     </li>
                                 ))}
                             </ul>

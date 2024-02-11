@@ -10,6 +10,7 @@ import { useSectionInView } from "@/lib/hooks";
 import SectionHeading from "@/components/SectionHeading";
 import SubmitBtn from "@/components/SubmitBtn";
 import sendContactEmail from "@/actions/sendContactEmail";
+import Anchor from "@/components/Anchor";
 
 const Contact = () => {
     const { ref } = useSectionInView("Contact");
@@ -38,9 +39,9 @@ const Contact = () => {
 
             <p className="-mt-6 text-gray-700 dark:text-white/80">
                 Please contact me directly at{" "}
-                <a target="_blank" className="underline" href={`mailto:${person.email}`}>
+                <Anchor className="underline" href={`mailto:${person.email}`}>
                     {person.email}
-                </a>{" "}
+                </Anchor>{" "}
                 or through this form.
             </p>
 

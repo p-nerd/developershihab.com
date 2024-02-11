@@ -1,3 +1,4 @@
+import Anchor from "@/components/Anchor";
 import person from "@/conf/person";
 
 const Footer = () => {
@@ -13,9 +14,9 @@ const Footer = () => {
             </p>
             <p className="text-xs">
                 <span className="font-semibold">Design Inspired by:</span>{" "}
-                <a href="https://youtu.be/sUKptmUVIBM" className="underline" target="_blank">
+                <Anchor href="https://youtu.be/sUKptmUVIBM" className="underline">
                     ByteGrad
-                </a>
+                </Anchor>
             </p>
         </footer>
     );
