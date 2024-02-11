@@ -1,22 +1,18 @@
 "use client";
 
-import React, { useEffect, useState, createContext, useContext } from "react";
+import { useEffect, useState, createContext, useContext, type ReactNode } from "react";
 
-type Theme = "light" | "dark";
+type TTheme = "light" | "dark";
 
-type ThemeContextProviderProps = {
-    children: React.ReactNode;
-};
-
-type ThemeContextType = {
-    theme: Theme;
+type TThemeContextType = {
+    theme: TTheme;
     toggleTheme: () => void;
 };
 
-const ThemeContext = createContext<ThemeContextType | null>(null);
+const ThemeContext = createContext<TThemeContextType | null>(null);
 
-export default function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-    const [theme, setTheme] = useState<Theme>("light");
+const ThemeContextProvider = (p: { children: ReactNode }) => {
+    const [theme, setTheme] = useState<TTheme>("light");
 
     const toggleTheme = () => {
         if (theme === "light") {
@@ -31,7 +27,7 @@ export default function ThemeContextProvider({ children }: ThemeContextProviderP
     };
 
     useEffect(() => {
-        const localTheme = window.localStorage.getItem("theme") as Theme | null;
+        const localTheme = window.localStorage.getItem("theme") as TTheme | null;
 
         if (localTheme) {
             setTheme(localTheme);
@@ -52,12 +48,12 @@ export default function ThemeContextProvider({ children }: ThemeContextProviderP
                 toggleTheme,
             }}
         >
-            {children}
+            {p.children}
         </ThemeContext.Provider>
     );
-}
+};
 
-export function useTheme() {
+const useTheme = () => {
     const context = useContext(ThemeContext);
 
     if (context === null) {
@@ -65,4 +61,6 @@ export function useTheme() {
     }
 
     return context;
-}
+};
+
+export { ThemeContextProvider, useTheme };

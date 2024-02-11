@@ -1,6 +1,6 @@
 "use client";
 
-import type { TProject } from "@/conf/projects";
+import type { TProject } from "@/lib/types";
 
 import { useRef } from "react";
 import { useSectionInView } from "@/lib/hooks";
@@ -18,15 +18,15 @@ const Project = ({ title, description, tags, imageUrl, more, links }: TProject) 
         target: ref,
         offset: ["0 1", "1.33 1"],
     });
-    const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+    const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+    const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
     return (
         <motion.div
             ref={ref}
             style={{
-                scale: scaleProgess,
-                opacity: opacityProgess,
+                scale: scaleProgress,
+                opacity: opacityProgress,
             }}
             className="group mb-3 last:mb-0 sm:mb-8"
         >

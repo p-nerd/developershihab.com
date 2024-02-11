@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { TBlog } from "@/lib/content";
+import type { TBlog } from "@/lib/types";
 
 import { format_date } from "@/lib/utils";
 import { get_blog, get_blogs } from "@/lib/content";

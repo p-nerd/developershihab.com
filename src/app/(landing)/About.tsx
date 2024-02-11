@@ -34,7 +34,7 @@ const About = () => {
                 work with a company called Finnext.co, where I have contributed to several notable
                 projects. Currently, my focus lies on JavaScript/TypeScript (React.js/Next.js,
                 Solid.js), PHP (Laravel, Wordpress), and Elixir (Phoenix) stacks. I am deeply
-                passionate about continuously expanding my skillset and am actively seeking a{" "}
+                passionate about continuously expanding my skill set and am actively seeking a{" "}
                 <span className="font-medium">full-time position</span> as a software developer.
                 Also I am currently a 4th year diploma student at Faridpur Polytechnic Institute
                 studying Computer Science.

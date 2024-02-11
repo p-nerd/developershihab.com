@@ -1,17 +1,8 @@
-import type { StaticImageData } from "next/image";
+import type { TProject } from "@/lib/types";
 
 import paystubhero_image from "@/assets/projects/paystubhero.jpg";
 import developershihab_image from "@/assets/projects/developershihab.jpg";
 import x_image from "@/assets/projects/x.jpg";
-
-export type TProject = {
-    title: string;
-    description: string;
-    tags: string[];
-    more?: string;
-    imageUrl: StaticImageData;
-    links?: { label: string; link: string }[];
-};
 
 const projects: TProject[] = [
     {
@@ -30,7 +21,7 @@ const projects: TProject[] = [
     },
     {
         title: "developershihab.com",
-        description: "I developer my profolio website with Modern And cutting edges technoligies",
+        description: "I developer my portfolio website with Modern And cutting edges technologies",
         tags: ["React.js", "TypeScript", "Next.js", "Tailwind", "Framer Motion"],
         imageUrl: developershihab_image,
         links: [

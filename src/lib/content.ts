@@ -1,3 +1,5 @@
+import type { TBlog, TPoem } from "./types";
+
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -13,18 +15,6 @@ const separate_md = (data: string) => {
 const content_path = path.join(process.cwd(), "content");
 
 const blogs_content_path = path.join(content_path, "blogs");
-
-export type TBlog = {
-    slug: string;
-    title: string;
-    desc: string;
-    date: string;
-    excerpt: string;
-    img: string;
-    draft?: boolean;
-    priority?: number;
-    body: string;
-};
 
 export const get_blog = (slug: string): TBlog => {
     const markdownWithMeta = fs.readFileSync(path.join(blogs_content_path, slug + ".md"), "utf-8");
@@ -53,13 +43,6 @@ export const get_blogs = (): TBlog[] => {
         .filter(x => !x.priority)
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     return [...priority_sorted_blogs, ...not_priority_sorted_blogs];
-};
-
-export type TPoem = {
-    name: string;
-    draft?: boolean;
-    priority?: number;
-    body: string;
 };
 
 const poems_content_path = path.join(content_path, "poems");

@@ -1,4 +1,4 @@
-import type { TBlog } from "@/lib/content";
+import type { TBlog } from "@/lib/types";
 import { format_date } from "@/lib/utils";
 import Link from "next/link";
 

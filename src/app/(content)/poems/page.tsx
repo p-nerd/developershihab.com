@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { TPoem } from "@/lib/content";
+import type { TPoem } from "@/lib/types";
 
 import { get_poems } from "@/lib/content";
 
