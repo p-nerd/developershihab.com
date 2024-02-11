@@ -24,10 +24,14 @@ export type TPoem = {
 };
 
 export type TProject = {
+    slug: string;
     title: string;
     description: string;
     tags: string[];
-    more?: string;
-    imageUrl: StaticImageData;
+    imageUrl: string;
     links?: { label: string; link: string }[];
+    draft?: boolean;
+    priority?: number;
+    featured?: boolean;
+    body: string;
 };

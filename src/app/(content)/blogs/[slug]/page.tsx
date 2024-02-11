@@ -7,38 +7,10 @@ import { get_blog, get_blogs } from "@/lib/content";
 import portrait from "@/assets/home/portrait.jpg";
 
 import Image from "next/image";
-import Link from "next/link";
 import person from "@/conf/person";
 import Markdown from "@/components/Markdown";
 import Anchor from "@/components/Anchor";
-
-const GoBack = () => {
-    return (
-        <div className="max-w-8xl mx-auto">
-            <div className="flex px-4 pb-10 pt-8 lg:px-8">
-                <Link
-                    className="group flex text-sm font-semibold leading-6 text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
-                    href="/blogs"
-                >
-                    <svg
-                        viewBox="0 -9 3 24"
-                        className="mr-3 h-6 w-auto overflow-visible text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300"
-                    >
-                        <path
-                            d="M3 0L0 3L3 6"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                    Go back
-                </Link>
-            </div>
-        </div>
-    );
-};
+import GoBack from "@/components/GoBack";
 
 const Writer = () => {
     return (
@@ -74,7 +46,7 @@ const Writer = () => {
 const Blog = (p: { blog: TBlog }) => {
     return (
         <div className="mb-20 overflow-hidden">
-            <GoBack />
+            <GoBack href="/blogs" />
             <div className="px-4 sm:px-6 md:px-8">
                 <div className="mx-auto max-w-3xl">
                     <main>

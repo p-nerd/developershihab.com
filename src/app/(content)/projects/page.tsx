@@ -4,7 +4,7 @@ import person from "@/conf/person";
 
 import BreadCrumb from "@/components/BreadCrumb";
 import PreviewProjects from "@/components/PreviewProjects";
-import projects from "@/conf/projects";
+import { get_projects } from "@/lib/content";
 
 const topsLinks = [
     {
@@ -28,7 +28,7 @@ const Poems = () => {
             <h1 className="text-center text-3xl font-bold">All Projects</h1>
             <div className="flex  items-center justify-center">
                 <div className="max-w-[45rem]">
-                    <PreviewProjects projects={projects} />
+                    <PreviewProjects projects={get_projects()} />
                 </div>
             </div>
         </div>

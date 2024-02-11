@@ -1,4 +1,4 @@
-import type { TBlog, TPoem } from "./types";
+import type { TBlog, TPoem, TProject } from "./types";
 
 import fs from "fs";
 import path from "path";
@@ -45,6 +45,10 @@ export const get_blogs = (): TBlog[] => {
     return [...priority_sorted_blogs, ...not_priority_sorted_blogs];
 };
 
+export const get_featured_blogs = () => {
+    return get_blogs().slice(0, 5);
+};
+
 const poems_content_path = path.join(content_path, "poems");
 
 export const get_poem = (slug: string): TPoem => {
@@ -64,4 +68,44 @@ export const get_poems = (): TPoem[] => {
     return poems
         .filter(poem => (poem.draft ? !poem.draft : true))
         .sort((a, b) => (b.priority || 0) - (a.priority || 0));
+};
+
+const projects_content_path = path.join(content_path, "projects");
+
+export const get_project = (slug: string): TProject => {
+    const markdownWithMeta = fs.readFileSync(
+        path.join(projects_content_path, slug + ".md"),
+        "utf-8",
+    );
+    const { frontmatter, content } = separate_md(markdownWithMeta);
+    return {
+        slug,
+        title: frontmatter.title as string,
+        description: frontmatter.description as string,
+        tags: frontmatter.tags as string[],
+        imageUrl: frontmatter.imageUrl as string,
+        links: frontmatter.links,
+        draft: Boolean(frontmatter.draft),
+        featured: Boolean(frontmatter.featured),
+        priority: Number(frontmatter.priority),
+        body: content as string,
+    };
+};
+
+const _get_projects = (): TProject[] => {
+    const files = fs.readdirSync(projects_content_path);
+    const projects = files.map(filename => get_project(filename.replace(".md", "")));
+    return projects.filter(project => (project.draft ? !project.draft : true));
+};
+
+const _sort_projects = (projects: TProject[]): TProject[] => {
+    return projects.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+};
+
+export const get_projects = (): TProject[] => {
+    return _sort_projects(_get_projects());
+};
+
+export const get_featured_projects = (): TProject[] => {
+    return _sort_projects(_get_projects().filter(x => !!x.featured));
 };

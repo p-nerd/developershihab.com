@@ -1,5 +1,6 @@
-import SectionDivider from "@/components/SectionDivider";
+import { get_featured_blogs, get_featured_projects } from "@/lib/content";
 
+import SectionDivider from "@/components/SectionDivider";
 import Intro from "./Intro";
 import Contact from "./Contact";
 import About from "./About";
@@ -13,10 +14,10 @@ const Home = () => (
         <Intro />
         <SectionDivider />
         <About />
-        <Projects />
+        <Projects projects={get_featured_projects()} />
         <Skills />
         <Experience />
-        <Blogs />
+        <Blogs blogs={get_featured_blogs()} />
         <Contact />
     </main>
 );
