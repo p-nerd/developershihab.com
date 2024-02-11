@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import type { TBlog } from "@/lib/content";
 
 import { format_date } from "@/lib/utils";
-import { get_blog, get_blogs, render_markdown } from "@/lib/content";
+import { get_blog, get_blogs } from "@/lib/content";
 
 import portrait from "@/assets/home/portrait.jpg";
 
 import Image from "next/image";
 import Link from "next/link";
 import person from "@/conf/person";
+import Markdown from "@/components/Markdown";
 
 const GoBack = () => {
     return (
@@ -92,7 +93,7 @@ const Blog = (p: { blog: TBlog }) => {
                                 </dl>
                             </div>
                             <Writer />
-                            <div className="not-prose relative mt-12 overflow-hidden rounded-2xl first:mt-0 last:mb-0 [a:not(:first-child)>&]:mt-12 [a:not(:last-child)>&]:mb-12 [figure>&]:my-0">
+                            <div className="not-prose relative mb-5 mt-12 overflow-hidden rounded-2xl first:mt-0 last:mb-0 [a:not(:first-child)>&]:mt-12 [a:not(:last-child)>&]:mb-12 [figure>&]:my-0">
                                 <Image
                                     src={p.blog.img}
                                     alt={p.blog.title}
@@ -101,12 +102,7 @@ const Blog = (p: { blog: TBlog }) => {
                                     className="object-contain"
                                 />
                             </div>
-                            <div
-                                className="prose prose-slate mt-5 max-w-none dark:prose-invert"
-                                dangerouslySetInnerHTML={{
-                                    __html: render_markdown(p.blog.body),
-                                }}
-                            ></div>
+                            <Markdown content={p.blog.body} />
                         </article>
                     </main>
                 </div>

@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { marked } from "marked";
 
 const separate_md = (data: string) => {
     const { data: frontmatter, content } = matter(data);
@@ -11,11 +10,9 @@ const separate_md = (data: string) => {
     };
 };
 
-export const render_markdown = (md: string) => {
-    return marked.parse(md);
-};
+const content_path = path.join(process.cwd(), "content");
 
-const blogs_content_path = path.join(process.cwd(), "content", "blogs");
+const blogs_content_path = path.join(content_path, "blogs");
 
 export type TBlog = {
     slug: string;
@@ -29,7 +26,7 @@ export type TBlog = {
     body: string;
 };
 
-export const get_blog = (slug: string) => {
+export const get_blog = (slug: string): TBlog => {
     const markdownWithMeta = fs.readFileSync(path.join(blogs_content_path, slug + ".md"), "utf-8");
     const { frontmatter, content } = separate_md(markdownWithMeta);
     return {
@@ -51,9 +48,37 @@ export const get_blogs = (): TBlog[] => {
     const filtered_blogs = blogs.filter(blog => (blog.draft ? !blog.draft : true));
     const priority_sorted_blogs = filtered_blogs
         .filter(x => !!x.priority)
-        .sort((a, b) => b.priority - a.priority);
+        .sort((a, b) => (b.priority || 0) - (a.priority || 0));
     const not_priority_sorted_blogs = filtered_blogs
         .filter(x => !x.priority)
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     return [...priority_sorted_blogs, ...not_priority_sorted_blogs];
+};
+
+export type TPoem = {
+    name: string;
+    draft?: boolean;
+    priority?: number;
+    body: string;
+};
+
+const poems_content_path = path.join(content_path, "poems");
+
+export const get_poem = (slug: string): TPoem => {
+    const markdownWithMeta = fs.readFileSync(path.join(poems_content_path, slug + ".md"), "utf-8");
+    const { frontmatter, content } = separate_md(markdownWithMeta);
+    return {
+        name: frontmatter.name as string,
+        draft: Boolean(frontmatter.draft),
+        priority: Number(frontmatter.priority),
+        body: content as string,
+    };
+};
+
+export const get_poems = (): TPoem[] => {
+    const files = fs.readdirSync(poems_content_path);
+    const poems = files.map(filename => get_poem(filename.replace(".md", "")));
+    return poems
+        .filter(poem => (poem.draft ? !poem.draft : true))
+        .sort((a, b) => (b.priority || 0) - (a.priority || 0));
 };

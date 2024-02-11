@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import type { TPoem } from "@/lib/content";
 
-import BreadCrumb from "@/components/BreadCrumb";
+import { get_poems } from "@/lib/content";
 
 import person from "@/conf/person";
+
+import BreadCrumb from "@/components/BreadCrumb";
+import Markdown from "@/components/Markdown";
 
 const topsLinks = [
     {
@@ -19,30 +23,23 @@ const metadata: Metadata = {
     title: `Poems by ${person.name}`,
 };
 
-const Poem = () => {
+const Poem = (p: { poem: TPoem }) => {
     return (
         <div className="mx-auto rounded-2xl bg-slate-200/50 px-5 py-10 text-center dark:bg-slate-800/50 sm:w-[500px] ">
-            <h2 className="mb-5 text-2xl">"তুমি"</h2>
-            <div>
-                <div className="font-semibold">তোমার চোখের সাথে তুলনা আমি কিসের করি।</div>
-                <div>তোমার চোখের মায়ায় আমি প্রেমে পড়ি।</div>
-                <div>তোমার ওই মিস্টি হাসি এখনো আমার চোখে।</div>
-                <div>তোমার চোখের পাপড়ি গুলা আমায় দেখে হাসে।</div>
-                <br />
-                <div>তোমার নয়ন আমাকে কিছু বলে।</div>
-                <div>তোমার রুপের সাক্ষি রেখে চলে।</div>
-                <div>তোমার সৌন্দর্যের বর্ননার নাই শেষ।</div>
-                <div>তোমার প্রেমে হতে চাই এক দরবেশ।</div>
-            </div>
+            <h2 className="mb-5 text-2xl">{p.poem.name}</h2>
+            <Markdown content={p.poem.body} />
         </div>
     );
 };
 
 const Poems = () => {
+    const poems = get_poems();
     return (
         <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
             <BreadCrumb links={topsLinks} />
-            <Poem />
+            {poems.map((poem, index) => (
+                <Poem key={index} poem={poem} />
+            ))}
         </div>
     );
 };
