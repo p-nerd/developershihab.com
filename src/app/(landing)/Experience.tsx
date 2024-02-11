@@ -19,6 +19,7 @@ const Experience = () => {
             <VerticalTimeline lineColor="">
                 {experiences.map((item, index) => (
                     <VerticalTimelineElement
+                        visible={true}
                         key={index}
                         contentStyle={{
                             background: theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
