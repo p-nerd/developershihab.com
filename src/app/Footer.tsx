@@ -8,7 +8,7 @@ const Footer = () => {
                 &copy; {year} {person.name}. All rights reserved.
             </small>
             <p className="text-xs">
-                <span className="font-semibold">Built with:</span> Next.js 13, React, TypeScript,
+                <span className="font-semibold">Built with:</span> Next.js 14, React, TypeScript,
                 Tailwind CSS, Framer Motion, React Email, Vercel hosting.
             </p>
             <p className="text-xs">
