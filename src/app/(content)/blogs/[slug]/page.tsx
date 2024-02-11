@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
+import type { TBlog } from "@/lib/content";
+
+import { format_date } from "@/lib/utils";
+import { get_blog, get_blogs, render_markdown } from "@/lib/content";
+
 import portrait from "@/assets/home/portrait.jpg";
+
 import Image from "next/image";
 import Link from "next/link";
+import person from "@/conf/person";
 
 const GoBack = () => {
     return (
@@ -48,7 +56,7 @@ const Writer = () => {
                         <div className="text-slate-900 dark:text-slate-200">Shihab Mahamud</div>
                         <div className="mt-1">
                             <a
-                                href="https://twitter.com/@p_nerd2"
+                                href={person.twitter}
                                 className="text-sky-500 hover:text-sky-600 dark:text-sky-400"
                                 target="_blank"
                             >
@@ -94,7 +102,7 @@ const Blog = (p: { blog: TBlog }) => {
                                 />
                             </div>
                             <div
-                                className="prose prose-slate dark:prose-invert mt-5 max-w-none text-justify"
+                                className="prose prose-slate mt-5 max-w-none text-justify dark:prose-invert"
                                 dangerouslySetInnerHTML={{
                                     __html: render_markdown(p.blog.body),
                                 }}
@@ -107,28 +115,30 @@ const Blog = (p: { blog: TBlog }) => {
     );
 };
 
-import { format_date } from "@/lib/utils";
-import { TBlog, get_blog, get_blogs, render_markdown } from "@/lib/content";
-import { Metadata } from "next";
-
-export function generateStaticParams() {
+export const generateStaticParams = () => {
     return get_blogs().map(blog => ({
         slug: blog.slug,
     }));
-}
+};
 
 type TProps = { params: { slug: string } };
 
-export async function generateMetadata({ params }: TProps): Promise<Metadata> {
+export const generateMetadata = async ({ params }: TProps): Promise<Metadata> => {
     const blog = get_blog(params.slug);
     return {
         title: `${blog.title} - Shihab Mahamud`,
         description: blog.excerpt,
     };
-}
+};
 
 const Page = ({ params }: TProps) => {
-    return <Blog blog={get_blog(params.slug)} />;
+    const blog = get_blog(params.slug);
+    return (
+        <>
+            <title>{blog.title} - Shihab Mahamud</title>
+            <Blog blog={blog} />
+        </>
+    );
 };
 
 export default Page;

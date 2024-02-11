@@ -1,5 +1,6 @@
 const person = {
     name: "Shihab Mahamud",
+    twitter: "https://twitter.com/@p_nerd2",
     linkedin: "https://linkedin.com/in/p-nerd",
     github: "https://github.com/p-nerd",
     dev_to: "https://dev.to/p-nerd",
