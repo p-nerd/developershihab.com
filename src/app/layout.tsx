@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { ActiveSectionContextProvider } from "@/context/active-section-context";
 import { ThemeContextProvider } from "@/context/theme-context";
+import { Analytics } from "@vercel/analytics/react";
 
 import person from "@/conf/person";
 
@@ -34,6 +35,7 @@ const Layout = (p: { children: ReactNode }) => (
                     <ThemeSwitch />
                 </ActiveSectionContextProvider>
             </ThemeContextProvider>
+            <Analytics />
         </body>
     </html>
 );
