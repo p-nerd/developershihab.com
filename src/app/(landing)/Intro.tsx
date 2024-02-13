@@ -70,7 +70,7 @@ const Intro = () => {
                 <span className="font-bold">full-stack developer</span> with{" "}
                 <span className="font-bold">3 years</span> of experience, and I enjoy building for{" "}
                 <span className="italic">the web</span>. My focus is{" "}
-                <span className="underline">JS, PHP, Elixir</span>.
+                <span className="underline">JS/TS & PHP</span>.
             </motion.h1>
 
             <motion.div
@@ -102,8 +102,16 @@ const Intro = () => {
                     <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
                 </a>
                 <div className="flex gap-2">
-                    <SocialLink ariaLabel="Linkedin Link" href={person.linkedin} icon={<BsLinkedin />} />
-                    <SocialLink ariaLabel="Github Link" href={person.github} icon={<FaGithubSquare />} />
+                    <SocialLink
+                        ariaLabel="Linkedin Link"
+                        href={person.linkedin}
+                        icon={<BsLinkedin />}
+                    />
+                    <SocialLink
+                        ariaLabel="Github Link"
+                        href={person.github}
+                        icon={<FaGithubSquare />}
+                    />
                     <SocialLink ariaLabel="Dev.to Link" href={person.dev_to} icon={<FaDev />} />
                 </div>
             </motion.div>

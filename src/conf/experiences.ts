@@ -17,7 +17,7 @@ const experiences = [
         description:
             "I did some volenteary work on this company. Where I write some blog for them And help them to organiging there live courses",
         icon: createElement(LuGraduationCap),
-        date: "February 2022 - January 2023",
+        date: "February 2022 - January 2023 (1 year)",
     },
 ] as const;
 
