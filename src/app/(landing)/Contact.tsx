@@ -31,7 +31,11 @@ const Contact = () => {
 
             <p className="-mt-6 text-gray-700 dark:text-white/80">
                 Please contact me directly at{" "}
-                <Anchor className="underline underline-offset-2" href={`mailto:${person.email}`}>
+                <Anchor
+                    ariaLabel="contact direct email"
+                    className="underline underline-offset-2"
+                    href={`mailto:${person.email}`}
+                >
                     {person.email}
                 </Anchor>{" "}
                 or through this form.

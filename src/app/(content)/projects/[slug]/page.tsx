@@ -36,6 +36,7 @@ const Project = (p: { project: TProject }) => {
                                         {p.project.links.map((link, index) => (
                                             <li key={index} className="w-full text-center">
                                                 <Anchor
+                                                    ariaLabel={link.label}
                                                     href={link.link}
                                                     className="block w-full rounded-full bg-black/[0.7] px-3 py-1 text-[0.8rem] tracking-wider text-white dark:text-white/70"
                                                 >

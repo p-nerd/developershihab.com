@@ -14,7 +14,11 @@ const Footer = () => {
             </p>
             <p className="text-xs">
                 <span className="font-semibold">Design Inspired by:</span>{" "}
-                <Anchor href="https://youtu.be/sUKptmUVIBM" className="underline">
+                <Anchor
+                    ariaLabel="External link of design inspiration"
+                    href="https://youtu.be/sUKptmUVIBM"
+                    className="underline"
+                >
                     ByteGrad
                 </Anchor>
             </p>

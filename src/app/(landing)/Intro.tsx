@@ -95,16 +95,16 @@ const Intro = () => {
 
                 <a
                     className="borderBlack group flex cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
-                    href="/cv.pdf"
+                    href="/shihab-mahamud-cv.pdf"
                     download
                 >
                     Download CV{" "}
                     <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
                 </a>
                 <div className="flex gap-2">
-                    <SocialLink href={person.linkedin} icon={<BsLinkedin />} />
-                    <SocialLink href={person.github} icon={<FaGithubSquare />} />
-                    <SocialLink href={person.dev_to} icon={<FaDev />} />
+                    <SocialLink ariaLabel="Linkedin Link" href={person.linkedin} icon={<BsLinkedin />} />
+                    <SocialLink ariaLabel="Github Link" href={person.github} icon={<FaGithubSquare />} />
+                    <SocialLink ariaLabel="Dev.to Link" href={person.dev_to} icon={<FaDev />} />
                 </div>
             </motion.div>
         </section>

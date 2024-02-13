@@ -29,6 +29,7 @@ const Writer = () => (
                     <div className="text-slate-900 dark:text-slate-200">Shihab Mahamud</div>
                     <div className="mt-1">
                         <Anchor
+                            ariaLabel="Author twitter"
                             href={person.twitter}
                             className="text-sky-500 hover:text-sky-600 dark:text-sky-400"
                         >

@@ -58,6 +58,7 @@ const Project = (project: TProject) => {
                                         <Anchor
                                             href={link.link}
                                             className="block w-full rounded-full bg-black/[0.7] px-3 py-1 text-[0.8rem] tracking-wider text-white dark:text-white/70"
+                                            ariaLabel={link.label}
                                         >
                                             {link.label}
                                         </Anchor>

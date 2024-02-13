@@ -1,8 +1,14 @@
 import type { ReactNode } from "react";
 
-const Anchor = (p: { href: string; className: string; children: ReactNode }) => {
+const Anchor = (p: { href: string; className: string; children: ReactNode; ariaLabel: string }) => {
     return (
-        <a href={p.href} className={p.className} target="_blank" rel="noopener noreferrer">
+        <a
+            aria-label=""
+            href={p.href}
+            className={p.className}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             {p.children}
         </a>
     );
