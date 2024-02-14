@@ -72,6 +72,7 @@ const Project = (project: TProject) => {
                 </div>
 
                 <Image
+                    loading="lazy"
                     width={800}
                     height={800}
                     src={project.imageUrl}

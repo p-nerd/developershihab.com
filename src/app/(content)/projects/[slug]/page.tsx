@@ -49,7 +49,7 @@ const Project = (p: { project: TProject }) => {
                             </div>
                             <div className="not-prose relative mt-7 overflow-hidden rounded-2xl first:mt-0 last:mb-0 [a:not(:first-child)>&]:mt-12 [a:not(:last-child)>&]:mb-12 [figure>&]:my-0">
                                 <Image
-                                    loading="eager"
+                                    loading="lazy"
                                     src={p.project.imageUrl}
                                     alt={p.project.title}
                                     width={1000}
