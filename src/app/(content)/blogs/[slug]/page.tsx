@@ -17,7 +17,6 @@ const Writer = () => (
         <ul className="-mx-5 -mt-6 flex flex-wrap text-sm leading-6">
             <li className="mt-6 flex items-center justify-center whitespace-nowrap px-5 font-medium">
                 <Image
-                    loading="lazy"
                     src={portrait}
                     alt="Shihab Mahamud"
                     width="120"
@@ -64,7 +63,6 @@ const Blog = (p: { blog: TBlog }) => (
                         <Writer />
                         <div className="not-prose relative mb-5 mt-12 overflow-hidden rounded-2xl first:mt-0 last:mb-0 [a:not(:first-child)>&]:mt-12 [a:not(:last-child)>&]:mb-12 [figure>&]:my-0">
                             <Image
-                                loading="lazy"
                                 src={p.blog.img}
                                 alt={p.blog.title}
                                 width={1000}

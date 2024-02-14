@@ -35,7 +35,6 @@ const Intro = () => {
                         }}
                     >
                         <Image
-                            loading="lazy"
                             src={portrait}
                             alt="Shihab Mahamud"
                             width="192"
