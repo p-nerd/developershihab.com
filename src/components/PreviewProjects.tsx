@@ -6,8 +6,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 import Image from "next/image";
-import Link from "next/link";
 import Anchor from "./Anchor";
+import ReadMoreLink from "./ReadMoreLink";
 
 const Project = (project: TProject) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -34,9 +34,11 @@ const Project = (project: TProject) => {
                         <p className="leading-relaxed text-gray-900 dark:text-white/95">
                             {project.description}{" "}
                             {!!project.slug && (
-                                <Link href={`/projects/${project.slug}`} className="underline" aria-label={project.title} >
-                                    Read more
-                                </Link>
+                                <ReadMoreLink
+                                    className="text-white underline underline-offset-2"
+                                    iconClassName="text-white dark:text-white"
+                                    href={`/projects/${project.slug}`}
+                                />
                             )}
                         </p>
                     </div>
