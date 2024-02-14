@@ -17,6 +17,7 @@ const Writer = () => (
         <ul className="-mx-5 -mt-6 flex flex-wrap text-sm leading-6">
             <li className="mt-6 flex items-center justify-center whitespace-nowrap px-5 font-medium">
                 <Image
+                    loading="eager"
                     src={portrait}
                     alt="Shihab Mahamud"
                     width="120"
