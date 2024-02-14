@@ -31,7 +31,7 @@ const Project = (project: TProject) => {
                 <div className="flex h-full flex-col justify-between px-5 pb-7 pt-4 sm:max-w-[55%] sm:pl-10 sm:pr-2 sm:pt-10 sm:group-even:ml-[18rem]">
                     <div className="flex flex-col gap-2">
                         <h2 className="text-2xl font-semibold">{project.title}</h2>
-                        <p className="leading-relaxed text-gray-700 dark:text-white/95">
+                        <p className="leading-relaxed text-gray-900 dark:text-white/95">
                             {project.description}{" "}
                             {!!project.slug && (
                                 <Link href={`/projects/${project.slug}`} className="underline" aria-label={project.title} >
