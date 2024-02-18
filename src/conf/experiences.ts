@@ -4,10 +4,10 @@ import { LuGraduationCap } from "react-icons/lu";
 
 const experiences = [
     {
-        title: "Full-Stack Developer",
+        title: "Full-stack Developer",
         location: "Finnext.co",
         description:
-            "I'm now a full-stack developer working as a freelancer. My stack includes React, JavaScript, TypeScript, Tailwind, PHP, Wordpress, Laravel. Here I build some interesting successful projects",
+            "I'm now a full-stack developer working as a freelancer. My stack includes React, JavaScript, TypeScript, Tailwind, PHP, Wordpress, mPDF. Here I build some interesting successful projects",
         icon: createElement(CgWorkAlt),
         date: "May 2023 - Present",
     },

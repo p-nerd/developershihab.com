@@ -41,8 +41,10 @@ const Experience = () => {
                             fontSize: "1.5rem",
                         }}
                     >
-                        <h3 className="font-semibold capitalize">{item.title}</h3>
-                        <p className="!mt-0 font-normal">{item.location}</p>
+                        <div className="flex gap-2">
+                            <h3 className="font-bold">{item.title}</h3>@
+                            <p className="!mt-0 font-normal">{item.location}</p>
+                        </div>
                         <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
                             {item.description}
                         </p>
