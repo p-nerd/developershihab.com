@@ -7,7 +7,31 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import Image from "next/image";
 import Anchor from "./Anchor";
-import ReadMoreLink from "./ReadMoreLink";
+import Link from "next/link";
+
+const ReadMoreLink = (p: { href: string }) => {
+    return (
+        <Link
+            className="flex items-center text-sm font-medium text-white underline underline-offset-2"
+            href={p.href}
+        >
+            <span className="relative">Read more</span>
+            <svg
+                className={"relative ml-2.5 mt-px overflow-visible text-white dark:text-white"}
+                width={3}
+                height={6}
+                viewBox="0 0 3 6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
+                <path d="M0 0L3 3L0 6" />
+            </svg>
+        </Link>
+    );
+};
 
 const Project = (project: TProject) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -33,13 +57,7 @@ const Project = (project: TProject) => {
                         <h2 className="text-2xl font-semibold">{project.title}</h2>
                         <p className="leading-relaxed text-gray-900 dark:text-white/95">
                             {project.description}{" "}
-                            {!!project.slug && (
-                                <ReadMoreLink
-                                    className="text-white underline underline-offset-2"
-                                    iconClassName="text-white dark:text-white"
-                                    href={`/projects/${project.slug}`}
-                                />
-                            )}
+                            {!!project.slug && <ReadMoreLink href={`/projects/${project.slug}`} />}
                         </p>
                     </div>
                     <div className="flex flex-col gap-2">
