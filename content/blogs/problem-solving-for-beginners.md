@@ -1,7 +1,7 @@
 ---
 title: নতুনদের জন্য সমস্যা সমাধান
 date: 2022-01-25 00:00:00
-img: /blogs/psfb.png
+img: /blogs/psfb.jpg
 img_alt: Problem এর বাংলা হলো সমস্যা আর Solving হলো সেই সমস্যা সমাধান করা। কিন্তু আমার কাছে Problem বা সমস্যা মানে হলো কোন unknown situation বা অজানা পরিস্থিতি
 excerpt: |
     Problem এর বাংলা হলো সমস্যা আর Solving হলো সেই সমস্যা সমাধান করা। কিন্তু আমার কাছে Problem বা সমস্যা মানে হলো কোন unknown situation বা অজানা পরিস্থিতি
@@ -51,41 +51,4 @@ int main()
 
 Python implementation: https://codeforces.com/contest/4/submission/159295164
 
-```py
-num = int(input())
-
-if num <= 2:
-	print("NO")
-else:
-	if num % 2 == 0:
-		print("YES")
-	else:
-		print("NO")
-```
-
-Go implementation: https://codeforces.com/problemset/submission/4/159295437
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-	var num int
-	fmt.Scanf("%d", &num)
-
-	if num <= 2 {
-		fmt.Println("NO")
-	} else {
-		if num%2 == 0 {
-			fmt.Println("YES")
-		} else {
-			fmt.Println("NO")
-		}
-	}
-}
-```
-
-এরকম বিভিন্ন ওয়েব সাইট থেকে আরো অনেক Problem পাওয়া যাবে, যে গুলো সমাধানের মাধ্যমে আমরা আমাদের Problem Solving স্কিল বাড়াতে পারবো। কিছু ওয়েবসাইট: Codeforces, CodeChef, LeetCode, HackerRank, UVA, URI ইত্যাদি।
-
-এটাই ছিল একদম Beginners দের জন্য Problem Solving এর একটা Introduction.
+``
