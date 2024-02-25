@@ -25,7 +25,7 @@ const metadata: Metadata = {
 
 const Poem = (p: { poem: TPoem }) => {
     return (
-        <div className="mx-auto rounded-2xl bg-slate-200/50 px-5 py-10 text-center dark:bg-slate-800/50 sm:w-[500px] ">
+        <div className="mx-auto w-[325px] rounded-2xl bg-slate-200/50 px-5 py-10 text-center dark:bg-slate-800/50 sm:w-[500px] ">
             <h2 className="mb-5 text-2xl">{p.poem.name}</h2>
             <Markdown content={p.poem.body} />
         </div>
