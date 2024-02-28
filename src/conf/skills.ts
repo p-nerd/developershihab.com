@@ -1,8 +1,6 @@
 const skills = [
     "C/C++",
-    "Go",
-    "JavaScript",
-    "TypeScript",
+    "JavaScript/TypeScript",
     "PHP",
     "Node.js",
     "React.js",
