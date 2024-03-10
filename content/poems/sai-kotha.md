@@ -1,5 +1,5 @@
 ---
-name: '"লজ্জা"'
+name: '"সেই কথা"'
 draft: false
 priority: 80
 ---
