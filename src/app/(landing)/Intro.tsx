@@ -1,11 +1,12 @@
 "use client";
 
+import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
-import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { useActiveSectionContext } from "@/context/active-section-context";
+
+import { BsArrowRight, BsFacebook, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { FaDev, FaGithubSquare } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
-import { useSectionInView } from "@/lib/hooks";
-import { useActiveSectionContext } from "@/context/active-section-context";
 
 import portrait from "@/assets/home/portrait.jpg";
 import person from "@/conf/person";
@@ -74,38 +75,50 @@ const Intro = () => {
             </motion.h1>
 
             <motion.div
-                className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium sm:flex-row"
+                className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                     delay: 0.1,
                 }}
             >
-                <Link
-                    href="#contact"
-                    className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
-                    onClick={() => {
-                        setActiveSection("Contact");
-                        setTimeOfLastClick(Date.now());
-                    }}
-                >
-                    Contact me here{" "}
-                    <BsArrowRight className="opacity-70 transition group-hover:translate-x-1" />
-                </Link>
+                <div className="flex gap-3">
+                    <Link
+                        href="#contact"
+                        className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
+                        onClick={() => {
+                            setActiveSection("Contact");
+                            setTimeOfLastClick(Date.now());
+                        }}
+                    >
+                        Contact me here{" "}
+                        <BsArrowRight className="opacity-70 transition group-hover:translate-x-1" />
+                    </Link>
 
-                <a
-                    className="borderBlack group flex cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
-                    href="/shihab-mahamud-cv.pdf"
-                    download
-                >
-                    Download CV{" "}
-                    <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
-                </a>
+                    <a
+                        className="borderBlack group flex cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
+                        href="/shihab-mahamud-cv.pdf"
+                        download
+                    >
+                        Download CV{" "}
+                        <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
+                    </a>
+                </div>
                 <div className="flex gap-2">
+                    <SocialLink
+                        ariaLabel="Facebook Link"
+                        href={person.facebook}
+                        icon={<BsFacebook />}
+                    />
                     <SocialLink
                         ariaLabel="Linkedin Link"
                         href={person.linkedin}
                         icon={<BsLinkedin />}
+                    />
+                    <SocialLink
+                        ariaLabel="Twitter Link"
+                        href={person.twitter}
+                        icon={<BsTwitterX />}
                     />
                     <SocialLink
                         ariaLabel="Github Link"
