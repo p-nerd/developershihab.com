@@ -1,6 +1,6 @@
 ---
 name: '"মা"'
-draft: false
+draft: true
 priority: 110
 ---
 
