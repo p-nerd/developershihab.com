@@ -82,7 +82,7 @@ const Intro = () => {
                     delay: 0.1,
                 }}
             >
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
                     <Link
                         href="#contact"
                         className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
@@ -104,28 +104,32 @@ const Intro = () => {
                         <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
                     </a>
                 </div>
-                <div className="flex gap-2">
-                    <SocialLink
-                        ariaLabel="Facebook Link"
-                        href={person.facebook}
-                        icon={<BsFacebook />}
-                    />
-                    <SocialLink
-                        ariaLabel="Linkedin Link"
-                        href={person.linkedin}
-                        icon={<BsLinkedin />}
-                    />
-                    <SocialLink
-                        ariaLabel="Twitter Link"
-                        href={person.twitter}
-                        icon={<BsTwitterX />}
-                    />
-                    <SocialLink
-                        ariaLabel="Github Link"
-                        href={person.github}
-                        icon={<FaGithubSquare />}
-                    />
-                    <SocialLink ariaLabel="Dev.to Link" href={person.dev_to} icon={<FaDev />} />
+                <div className="flex flex-col gap-2 sm:flex-row">
+                    <div className="flex items-center justify-center gap-2">
+                        <SocialLink
+                            ariaLabel="Facebook Link"
+                            href={person.facebook}
+                            icon={<BsFacebook />}
+                        />
+                        <SocialLink
+                            ariaLabel="Linkedin Link"
+                            href={person.linkedin}
+                            icon={<BsLinkedin />}
+                        />
+                        <SocialLink
+                            ariaLabel="Twitter Link"
+                            href={person.twitter}
+                            icon={<BsTwitterX />}
+                        />
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                        <SocialLink
+                            ariaLabel="Github Link"
+                            href={person.github}
+                            icon={<FaGithubSquare />}
+                        />
+                        <SocialLink ariaLabel="Dev.to Link" href={person.dev_to} icon={<FaDev />} />
+                    </div>
                 </div>
             </motion.div>
         </section>
