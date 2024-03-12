@@ -51,4 +51,14 @@ int main()
 
 Python implementation: https://codeforces.com/contest/4/submission/159295164
 
-``
+```py
+num = int(input())
+
+if num <= 2:
+    print("NO")
+else:
+    if num % 2 == 0:
+        print("YES")
+    else:
+        print("NO")
+```
