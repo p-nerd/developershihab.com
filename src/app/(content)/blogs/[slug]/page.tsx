@@ -52,6 +52,7 @@ const Blog = (p: { blog: TBlog }) => (
                         <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl ">
                             {p.blog.title}
                         </h1>
+                        <div>{p.blog.excerpt}</div>
                         <div className="text-sm leading-6">
                             <dl>
                                 <dt className="sr-only">Date</dt>

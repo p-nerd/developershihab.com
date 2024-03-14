@@ -2,7 +2,7 @@
 title: বইটি নিয়ে আমার কথা!
 date: 2021-04-14 00:00:00
 img: /blogs/f-images.png
-img_alt: Java Virtual Machines-এর জন্য একটি আধুনিক প্রোগ্রামিং ভাষা| Better Java
+img_alt: ""
 excerpt: ফুলস্ট্যাক ডেভেলপমেন্ট কানেকটিং দ্য ডটস (HM Nayem) বইটি নিয়ে আমার কথা।
 tags:
     - Javascript
