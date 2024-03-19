@@ -1,6 +1,26 @@
-import { TExperience } from "@/lib/types";
+import type { TExperience, TSkill } from "@/lib/types";
+
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
+
+export const skills: TSkill[] = [
+    {
+        category: "Programming Languages",
+        technologies: ["C/C++", "JavaScript", "TypeScript", "PHP"],
+    },
+    {
+        category: "Backend Technologies",
+        technologies: ["Node.js", "Wordpress", "Laravel", "SQL", "PostgreSQL", "MySQL"],
+    },
+    {
+        category: "Frontend Technologies",
+        technologies: ["React", "Next.js", "Solid.js", "Redux", "TailwindCSS"],
+    },
+    {
+        category: "Productivity & Tools",
+        technologies: ["Git", "Neovim", "Linux", "Docker"],
+    },
+] as const;
 
 export const experiences: TExperience[] = [
     {

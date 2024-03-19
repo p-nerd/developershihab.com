@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import type { IconType } from "react-icons";
 
 import nav_links from "./nav_links";
 
@@ -36,8 +37,6 @@ export type TProject = {
     body: string;
 };
 
-import { IconType } from "react-icons";
-
 export type TExperience = {
     title: string;
     location: string;
@@ -47,4 +46,9 @@ export type TExperience = {
     date: string;
     projects?: string[];
     technologies?: string[][];
+};
+
+export type TSkill = {
+    category: string;
+    technologies: string[];
 };
