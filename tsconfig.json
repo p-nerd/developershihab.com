@@ -20,6 +20,7 @@
             }
         ],
         "paths": {
+            "@/site.config": ["./site.config.ts"],
             "@/*": ["./src/*"]
         }
     },
