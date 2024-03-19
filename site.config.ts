@@ -57,3 +57,20 @@ export const experiences: TExperience[] = [
         date: "February 2022 - January 2023 (1 year)",
     },
 ] as const;
+
+export const technologies: Record<string, string> = {
+    JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    TypeScript: "https://www.typescriptlang.org/",
+    React: "https://react.dev",
+    "Solid.js": "https://solidjs.com/",
+    Astro: "https://astro.build/",
+    Redux: "https://redux.js.org/",
+    TailwindCSS: "https://tailwindcss.com/",
+    WordPress: "https://wordpress.org/",
+    PHP: "https://www.php.net/",
+    mPDF: "https://mpdf.github.io/",
+    Stripe: "https://stripe.com/docs",
+    PayPal: "https://developer.paypal.com/docs",
+    "Github Pages": "https://pages.github.com",
+    Go: "https://go.dev",
+} as const;

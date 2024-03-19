@@ -8,6 +8,7 @@ import { skills } from "@/site.config";
 import useSectionInView from "@/hooks/useSectionInView";
 
 import SectionHeading from "@/components/SectionHeading";
+import Technology from "@/components/Technology";
 
 const fadeInAnimationVariants = {
     initial: {
@@ -50,7 +51,7 @@ const Skills = () => {
                                     }}
                                     custom={index}
                                 >
-                                    {technology}
+                                    <Technology technology={technology} />
                                 </motion.li>
                             ))}
                         </ul>
