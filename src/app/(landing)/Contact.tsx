@@ -2,15 +2,15 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
 import { person } from "@/site.config";
 
 import toast from "react-hot-toast";
 import sendContactEmail from "@/actions/sendContactEmail";
+import useSectionInView from "@/hooks/useSectionInView";
 
-import SectionHeading from "@/components/SectionHeading";
-import SubmitBtn from "@/components/SubmitBtn";
 import Anchor from "@/components/Anchor";
+import SubmitBtn from "@/components/SubmitBtn";
+import SectionHeading from "@/components/SectionHeading";
 
 const Contact = () => {
     const { ref } = useSectionInView("Contact");

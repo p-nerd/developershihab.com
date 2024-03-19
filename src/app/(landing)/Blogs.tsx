@@ -4,11 +4,11 @@ import "react-vertical-timeline-component/style.min.css";
 
 import type { TBlog } from "@/lib/types";
 
-import { useSectionInView } from "@/lib/hooks";
+import useSectionInView from "@/hooks/useSectionInView";
 
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
 import PreviewBlogs from "@/components/PreviewBlogs";
+import SectionHeading from "@/components/SectionHeading";
 
 const Blogs = (p: { blogs: TBlog[] }) => {
     const { ref } = useSectionInView("Blogs", 0.5);

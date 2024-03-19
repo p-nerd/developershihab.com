@@ -1,11 +1,12 @@
 "use server";
 
-import { createElement } from "react";
-import { validateString, getErrorMessage } from "@/lib/utils";
 import { render } from "@react-email/render";
 import { person } from "@/site.config";
+import { createElement } from "react";
+import { validateString, getErrorMessage } from "@/lib/utils";
 
 import nodemailer from "nodemailer";
+
 import ContactFormEmail from "@/emails/ContactFormEmail";
 
 const transporter = nodemailer.createTransport({

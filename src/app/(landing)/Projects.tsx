@@ -2,11 +2,11 @@
 
 import type { TProject } from "@/lib/types";
 
-import { useSectionInView } from "@/lib/hooks";
+import useSectionInView from "@/hooks/useSectionInView";
 
+import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import PreviewProjects from "@/components/PreviewProjects";
-import Link from "next/link";
 
 const Projects = (p: { projects: TProject[] }) => {
     const { ref } = useSectionInView("Projects", 0.5);

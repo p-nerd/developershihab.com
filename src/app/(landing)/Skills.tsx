@@ -4,7 +4,8 @@ import type { TSkill } from "@/lib/types";
 
 import { motion } from "framer-motion";
 import { skills } from "@/site.config";
-import { useSectionInView } from "@/lib/hooks";
+
+import useSectionInView from "@/hooks/useSectionInView";
 
 import SectionHeading from "@/components/SectionHeading";
 

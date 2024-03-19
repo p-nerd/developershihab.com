@@ -4,11 +4,12 @@ import "react-vertical-timeline-component/style.min.css";
 
 import type { TExperience } from "@/lib/types";
 
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-
-import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
 import { experiences } from "@/site.config";
+
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+
+import useSectionInView from "@/hooks/useSectionInView";
 
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+
 import Anchor from "./Anchor";
 
 const SocialLink = (p: { href: string; icon: ReactNode; ariaLabel: string }) => {

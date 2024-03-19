@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { get_projects } from "@/lib/content";
 import { person } from "@/site.config";
+import { get_projects } from "@/lib/content";
 
 import BreadCrumb from "@/components/BreadCrumb";
 import PreviewProjects from "@/components/PreviewProjects";

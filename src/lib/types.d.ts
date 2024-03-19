@@ -1,10 +1,6 @@
 import type { StaticImageData } from "next/image";
 import type { IconType } from "react-icons";
 
-import nav_links from "./nav_links";
-
-export type SectionName = (typeof nav_links)[number]["name"];
-
 export type TBlog = {
     slug: string;
     title: string;

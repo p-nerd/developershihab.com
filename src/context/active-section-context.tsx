@@ -1,7 +1,7 @@
 "use client";
 
+import type { SectionName } from "@/hooks/useSectionInView";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import type { SectionName } from "@/lib/types";
 
 import { useState, createContext, useContext } from "react";
 

@@ -1,12 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
+import type { ReactNode } from "react";
 
-import SectionHeading from "@/components/SectionHeading";
-import Link from "next/link";
-import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+
+import useSectionInView from "@/hooks/useSectionInView";
+
+import Link from "next/link";
+import SectionHeading from "@/components/SectionHeading";
 
 const Anchor = (p: {
     className?: string;

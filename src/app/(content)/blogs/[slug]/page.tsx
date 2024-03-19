@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import type { TBlog } from "@/lib/types";
 
+import { person } from "@/site.config";
 import { format_date } from "@/lib/utils";
 import { get_blog, get_blogs } from "@/lib/content";
-import { person } from "@/site.config";
 
 import portrait from "@/assets/home/portrait.jpg";
 
 import Image from "next/image";
-import Markdown from "@/components/Markdown";
 import Anchor from "@/components/Anchor";
 import GoBack from "@/components/GoBack";
+import Markdown from "@/components/Markdown";
 
 const Writer = () => (
     <div className="mt-6">

@@ -4,9 +4,9 @@ import type { TProject } from "@/lib/types";
 import { get_project, get_projects } from "@/lib/content";
 
 import Image from "next/image";
-import Markdown from "@/components/Markdown";
 import GoBack from "@/components/GoBack";
 import Anchor from "@/components/Anchor";
+import Markdown from "@/components/Markdown";
 
 const Project = (p: { project: TProject }) => {
     return (

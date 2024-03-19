@@ -1,6 +1,8 @@
-import { Marked } from "marked";
-import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
+
+import { markedHighlight } from "marked-highlight";
+
+import { Marked } from "marked";
 
 const marked = new Marked(
     markedHighlight({

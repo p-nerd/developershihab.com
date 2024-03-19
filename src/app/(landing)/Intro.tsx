@@ -1,18 +1,18 @@
 "use client";
 
-import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
-import { useActiveSectionContext } from "@/context/active-section-context";
 import { person } from "@/site.config";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
-import { BsArrowRight, BsFacebook, BsLinkedin, BsTwitterX } from "react-icons/bs";
-import { FaDev, FaGithubSquare } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
+import { FaDev, FaGithubSquare } from "react-icons/fa";
+import { BsArrowRight, BsFacebook, BsLinkedin, BsTwitterX } from "react-icons/bs";
 
 import portrait from "@/assets/home/portrait.jpg";
+import useSectionInView from "@/hooks/useSectionInView";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import SocialLink from "@/components/SocialLink";
 
 const Intro = () => {

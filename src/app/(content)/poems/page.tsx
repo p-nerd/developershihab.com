@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import type { TPoem } from "@/lib/types";
+import type { Metadata } from "next";
 
-import { get_poems } from "@/lib/content";
 import { person } from "@/site.config";
+import { get_poems } from "@/lib/content";
 
-import BreadCrumb from "@/components/BreadCrumb";
 import Markdown from "@/components/Markdown";
+import BreadCrumb from "@/components/BreadCrumb";
 
 const topsLinks = [
     {

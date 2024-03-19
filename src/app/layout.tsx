@@ -4,14 +4,14 @@ import "highlight.js/styles/github-dark.css";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 
+import { person } from "@/site.config";
+
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import { ActiveSectionContextProvider } from "@/context/active-section-context";
-import { ThemeContextProvider } from "@/context/theme-context";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-import { person } from "@/site.config";
+import { ThemeContextProvider } from "@/context/theme-context";
+import { ActiveSectionContextProvider } from "@/context/active-section-context";
 
 import Footer from "./Footer";
 import ThemeSwitch from "./ThemeSwitch";

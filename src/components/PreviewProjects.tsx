@@ -6,8 +6,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 import Image from "next/image";
-import Anchor from "./Anchor";
 import Link from "next/link";
+import Anchor from "./Anchor";
 
 const ReadMoreLink = (p: { href: string }) => {
     return (

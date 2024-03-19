@@ -1,5 +1,6 @@
-import { FaPaperPlane } from "react-icons/fa";
 import { useFormStatus } from "react-dom";
+
+import { FaPaperPlane } from "react-icons/fa";
 
 const SubmitBtn = () => {
     const { pending } = useFormStatus();
