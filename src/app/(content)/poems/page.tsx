@@ -35,7 +35,7 @@ const Poem = (p: { poem: TPoem }) => {
 const Poems = () => {
     const poems = get_poems();
     return (
-        <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
+        <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 lg:p-10">
             <BreadCrumb links={topsLinks} />
             {poems.map((poem, index) => (
                 <Poem key={index} poem={poem} />

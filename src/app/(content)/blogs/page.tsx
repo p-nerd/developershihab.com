@@ -24,7 +24,7 @@ const metadata: Metadata = {
 
 const Blogs = () => {
     return (
-        <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
+        <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 lg:p-10">
             <BreadCrumb links={topsLinks} />
             <PreviewBlogs blogs={get_blogs()} />
         </div>

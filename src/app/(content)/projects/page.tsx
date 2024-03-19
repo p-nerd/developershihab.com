@@ -23,7 +23,7 @@ const metadata: Metadata = {
 
 const Poems = () => {
     return (
-        <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 md:p-10">
+        <div className="mx-auto flex max-w-4xl flex-col gap-10 p-5 lg:p-10">
             <BreadCrumb links={topsLinks} />
             <h1 className="text-center text-3xl font-bold">All Projects</h1>
             <div className="flex  items-center justify-center">

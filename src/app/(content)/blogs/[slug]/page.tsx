@@ -45,11 +45,11 @@ const Writer = () => (
 const Blog = (p: { blog: TBlog }) => (
     <div className="mb-20 overflow-hidden">
         <GoBack href="/blogs" />
-        <div className="px-4 sm:px-6 md:px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl">
                 <main>
                     <article className="relative pt-10">
-                        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl ">
+                        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 lg:text-3xl ">
                             {p.blog.title}
                         </h1>
                         <div>{p.blog.excerpt}</div>

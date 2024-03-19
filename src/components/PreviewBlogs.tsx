@@ -7,7 +7,7 @@ import Link from "next/link";
 const ReadMoreLink = (p: { href: string }) => {
     return (
         <Link className="flex items-center text-sm font-medium text-sky-500" href={p.href}>
-            <span className="absolute -inset-x-4 -inset-y-2.5 sm:rounded-2xl md:-inset-x-6 md:-inset-y-4" />
+            <span className="absolute -inset-x-4 -inset-y-2.5 sm:rounded-2xl lg:-inset-x-6 lg:-inset-y-4" />
             <span className="relative">Read more</span>
             <svg
                 className="relative ml-2.5 mt-px overflow-visible text-sky-500 dark:text-sky-700"
@@ -28,10 +28,10 @@ const ReadMoreLink = (p: { href: string }) => {
 
 const PreviewBlog = (p: { blog: TBlog }) => (
     <article className="group relative max-w-2xl">
-        <div className="absolute -inset-x-4 -inset-y-2.5 group-hover:bg-slate-50/70 dark:group-hover:bg-slate-800/50 sm:rounded-2xl md:-inset-x-6 md:-inset-y-4" />
+        <div className="absolute -inset-x-4 -inset-y-2.5 group-hover:bg-slate-50/70 dark:group-hover:bg-slate-800/50 sm:rounded-2xl lg:-inset-x-6 lg:-inset-y-4" />
         <svg
             viewBox="0 0 9 9"
-            className="absolute right-full top-2 mr-6 hidden h-[calc(0.5rem+1px)] w-[calc(0.5rem+1px)] overflow-visible text-slate-200 dark:text-slate-600 sm:block md:mr-12"
+            className="absolute right-full top-2 mr-6 hidden h-[calc(0.5rem+1px)] w-[calc(0.5rem+1px)] overflow-visible text-slate-200 dark:text-slate-600 sm:block lg:mr-12"
         >
             <circle
                 cx="4.5"
@@ -61,8 +61,8 @@ const PreviewBlog = (p: { blog: TBlog }) => (
 );
 
 const PreviewBlogs = (p: { blogs: TBlog[] }) => (
-    <div className="relative sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
-        <div className="absolute bottom-0 right-full top-3 mr-7 hidden w-px bg-slate-200 dark:bg-slate-800 sm:block md:mr-[3.25rem]" />
+    <div className="relative sm:ml-[calc(2rem+1px)] sm:pb-12 lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
+        <div className="absolute bottom-0 right-full top-3 mr-7 hidden w-px bg-slate-200 dark:bg-slate-800 sm:block lg:mr-[3.25rem]" />
         <div className="space-y-16">
             {p.blogs.map(blog => (
                 <PreviewBlog key={blog.slug} blog={blog} />
