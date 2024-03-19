@@ -12,6 +12,7 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import useSectionInView from "@/hooks/useSectionInView";
 
 import Link from "next/link";
+import Technology from "@/components/Technology";
 import SectionHeading from "@/components/SectionHeading";
 
 const Experience = (p: { projects: Record<string, string> }) => {
@@ -94,7 +95,7 @@ const Experience = (p: { projects: Record<string, string> }) => {
                                                 <div className="flex flex-wrap gap-1">
                                                     {technologies.map((technology, jndex) => (
                                                         <span key={technology}>
-                                                            {technology}
+                                                            <Technology technology={technology} />
                                                             {jndex !== technologies?.length - 1 &&
                                                                 ", "}
                                                         </span>
