@@ -35,3 +35,16 @@ export type TProject = {
     featured?: boolean;
     body: string;
 };
+
+import { IconType } from "react-icons";
+
+export type TExperience = {
+    title: string;
+    location: string;
+    location_link?: string;
+    description: string;
+    icon: IconType;
+    date: string;
+    projects?: string[];
+    technologies?: string[][];
+};

@@ -1,4 +1,4 @@
-import { get_featured_blogs, get_featured_projects } from "@/lib/content";
+import { get_featured_blogs, get_featured_projects, get_projects } from "@/lib/content";
 
 import SectionDivider from "@/components/SectionDivider";
 import Intro from "./Intro";
@@ -16,7 +16,7 @@ const Home = () => (
         <About />
         <Projects projects={get_featured_projects()} />
         <Skills />
-        <Experience />
+        <Experience projects={get_projects().reduce((p, c) => ({ ...p, [c.slug]: c.title }), {})} />
         <Blogs blogs={get_featured_blogs()} />
         <Contact />
     </main>
