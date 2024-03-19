@@ -3,10 +3,10 @@
 import { createElement } from "react";
 import { validateString, getErrorMessage } from "@/lib/utils";
 import { render } from "@react-email/render";
+import { person } from "@/site.config";
 
 import nodemailer from "nodemailer";
 import ContactFormEmail from "@/emails/ContactFormEmail";
-import person from "@/conf/person";
 
 const transporter = nodemailer.createTransport({
     service: process.env.NODEMAILER_SERVICE,

@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
+import { person } from "@/site.config";
 
 import toast from "react-hot-toast";
-import person from "@/conf/person";
 import sendContactEmail from "@/actions/sendContactEmail";
 
 import SectionHeading from "@/components/SectionHeading";

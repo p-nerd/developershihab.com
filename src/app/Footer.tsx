@@ -1,5 +1,6 @@
+import { person } from "@/site.config";
+
 import Anchor from "@/components/Anchor";
-import person from "@/conf/person";
 
 const Footer = () => {
     const year = new Date().getFullYear();

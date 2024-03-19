@@ -3,13 +3,13 @@
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { person } from "@/site.config";
 
 import { BsArrowRight, BsFacebook, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { FaDev, FaGithubSquare } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 
 import portrait from "@/assets/home/portrait.jpg";
-import person from "@/conf/person";
 
 import Image from "next/image";
 import Link from "next/link";

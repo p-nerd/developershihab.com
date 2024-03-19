@@ -3,9 +3,9 @@ import type { TBlog } from "@/lib/types";
 
 import { format_date } from "@/lib/utils";
 import { get_blog, get_blogs } from "@/lib/content";
+import { person } from "@/site.config";
 
 import portrait from "@/assets/home/portrait.jpg";
-import person from "@/conf/person";
 
 import Image from "next/image";
 import Markdown from "@/components/Markdown";

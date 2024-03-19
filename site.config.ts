@@ -3,6 +3,16 @@ import type { TExperience, TSkill } from "@/lib/types";
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
 
+export const person: Record<string, string> = {
+    name: "Shihab Mahamud",
+    facebook: "https://facebook.com/shihab.mahamud2",
+    twitter: "https://twitter.com/@p_nerdx",
+    linkedin: "https://linkedin.com/in/shihab-mahamud",
+    github: "https://github.com/p-nerd",
+    dev_to: "https://dev.to/p-nerd",
+    email: "shihab4t@gmail.com",
+};
+
 export const skills: TSkill[] = [
     {
         category: "Programming Languages",

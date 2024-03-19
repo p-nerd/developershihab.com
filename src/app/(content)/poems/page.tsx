@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import type { TPoem } from "@/lib/types";
 
 import { get_poems } from "@/lib/content";
-
-import person from "@/conf/person";
+import { person } from "@/site.config";
 
 import BreadCrumb from "@/components/BreadCrumb";
 import Markdown from "@/components/Markdown";

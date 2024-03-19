@@ -11,7 +11,7 @@ import { ThemeContextProvider } from "@/context/theme-context";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import person from "@/conf/person";
+import { person } from "@/site.config";
 
 import Footer from "./Footer";
 import ThemeSwitch from "./ThemeSwitch";
