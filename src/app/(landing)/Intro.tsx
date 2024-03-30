@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import { motion } from "framer-motion";
 import { person } from "@/site.config";
 import { useActiveSectionContext } from "@/context/active-section-context";
@@ -13,7 +15,19 @@ import useSectionInView from "@/hooks/useSectionInView";
 
 import Link from "next/link";
 import Image from "next/image";
-import SocialLink from "@/components/SocialLink";
+import Anchor from "@/components/Anchor";
+
+const SocialLink = (p: { href: string; icon: ReactNode; ariaLabel: string }) => {
+    return (
+        <Anchor
+            ariaLabel={p.ariaLabel}
+            className="borderBlack flex cursor-pointer items-center gap-1 rounded-full bg-white p-2 text-[1rem] text-gray-700 transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60 lg:gap-2 lg:p-4 lg:text-[1.35rem]"
+            href={p.href}
+        >
+            {p.icon}
+        </Anchor>
+    );
+};
 
 const Intro = () => {
     const { ref } = useSectionInView("Home", 0.5);
@@ -25,7 +39,7 @@ const Intro = () => {
             id="home"
             className="mb-28 max-w-[55rem] scroll-mt-[100rem] text-center sm:mb-0"
         >
-            <div className="flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center space-y-3">
                 <div className="relative">
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
@@ -60,10 +74,13 @@ const Intro = () => {
                         👋
                     </motion.span>
                 </div>
+                <div className="text-[0.6rem] lg:text-base">
+                    Programmer | Problem Solver | Full-stack Developer
+                </div>
             </div>
 
             <motion.h1
-                className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+                className="mb-8 mt-5 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl lg:mb-10 lg:mt-7"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
             >
@@ -75,17 +92,17 @@ const Intro = () => {
             </motion.h1>
 
             <motion.div
-                className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium"
+                className="flex flex-col items-center justify-center gap-2 px-4 text-sm font-medium lg:text-lg"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                     delay: 0.1,
                 }}
             >
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex gap-1.5 sm:flex-row lg:gap-3">
                     <Link
                         href="#contact"
-                        className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
+                        className="group flex items-center gap-1 rounded-full bg-gray-900 px-4  py-2.5 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 lg:gap-2 lg:px-7 lg:py-3"
                         onClick={() => {
                             setActiveSection("Contact");
                             setTimeOfLastClick(Date.now());
@@ -96,7 +113,7 @@ const Intro = () => {
                     </Link>
 
                     <a
-                        className="borderBlack group flex cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
+                        className="borderBlack group flex cursor-pointer items-center gap-1 rounded-full bg-white px-4 py-2.5 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10 lg:gap-2 lg:px-7 lg:py-3"
                         href="/shihab-mahamud-cv.pdf"
                         download
                     >
@@ -104,32 +121,28 @@ const Intro = () => {
                         <HiDownload className="opacity-60 transition group-hover:translate-y-1" />
                     </a>
                 </div>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                    <div className="flex items-center justify-center gap-2">
-                        <SocialLink
-                            ariaLabel="Facebook Link"
-                            href={person.facebook}
-                            icon={<BsFacebook />}
-                        />
-                        <SocialLink
-                            ariaLabel="Linkedin Link"
-                            href={person.linkedin}
-                            icon={<BsLinkedin />}
-                        />
-                        <SocialLink
-                            ariaLabel="Twitter Link"
-                            href={person.twitter}
-                            icon={<BsTwitterX />}
-                        />
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                        <SocialLink
-                            ariaLabel="Github Link"
-                            href={person.github}
-                            icon={<FaGithubSquare />}
-                        />
-                        <SocialLink ariaLabel="Dev.to Link" href={person.dev_to} icon={<FaDev />} />
-                    </div>
+                <div className="flex items-center justify-center gap-1 lg:gap-2">
+                    <SocialLink
+                        ariaLabel="Facebook Link"
+                        href={person.facebook}
+                        icon={<BsFacebook />}
+                    />
+                    <SocialLink
+                        ariaLabel="Linkedin Link"
+                        href={person.linkedin}
+                        icon={<BsLinkedin />}
+                    />
+                    <SocialLink
+                        ariaLabel="Twitter Link"
+                        href={person.twitter}
+                        icon={<BsTwitterX />}
+                    />
+                    <SocialLink
+                        ariaLabel="Github Link"
+                        href={person.github}
+                        icon={<FaGithubSquare />}
+                    />
+                    <SocialLink ariaLabel="Dev.to Link" href={person.dev_to} icon={<FaDev />} />
                 </div>
             </motion.div>
         </section>

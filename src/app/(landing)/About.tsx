@@ -65,10 +65,11 @@ const About = () => {
                 work with a company called Finnext.co, where I have contributed to several notable
                 projects. Currently, my focus lies on <Highlight>JavaScript/TypeScript</Highlight>{" "}
                 (React.js/Next.js, Solid.js), <Highlight>PHP</Highlight> (Laravel, Wordpress)
-                stacks. I am deeply passionate about continuously expanding my skill set and am
-                actively seeking a <Highlight>full-time position</Highlight> as a software
-                developer. Also I am currently a 4th year diploma student at Faridpur Polytechnic
-                Institute studying Computer Science.
+                stacks. I am also enthusiastic about the Go programming language. I am deeply
+                passionate about continuously expanding my skill set and am actively seeking a{" "}
+                <Highlight>full-time position</Highlight> as a software developer. Also I am
+                currently a 4th year diploma student at Faridpur Polytechnic Institute studying
+                Computer Science.
             </p>
             <p>
                 <span className="italic">When I'm not coding</span>, I enjoy walking on street,
