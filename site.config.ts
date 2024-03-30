@@ -16,11 +16,11 @@ export const person: Record<string, string> = {
 export const skills: TSkill[] = [
     {
         category: "Programming Languages",
-        technologies: ["C/C++", "JavaScript", "TypeScript", "PHP"],
+        technologies: ["JavaScript/TypeScript", "PHP", "Go", "C/C++"],
     },
     {
         category: "Backend Technologies",
-        technologies: ["Node.js", "Wordpress", "Laravel", "SQL", "PostgreSQL", "MySQL"],
+        technologies: ["WordPress", "Laravel", "Node.js", "PostgreSQL", "MySQL"],
     },
     {
         category: "Frontend Technologies",
@@ -43,9 +43,9 @@ export const experiences: TExperience[] = [
         date: "May 2023 - Present",
         projects: ["paystubhero"],
         technologies: [
-            ["TypeScript", "JavaScript", "React.js"],
-            ["PHP", "Wordpress", "mPDF"],
-            ["TailwindCSS"],
+            ["JavaScript", "TypeScript", "React"],
+            ["PHP", "WordPress", "mPDF"],
+            ["Stripe", "TailwindCSS"],
         ],
     },
     {
@@ -59,18 +59,26 @@ export const experiences: TExperience[] = [
 ] as const;
 
 export const technologies: Record<string, string> = {
-    JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    TypeScript: "https://www.typescriptlang.org/",
-    React: "https://react.dev",
-    "Solid.js": "https://solidjs.com/",
-    Astro: "https://astro.build/",
-    Redux: "https://redux.js.org/",
-    TailwindCSS: "https://tailwindcss.com/",
-    WordPress: "https://wordpress.org/",
-    PHP: "https://www.php.net/",
-    mPDF: "https://mpdf.github.io/",
-    Stripe: "https://stripe.com/docs",
-    PayPal: "https://developer.paypal.com/docs",
-    "Github Pages": "https://pages.github.com",
+    "JavaScript/TypeScript": "https://www.typescriptlang.org",
+    PHP: "https://www.php.net",
     Go: "https://go.dev",
+    "C/C++": "https://en.wikipedia.org/wiki/C%2B%2B",
+    WordPress: "https://wordpress.org",
+    Laravel: "https://laravel.com",
+    "Node.js": "https://nodejs.org",
+    PostgreSQL: "https://www.postgresql.org",
+    MySQL: "https://www.mysql.com",
+    React: "https://react.dev",
+    "Next.js": "https://nextjs.org",
+    "Solid.js": "https://solidjs.com",
+    Redux: "https://redux.js.org",
+    TailwindCSS: "https://tailwindcss.com",
+    Git: "https://git-scm.com",
+    Neovim: "https://neovim.io",
+    Linux: "https://ubuntu.com",
+    Docker: "https://www.docker.com",
+    JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    TypeScript: "https://www.typescriptlang.org",
+    mPDF: "https://mpdf.github.io",
+    Stripe: "https://stripe.com",
 } as const;
