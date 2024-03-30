@@ -80,7 +80,7 @@ const Intro = () => {
             </div>
 
             <motion.h1
-                className="mb-8 mt-5 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl lg:mb-10 lg:mt-7"
+                className="mb-8 mt-5 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl lg:mb-10 lg:mt-6"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
             >
