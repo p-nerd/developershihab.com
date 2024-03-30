@@ -74,7 +74,7 @@ const Intro = () => {
                         👋
                     </motion.span>
                 </div>
-                <div className="text-[0.6rem] lg:text-base">
+                <div className="text-[0.6rem] lg:text-[0.8rem]">
                     Programmer | Problem Solver | Full-stack Developer
                 </div>
             </div>
