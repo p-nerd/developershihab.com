@@ -48,7 +48,7 @@ const sendContactEmail = async (formData: FormData) => {
         await transporter.sendMail({
             from: "Contact From<contact@developershihab.com>",
             to: person.email,
-            subject: "Message from contact form",
+            subject: "Message from developershihab.com contact form",
             replyTo: senderEmail,
             html: emailHtml,
         });

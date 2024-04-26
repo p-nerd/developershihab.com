@@ -11,7 +11,8 @@ const ContactFormEmail = (p: { message: string; senderEmail: string }) => (
                 <Container>
                     <Section className="borderBlack my-10 rounded-md bg-white px-10 py-4">
                         <Heading className="leading-tight">
-                            You received the following message from the contact form
+                            You received the following message from the developershihab.com contact
+                            form
                         </Heading>
                         <Text>{p.message}</Text>
                         <Hr />
