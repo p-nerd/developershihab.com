@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { person } from "@/site.config";
 
-import toast from "react-hot-toast";
+import toast from "@/lib/toast";
 import sendContactEmail from "@/actions/sendContactEmail";
 import useSectionInView from "@/hooks/useSectionInView";
 

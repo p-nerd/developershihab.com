@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { person } from "@/site.config";
 
 import { Inter } from "next/font/google";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "@/lib/toast";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeContextProvider } from "@/context/theme-context";
@@ -32,8 +32,7 @@ const Layout = (p: { children: ReactNode }) => (
                 <ActiveSectionContextProvider>
                     {p.children}
                     <Footer />
-
-                    <Toaster position="top-right" />
+                    <Toaster />
                     <ThemeSwitch />
                 </ActiveSectionContextProvider>
             </ThemeContextProvider>
