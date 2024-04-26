@@ -1,6 +1,6 @@
 ---
 name: '"সেই কথা"'
-draft: false
+draft: true
 priority: 80
 ---
 

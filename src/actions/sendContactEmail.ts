@@ -8,15 +8,16 @@ import { validateString, getErrorMessage } from "@/lib/utils";
 import nodemailer from "nodemailer";
 
 import ContactFormEmail from "@/emails/ContactFormEmail";
+import env from "@/lib/env";
 
 const transporter = nodemailer.createTransport({
-    service: process.env.NODEMAILER_SERVICE,
-    host: process.env.NODEMAILER_HOST,
-    port: Number(process.env.NODEMAILER_PORT),
-    secure: Boolean(process.env.NODEMAILER_SECURE),
+    service: env.NODEMAILER_SERVICE,
+    host: env.NODEMAILER_HOST,
+    port: env.NODEMAILER_PORT,
+    secure: env.NODEMAILER_SECURE,
     auth: {
-        user: process.env.NODEMAILER_USER,
-        pass: process.env.NODEMAILER_PASS,
+        user: env.NODEMAILER_USER,
+        pass: env.NODEMAILER_PASS,
     },
 });
 
