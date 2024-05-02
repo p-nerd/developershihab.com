@@ -19,7 +19,7 @@ priority: 95
 **Overview:**
 This project introduces a Tic Tac Toe game developed using [SolidJS](https://www.solidjs.com), a reactive UI library for web applications. It includes an AI Bot opponent powered by the MiniMax algorithm, offering three difficulty modes: easy, normal, and hard, catering to players of varying skill levels. Additionally, the game supports multiplayer mode for two human players.
 
-**Details:**
+**Project Details:**
 
 -   **Objective:**
     The primary goal was to create a fully functional Tic Tac Toe game with a responsive UI using [SolidJS](https://www.solidjs.com). Additionally, integrating an AI opponent via the MiniMax algorithm aimed to provide players with challenging gameplay at different difficulty levels.
