@@ -17,6 +17,8 @@ featured: true
 priority: 90
 ---
 
+**Title**: Building My Portfolio Website with Modern Technologies
+
 **Overview:**
 This project description explores the development of my portfolio website, developershihab.com, leveraging modern and cutting-edge technologies to showcase my skills and projects. The website, built using React.js, TypeScript, Next.js, Tailwind CSS, and Framer Motion, serves as a showcase of my expertise in web development.
 
