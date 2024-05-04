@@ -3,6 +3,10 @@ import type { TExperience, TSkill } from "@/lib/types";
 import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
 
+export const intro = {
+    resume: "/shihab-mahamud-cv-2.pdf",
+};
+
 export const person: Record<string, string> = {
     name: "Shihab Mahamud",
     facebook: "https://facebook.com/shihab.mahamud2",

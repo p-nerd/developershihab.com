@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 
 import { motion } from "framer-motion";
-import { person } from "@/site.config";
+import { intro, person } from "@/site.config";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 import { HiDownload } from "react-icons/hi";
@@ -114,7 +114,7 @@ const Intro = () => {
 
                     <a
                         className="borderBlack group flex cursor-pointer items-center gap-1 rounded-full bg-white px-4 py-2.5 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10 lg:gap-2 lg:px-7 lg:py-3"
-                        href="/shihab-mahamud-cv.pdf"
+                        href={intro.resume}
                         download
                     >
                         Download CV{" "}
