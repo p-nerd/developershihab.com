@@ -10,7 +10,7 @@ export const intro = {
 export const person: Record<string, string> = {
     name: "Shihab Mahamud",
     facebook: "https://facebook.com/shihab.mahamud2",
-    twitter: "https://twitter.com/@p_nerdx",
+    twitter: "https://x.com/shihabmahamud13",
     linkedin: "https://linkedin.com/in/shihab-mahamud",
     github: "https://github.com/p-nerd",
     dev_to: "https://dev.to/p-nerd",
