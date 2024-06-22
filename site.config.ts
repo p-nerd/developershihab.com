@@ -38,27 +38,50 @@ export const skills: TSkill[] = [
 
 export const experiences: TExperience[] = [
     {
-        title: "Full-stack Developer",
-        location: "Finnext.co",
-        location_link: "https://finnext.co",
-        description:
-            "I am working with Finnext.co as a Full-stack Developer, primarily focusing on their contract-based projects, predominantly with American clients. My responsibilities include both building and maintaining these applications. I have successfully completed several projects and continue to oversee their maintenance.",
+        location: "Systech Digital LTD",
+        location_link: "https://www.systechdigital.com",
         icon: CgWorkAlt,
-        date: "May 2023 - Present",
-        projects: ["paystubhero"],
-        technologies: [
-            ["JavaScript", "TypeScript", "React"],
-            ["PHP", "WordPress", "mPDF"],
-            ["Stripe", "TailwindCSS"],
+        date: "June 2024 - Present",
+        positions: [
+            {
+                title: "Software Engineer - Intern",
+                description: "",
+                date: "May 2023 - Present",
+            },
         ],
     },
     {
-        title: "Teacher's Assistant",
+        location: "Finnext.co",
+        location_link: "https://finnext.co",
+        icon: CgWorkAlt,
+        date: "May 2023 - Present",
+        positions: [
+            {
+                title: "Full-stack Developer",
+                description:
+                    "I am working with Finnext.co as a Full-stack Developer, primarily focusing on their contract-based projects, predominantly with American clients. My responsibilities include both building and maintaining these applications. I have successfully completed several projects and continue to oversee their maintenance.",
+                date: "May 2023 - Present",
+                projects: ["paystubhero"],
+                technologies: [
+                    ["JavaScript", "TypeScript", "React"],
+                    ["PHP", "WordPress", "mPDF"],
+                    ["Stripe", "TailwindCSS"],
+                ],
+            },
+        ],
+    },
+    {
         location: "Tecognize Training",
-        description:
-            "I volunteered with this company, contributing by writing engaging blog posts and assisting in the organization of their live courses.",
         icon: LuGraduationCap,
         date: "February 2022 - January 2023 (1 year)",
+        positions: [
+            {
+                title: "Teacher's Assistant",
+                description:
+                    "I volunteered with this company, contributing by writing engaging blog posts and assisting in the organization of their live courses.",
+                date: "February 2022 - January 2023 (1 year)",
+            },
+        ],
     },
 ] as const;
 

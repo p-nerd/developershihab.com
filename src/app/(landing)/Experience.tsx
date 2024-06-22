@@ -2,8 +2,6 @@
 
 import "react-vertical-timeline-component/style.min.css";
 
-import type { TExperience } from "@/lib/types";
-
 import { useTheme } from "@/context/theme-context";
 import { experiences } from "@/site.config";
 
@@ -23,7 +21,7 @@ const Experience = (p: { projects: Record<string, string> }) => {
         <section id="experience" ref={ref} className="mb-28 scroll-mt-28 sm:mb-40">
             <SectionHeading>My experience</SectionHeading>
             <VerticalTimeline lineColor="">
-                {experiences.map((experience: TExperience, index) => (
+                {experiences.map((experience, index) => (
                     <VerticalTimelineElement
                         visible={true}
                         key={index}
@@ -47,65 +45,82 @@ const Experience = (p: { projects: Record<string, string> }) => {
                             fontSize: "1.5rem",
                         }}
                     >
-                        <div className="lg:px-2 lg:py-1.5">
-                            <div className="flex flex-wrap gap-x-2">
-                                <h3 className="font-bold">{experience.title}</h3>
-                                <p className="!mt-0 font-normal">
-                                    @
-                                    {experience.location_link ? (
-                                        <Link
-                                            href={experience.location_link}
-                                            className="underline underline-offset-2"
-                                        >
-                                            {experience.location}
-                                        </Link>
-                                    ) : (
-                                        experience.location
-                                    )}
-                                </p>
-                            </div>
-                            <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
-                                {experience.description}
-                            </p>
-                            {!!experience.projects && (
-                                <div className="mt-3 flex flex-col gap-1 text-sm text-gray-700 dark:text-white/75">
-                                    <h3 className="font-semibold">Projects did/doing here:</h3>
-                                    <ul className="flex flex-col pl-5">
-                                        {experience.projects.map((project, index) => (
-                                            <li key={project} className="flex">
-                                                <span className="w-5">{index + 1}.</span>
+                        <div className="space-y-2">
+                            {experience.positions.map((position, index) => (
+                                <div key={index} className="lg:px-2 lg:py-1.5">
+                                    <div className="flex flex-wrap gap-x-2">
+                                        <h3 className="font-bold">{position.title}</h3>
+                                        <p className="!mt-0 font-normal">
+                                            @
+                                            {experience.location_link ? (
                                                 <Link
-                                                    href={`/projects/${project}?back=#experience`}
+                                                    href={experience.location_link}
                                                     className="underline underline-offset-2"
                                                 >
-                                                    {p.projects[project]}
+                                                    {experience.location}
                                                 </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                            ) : (
+                                                experience.location
+                                            )}
+                                        </p>
+                                    </div>
+                                    <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+                                        {position.description}
+                                    </p>
+                                    {!!position.projects && (
+                                        <div className="mt-3 flex flex-col gap-1 text-sm text-gray-700 dark:text-white/75">
+                                            <h3 className="font-semibold">
+                                                Projects did/doing here:
+                                            </h3>
+                                            <ul className="flex flex-col pl-5">
+                                                {position.projects.map((project, index) => (
+                                                    <li key={project} className="flex">
+                                                        <span className="w-5">{index + 1}.</span>
+                                                        <Link
+                                                            href={`/projects/${project}?back=#experience`}
+                                                            className="underline underline-offset-2"
+                                                        >
+                                                            {p.projects[project]}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {!!position.technologies && (
+                                        <div className="mt-2 flex flex-col flex-wrap gap-1 text-sm text-gray-700 dark:text-white/75">
+                                            <h3 className="font-semibold">
+                                                Technologies used here:
+                                            </h3>
+                                            <ul className="flex flex-col flex-wrap pl-5">
+                                                {position.technologies.map(
+                                                    (technologies, index) => (
+                                                        <li key={index} className="flex">
+                                                            <span className="w-5">•</span>
+                                                            <div className="flex flex-wrap gap-1">
+                                                                {technologies.map(
+                                                                    (technology, jndex) => (
+                                                                        <span key={technology}>
+                                                                            <Technology
+                                                                                technology={
+                                                                                    technology
+                                                                                }
+                                                                            />
+                                                                            {jndex !==
+                                                                                technologies?.length -
+                                                                                    1 && ", "}
+                                                                        </span>
+                                                                    ),
+                                                                )}
+                                                            </div>
+                                                        </li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                            {!!experience.technologies && (
-                                <div className="mt-2 flex flex-col flex-wrap gap-1 text-sm text-gray-700 dark:text-white/75">
-                                    <h3 className="font-semibold">Technologies used here:</h3>
-                                    <ul className="flex flex-col flex-wrap pl-5">
-                                        {experience.technologies.map((technologies, index) => (
-                                            <li key={index} className="flex">
-                                                <span className="w-5">•</span>
-                                                <div className="flex flex-wrap gap-1">
-                                                    {technologies.map((technology, jndex) => (
-                                                        <span key={technology}>
-                                                            <Technology technology={technology} />
-                                                            {jndex !== technologies?.length - 1 &&
-                                                                ", "}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
+                            ))}
                         </div>
                     </VerticalTimelineElement>
                 ))}

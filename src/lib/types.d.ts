@@ -34,14 +34,17 @@ export type TProject = {
 };
 
 export type TExperience = {
-    title: string;
     location: string;
     location_link?: string;
-    description: string;
     icon: IconType;
     date: string;
-    projects?: string[];
-    technologies?: string[][];
+    positions: {
+        title: string;
+        description: string;
+        date: string;
+        projects?: string[];
+        technologies?: string[][];
+    }[];
 };
 
 export type TSkill = {
