@@ -7,6 +7,8 @@ imageUrl: "/projects/x.jpg"
 links:
     - label: "Source Code"
       link: "https://github.com/p-nerd/x"
+featured: false
+priority: 600
 ---
 
 **Title:** Streamlining Software Development Workflow with X

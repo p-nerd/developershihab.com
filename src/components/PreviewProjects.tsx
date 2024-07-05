@@ -2,36 +2,13 @@
 
 import type { TProject } from "@/lib/types";
 
+import { cn } from "@/lib/utils";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 import Image from "next/image";
 import Link from "next/link";
 import Anchor from "./Anchor";
-
-const ReadMoreLink = (p: { href: string }) => {
-    return (
-        <Link
-            className="flex items-center text-sm font-medium text-white underline underline-offset-2"
-            href={p.href}
-        >
-            <span className="relative">Read more</span>
-            <svg
-                className={"relative ml-2.5 mt-px overflow-visible text-white dark:text-white"}
-                width={3}
-                height={6}
-                viewBox="0 0 3 6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            >
-                <path d="M0 0L3 3L0 6" />
-            </svg>
-        </Link>
-    );
-};
 
 const Project = (project: TProject) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -42,6 +19,8 @@ const Project = (project: TProject) => {
     const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
     const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
+    const link = `/projects/${project.slug}`;
+
     return (
         <motion.div
             ref={ref}
@@ -51,13 +30,17 @@ const Project = (project: TProject) => {
             }}
             className="group mb-3 last:mb-0 sm:mb-8"
         >
-            <section className="relative  overflow-hidden rounded-lg border border-black/5 bg-gray-100 transition hover:bg-gray-200 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:h-[25rem] sm:pr-8 sm:group-even:pl-8">
+            <section className="relative  overflow-hidden rounded-lg border border-black/5 bg-gray-100 transition hover:bg-gray-200 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 sm:h-[27rem] sm:pr-8 sm:group-even:pl-8">
                 <div className="flex h-full flex-col justify-between px-5 pb-7 pt-4 sm:max-w-[55%] sm:pl-10 sm:pr-2 sm:pt-10 sm:group-even:ml-[18rem]">
                     <div className="flex flex-col gap-2">
-                        <h2 className="text-2xl font-semibold">{project.title}</h2>
+                        <Link
+                            href={link}
+                            className="text-2xl font-semibold underline underline-offset-4"
+                        >
+                            <h1>{project.title}</h1>
+                        </Link>
                         <p className="leading-relaxed text-gray-900 dark:text-white/95">
                             {project.description}{" "}
-                            {!!project.slug && <ReadMoreLink href={`/projects/${project.slug}`} />}
                         </p>
                     </div>
                     <div className="flex flex-col gap-2">
@@ -89,25 +72,21 @@ const Project = (project: TProject) => {
                     </div>
                 </div>
 
-                <Image
-                    width={800}
-                    height={800}
-                    src={project.imageUrl}
-                    alt="Project I worked on"
-                    quality={95}
-                    className="absolute -right-40 top-8 hidden w-[28.25rem] rounded-t-lg shadow-2xl transition
-        group-even:-left-40 
-        group-even:right-[initial]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
-
-        group-hover:scale-[1.04]
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-
-        group-even:group-hover:rotate-2 sm:block"
-                />
+                <Link href={link}>
+                    <Image
+                        width={800}
+                        height={800}
+                        src={project.imageUrl}
+                        alt="Project I worked on"
+                        quality={95}
+                        className={cn(
+                            "absolute -right-40 top-8 hidden w-[28.25rem] rounded-t-lg shadow-2xl transition sm:block",
+                            "group-even:-left-40 group-even:right-[initial] group-hover:-translate-x-3",
+                            "group-hover:translate-y-3 group-hover:-rotate-2 group-hover:scale-[1.04]",
+                            "group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2",
+                        )}
+                    />
+                </Link>
             </section>
         </motion.div>
     );

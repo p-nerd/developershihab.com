@@ -13,7 +13,7 @@ links:
     - label: "Live Link"
       link: "https://tic-tac-toe.developershihab.com"
 featured: true
-priority: 95
+priority: 800
 ---
 
 **Overview:**

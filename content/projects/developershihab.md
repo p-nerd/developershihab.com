@@ -14,7 +14,7 @@ links:
     - label: "Live Link"
       link: "https://developershihab.com"
 featured: true
-priority: 90
+priority: 700
 ---
 
 **Title**: Building My Portfolio Website with Modern Technologies

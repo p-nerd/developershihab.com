@@ -15,7 +15,7 @@ links:
       link: "https://www.paystubhero.com/generate-pay-stubs"
 draft: false
 featured: true
-priority: 100
+priority: 1000
 ---
 
 **Title:** Revolutionizing Payroll Management with PaystubHero
