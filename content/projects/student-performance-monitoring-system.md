@@ -8,7 +8,7 @@ tags:
 imageUrl: "/projects/student-performance-monitoring-system.jpg"
 links:
     - label: "Source Code"
-      link: "https://github.com/p-nerd/systech-student-performance-monitoring-system"
+      link: "https://github.com/p-nerd/student-performance-monitoring-system"
 draft: false
 featured: true
 priority: 900
