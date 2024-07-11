@@ -61,15 +61,15 @@ const About = () => {
             <p>
                 My interest then shifted towards Web application development, prompting me to
                 initially delve into backend development with Node.js, followed by frontend
-                development with React.js. Over the past year, I have been engaged in contract-based
+                development with React. Over the past year, I have been engaged in contract-based
                 work with a company called Finnext.co, where I have contributed to several notable
-                projects. Currently, my focus lies on <Highlight>JavaScript/TypeScript</Highlight>{" "}
-                (React.js/Next.js, Solid.js), <Highlight>PHP</Highlight> (Laravel, Wordpress)
-                stacks. I am also enthusiastic about the Go programming language. I am deeply
-                passionate about continuously expanding my skill set and am actively seeking a{" "}
-                <Highlight>full-time position</Highlight> as a software developer. Also I am
-                currently a 4th year diploma student at Faridpur Polytechnic Institute studying
-                Computer Science.
+                projects. Currently, my focus lies on <Highlight>Laravel</Highlight> &{" "}
+                <Highlight>React</Highlight> stacks. I believe it is the most productive way to
+                build and maintain a dynamic full-stack web application. Also, sometime I work on
+                WordPress plugin development. I am deeply passionate about continuously expanding my
+                skill set and am actively seeking a <Highlight>full-time position</Highlight> as a
+                software developer. Also I am currently a 4th year diploma student at Faridpur
+                Polytechnic Institute studying Computer Science.
             </p>
             <p>
                 <span className="italic">When I'm not coding</span>, I enjoy walking on street,

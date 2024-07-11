@@ -48,6 +48,6 @@ export type TExperience = {
 };
 
 export type TSkill = {
-    category: string;
+    category?: string;
     technologies: string[];
 };

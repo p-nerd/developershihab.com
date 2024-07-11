@@ -37,7 +37,9 @@ const Skills = () => {
             <div className="flex flex-col gap-4 lg:gap-5">
                 {skills.map((skill: TSkill, index) => (
                     <div key={index} className="flex flex-col gap-2">
-                        <h3 className="text-base lg:text-lg">{skill.category}</h3>
+                        {skill.category && (
+                            <h3 className="text-base lg:text-lg">{skill.category}</h3>
+                        )}
                         <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
                             {skill.technologies.map((technology, jndex) => (
                                 <motion.li

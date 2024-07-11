@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 
 import { motion } from "framer-motion";
-import { intro, person } from "@/site.config";
+import { intro, person, technologies } from "@/site.config";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 import { HiDownload } from "react-icons/hi";
@@ -88,7 +88,14 @@ const Intro = () => {
                 <span className="font-bold">full-stack developer</span> with{" "}
                 <span className="font-bold">3 years</span> of experience, and I enjoy building for{" "}
                 <span className="italic">the web</span>. My focus is{" "}
-                <span className="underline">JS/TS & PHP</span>.
+                <Link className="underline" href={technologies.Laravel} target="_blank">
+                    Laravel
+                </Link>{" "}
+                &{" "}
+                <Link className="underline" href={technologies.React} target="_blank">
+                    React
+                </Link>
+                .
             </motion.h1>
 
             <motion.div

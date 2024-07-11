@@ -20,7 +20,7 @@ export const person: Record<string, string> = {
 export const skills: TSkill[] = [
     {
         category: "Programming Languages",
-        technologies: ["JavaScript/TypeScript", "PHP", "Go", "C/C++"],
+        technologies: ["C/C++", "JavaScript", "TypeScript", "PHP"],
     },
     {
         category: "Backend Technologies",
