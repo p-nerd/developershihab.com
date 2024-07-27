@@ -7,7 +7,7 @@ export const intro = {
     resume: "/shihab-mahamud-cv-2.pdf",
 };
 
-export const person: Record<string, string> = {
+export const person = {
     name: "Shihab Mahamud",
     facebook: "https://facebook.com/shihab.mahamud2",
     twitter: "https://x.com/shihabmahamud13",
