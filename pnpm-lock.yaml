@@ -17,12 +17,21 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.7)
+      '@types/nodemailer':
+        specifier: ^6.4.15
+        version: 6.4.15
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.41)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      nodemailer:
+        specifier: ^6.9.14
+        version: 6.9.14
       postcss:
         specifier: ^8.4.41
         version: 8.4.41
@@ -792,6 +801,9 @@ packages:
 
   '@types/node@22.1.0':
     resolution: {integrity: sha512-AOmuRF0R2/5j1knA3c6G3HOk523Ga+l+ZXltX8SF1+5oqcXijjfTd8fY3XRZqSihEu9XhtQnKYLmkFaoxgsJHw==}
+
+  '@types/nodemailer@6.4.15':
+    resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -1850,6 +1862,10 @@ packages:
 
   node-releases@2.0.18:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
+
+  nodemailer@6.9.14:
+    resolution: {integrity: sha512-Dobp/ebDKBvz91sbtRKhcznLThrKxKt97GI2FAlAyy+fk19j73Uz3sBXolVtmcXjaorivqsbbbjDY+Jkt4/bQA==}
+    engines: {node: '>=6.0.0'}
 
   nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
@@ -3323,6 +3339,10 @@ snapshots:
     dependencies:
       undici-types: 6.13.0
 
+  '@types/nodemailer@6.4.15':
+    dependencies:
+      '@types/node': 22.1.0
+
   '@types/resolve@1.20.2': {}
 
   '@vercel/nft@0.26.5':
@@ -4483,6 +4503,8 @@ snapshots:
   node-gyp-build@4.8.1: {}
 
   node-releases@2.0.18: {}
+
+  nodemailer@6.9.14: {}
 
   nopt@5.0.0:
     dependencies:
