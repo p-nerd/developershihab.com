@@ -1,5 +1,8 @@
-import Header from "~/components/index/Header";
-import Hero from "~/components/index/Hero";
+import { Divider } from "~/components/ui2/section";
+
+import About from "~/screens/index/About";
+import Header from "~/screens/index/Header";
+import Hero from "~/screens/index/Hero";
 
 const Index = () => {
     return (
@@ -9,6 +12,8 @@ const Index = () => {
             <Header />
             <main class="flex flex-col items-center px-4">
                 <Hero />
+                <Divider />
+                <About />
             </main>
         </div>
     );

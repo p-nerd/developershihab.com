@@ -58,7 +58,7 @@ const Hero = () => {
                 <div class="flex gap-1.5 sm:flex-row lg:gap-3">
                     <A
                         href="#contact"
-                        class="group flex items-center gap-1 rounded-full bg-gray-900 px-4  py-2.5 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 lg:gap-2 lg:px-7 lg:py-3"
+                        class="group flex items-center gap-1 rounded-full bg-gray-900 px-4 py-2.5 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 lg:gap-2 lg:px-7 lg:py-3"
                     >
                         Contact me here{" "}
                         <BsArrowRight class="opacity-70 transition group-hover:translate-x-1" />
