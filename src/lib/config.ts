@@ -6,11 +6,11 @@ export const person = {
     github: "https://github.com/p-nerd",
     dev_to: "https://dev.to/p-nerd",
     email: "shihab4t@gmail.com",
-};
+} as const;
 
 export const intro = {
     resume: "/shihab-mahamud-cv-2.pdf",
-};
+} as const;
 
 export const technologies: Record<string, string> = {
     "JavaScript/TypeScript": "https://www.typescriptlang.org",

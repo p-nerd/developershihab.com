@@ -1,6 +1,7 @@
 import { Divider } from "~/components/ui2/section";
 
 import About from "~/screens/index/About";
+import Blogs from "~/screens/index/Blogs";
 import Header from "~/screens/index/Header";
 import Hero from "~/screens/index/Hero";
 
@@ -14,6 +15,7 @@ const Index = () => {
                 <Hero />
                 <Divider />
                 <About />
+                <Blogs />
             </main>
         </div>
     );
