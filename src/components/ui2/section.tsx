@@ -31,7 +31,7 @@ export const A = (p: { href: string; children: JSXElement; target?: "_blank"; cl
     return (
         <RA
             class={cn(
-                "inline-flex font-semibold text-gray-600 transition-colors duration-300 hover:text-green-500 dark:text-gray-50 dark:hover:text-green-500",
+                "inline-flex font-semibold text-gray-600 underline underline-offset-2 transition-colors duration-300 hover:text-green-500 dark:text-gray-50 dark:hover:text-green-500",
                 p.class,
             )}
             href={p.href}
