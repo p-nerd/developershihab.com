@@ -11,7 +11,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import remarkUnwrapImages from "remark-unwrap-images";
 import remarkReadingTime from "./src/lib/remarkReadingTime";
 
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel";
 
 export default defineConfig({
     site: "https://developershihab.com",
